@@ -12,9 +12,112 @@
 
 <body>
 
-    <h1>Restaurant Billing System</h1>
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <h1>🍽️ Restaurant Billing System</h1>
+            <p>Fast • Simple • Accessible</p>
+        </div>
+    </header>
 
-    <p>Accessible and user-friendly billing system.</p>
+
+    <!-- Main Application -->
+    <main class="container">
+
+        <!-- Menu Section -->
+        <section class="menu-section">
+
+            <h2>Menu</h2>
+
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <span class="food-icon">🍔</span>
+                    <h3>Classic Burger</h3>
+                    <p>₹120</p>
+                    <button>Add to Bill</button>
+                </div>
+
+                <div class="menu-item">
+                    <span class="food-icon">🍕</span>
+                    <h3>Cheese Pizza</h3>
+                    <p>₹250</p>
+                    <button>Add to Bill</button>
+                </div>
+
+                <div class="menu-item">
+                    <span class="food-icon">🍝</span>
+                    <h3>Italian Pasta</h3>
+                    <p>₹180</p>
+                    <button>Add to Bill</button>
+                </div>
+
+                <div class="menu-item">
+                    <span class="food-icon">🥪</span>
+                    <h3>Veg Sandwich</h3>
+                    <p>₹100</p>
+                    <button>Add to Bill</button>
+                </div>
+
+                <div class="menu-item">
+                    <span class="food-icon">🍟</span>
+                    <h3>French Fries</h3>
+                    <p>₹90</p>
+                    <button>Add to Bill</button>
+                </div>
+
+                <div class="menu-item">
+                    <span class="food-icon">☕</span>
+                    <h3>Hot Coffee</h3>
+                    <p>₹80</p>
+                    <button>Add to Bill</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Billing Section -->
+        <section class="billing-section">
+
+            <h2>Your Bill</h2>
+
+            <div class="bill-items">
+
+                <p class="empty-message">
+                    No items added yet.
+                </p>
+
+            </div>
+
+
+            <!-- Bill Summary -->
+            <div class="bill-summary">
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>₹0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span>₹0</span>
+                </div>
+
+                <hr>
+
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>₹0</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
 
     <script src="script.js"></script>
 
