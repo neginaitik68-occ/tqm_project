@@ -14,63 +14,139 @@
 
     <!-- Header -->
     <header class="header">
-        <div>
-            <h1>🍽️ Restaurant Billing System</h1>
-            <p>Fast • Simple • Accessible</p>
+
+        <!-- Restaurant Brand -->
+        <div class="brand">
+
+            <span class="brand-icon">🍽️</span>
+
+            <div>
+                <h1>Restaurant Billing System</h1>
+                <p>Fast • Simple • Accessible</p>
+            </div>
+
         </div>
+
+
+        <!-- Navigation -->
+        <nav class="navigation" aria-label="Main navigation">
+
+            <a href="#menu">Home</a>
+
+            <a href="#billing">Billing</a>
+
+            <a href="#accessibility">Accessibility</a>
+
+        </nav>
+
     </header>
 
 
     <!-- Main Application -->
     <main class="container">
 
+
         <!-- Menu Section -->
-        <section class="menu-section">
+        <section class="menu-section" id="menu">
 
             <h2>Menu</h2>
 
             <div class="menu-grid">
 
+
+                <!-- Burger -->
                 <div class="menu-item">
+
                     <span class="food-icon">🍔</span>
+
                     <h3>Classic Burger</h3>
+
                     <p>₹120</p>
-                    <button>Add to Bill</button>
+
+                    <button type="button">
+                        Add to Bill
+                    </button>
+
                 </div>
 
+
+                <!-- Pizza -->
                 <div class="menu-item">
+
                     <span class="food-icon">🍕</span>
+
                     <h3>Cheese Pizza</h3>
+
                     <p>₹250</p>
-                    <button>Add to Bill</button>
+
+                    <button type="button">
+                        Add to Bill
+                    </button>
+
                 </div>
 
+
+                <!-- Pasta -->
                 <div class="menu-item">
+
                     <span class="food-icon">🍝</span>
+
                     <h3>Italian Pasta</h3>
+
                     <p>₹180</p>
-                    <button>Add to Bill</button>
+
+                    <button type="button">
+                        Add to Bill
+                    </button>
+
                 </div>
 
+
+                <!-- Sandwich -->
                 <div class="menu-item">
+
                     <span class="food-icon">🥪</span>
+
                     <h3>Veg Sandwich</h3>
+
                     <p>₹100</p>
-                    <button>Add to Bill</button>
+
+                    <button type="button">
+                        Add to Bill
+                    </button>
+
                 </div>
 
+
+                <!-- French Fries -->
                 <div class="menu-item">
+
                     <span class="food-icon">🍟</span>
+
                     <h3>French Fries</h3>
+
                     <p>₹90</p>
-                    <button>Add to Bill</button>
+
+                    <button type="button">
+                        Add to Bill
+                    </button>
+
                 </div>
 
+
+                <!-- Coffee -->
                 <div class="menu-item">
+
                     <span class="food-icon">☕</span>
+
                     <h3>Hot Coffee</h3>
+
                     <p>₹80</p>
-                    <button>Add to Bill</button>
+
+                    <button type="button">
+                        Add to Bill
+                    </button>
+
                 </div>
 
             </div>
@@ -79,10 +155,12 @@
 
 
         <!-- Billing Section -->
-        <section class="billing-section">
+        <section class="billing-section" id="billing">
 
             <h2>Your Bill</h2>
 
+
+            <!-- Bill Items -->
             <div class="bill-items">
 
                 <p class="empty-message">
@@ -96,29 +174,55 @@
             <div class="bill-summary">
 
                 <div class="summary-row">
+
                     <span>Subtotal</span>
+
                     <span>₹0</span>
+
                 </div>
 
+
                 <div class="summary-row">
+
                     <span>Tax</span>
+
                     <span>₹0</span>
+
                 </div>
+
 
                 <hr>
 
+
                 <div class="summary-row total">
+
                     <span>Total</span>
+
                     <span>₹0</span>
+
                 </div>
 
             </div>
 
         </section>
 
+
+        <!-- Accessibility Placeholder -->
+        <section class="accessibility-section" id="accessibility">
+
+            <h2>Accessibility</h2>
+
+            <p>
+                Accessibility controls will be added in upcoming
+                development stages.
+            </p>
+
+        </section>
+
     </main>
 
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
