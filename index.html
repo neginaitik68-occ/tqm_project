@@ -213,20 +213,117 @@
 </section>
 
         <!-- Billing Section -->
-        <section class="billing-section" id="billing">
+<section class="billing-section" id="billing">
 
+    <div class="billing-header">
+        <div>
             <h2>Your Bill</h2>
+            <p class="billing-subtitle">Review your selected items</p>
+        </div>
+
+        <span class="bill-count" aria-label="Number of items in bill">
+            0 Items
+        </span>
+    </div>
 
 
-            <!-- Bill Items -->
-            <div class="bill-items">
+    <!-- Bill Items -->
+    <div class="bill-items">
 
-                <p class="empty-message">
-                    No items added yet.
-                </p>
+        <!-- Empty Bill Message -->
+        <div class="empty-bill">
+
+            <span class="empty-icon">🧾</span>
+
+            <h3>No items added</h3>
+
+            <p>
+                Select an item from the menu to add it to your bill.
+            </p>
+
+        </div>
+
+
+        <!-- Example Bill Item
+             This will be generated dynamically with JavaScript later.
+
+        <div class="bill-item">
+
+            <div class="bill-item-info">
+
+                <span class="bill-item-icon">🍔</span>
+
+                <div>
+                    <h3>Classic Burger</h3>
+                    <p>₹120 × 1</p>
+                </div>
 
             </div>
 
+            <div class="bill-item-actions">
+
+                <strong>₹120</strong>
+
+                <button
+                    type="button"
+                    class="remove-button"
+                    aria-label="Remove Classic Burger">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
+
+        -->
+
+    </div>
+
+
+    <!-- Bill Summary -->
+    <div class="bill-summary">
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span>₹0</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Tax</span>
+            <span>₹0</span>
+        </div>
+
+        <hr>
+
+        <div class="summary-row total">
+            <span>Total</span>
+            <span>₹0</span>
+        </div>
+
+    </div>
+
+
+    <!-- Billing Actions -->
+    <div class="billing-actions">
+
+        <button
+            type="button"
+            class="clear-button"
+            disabled>
+            Clear Bill
+        </button>
+
+        <button
+            type="button"
+            class="checkout-button"
+            disabled>
+            Checkout
+        </button>
+
+    </div>
+
+</section>
+        
 
             <!-- Bill Summary -->
             <div class="bill-summary">

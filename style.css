@@ -356,27 +356,198 @@ body {
 
 
 /* ==============================
-   BILLING
+   BILLING SECTION
 ================================= */
 
 .billing-section {
-    min-height: 450px;
+    min-height: 500px;
 }
 
+
+/* ==============================
+   BILLING HEADER
+================================= */
+
+.billing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.billing-header h2 {
+    margin-bottom: 5px;
+}
+
+.billing-subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+
+/* Number of Items */
+
+.bill-count {
+    background-color: #f0f0f0;
+    color: #333;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+
+/* ==============================
+   BILL ITEMS
+================================= */
 
 .bill-items {
-    min-height: 200px;
+    min-height: 240px;
 
-    padding: 15px 0;
+    padding: 10px 0;
+
+    border-bottom: 1px solid #eee;
 }
 
 
-.empty-message {
+/* ==============================
+   EMPTY BILL
+================================= */
+
+.empty-bill {
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
 
+    padding: 20px;
+}
+
+.empty-icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+.empty-bill h3 {
+    margin-bottom: 8px;
+}
+
+.empty-bill p {
     color: #777;
 
-    margin-top: 70px;
+    font-size: 14px;
+
+    max-width: 250px;
+}
+
+
+/* ==============================
+   BILL ITEM
+================================= */
+
+.bill-item {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background-color: #fafafa;
+}
+
+
+.bill-item-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.bill-item-icon {
+    font-size: 30px;
+}
+
+
+.bill-item-info h3 {
+    font-size: 15px;
+
+    margin-bottom: 3px;
+}
+
+
+.bill-item-info p {
+    font-size: 13px;
+
+    color: #666;
+}
+
+
+/* Bill Item Actions */
+
+.bill-item-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.bill-item-actions strong {
+    font-size: 15px;
+}
+
+
+/* ==============================
+   REMOVE BUTTON
+================================= */
+
+.remove-button {
+    border: none;
+
+    padding: 7px 10px;
+
+    border-radius: 5px;
+
+    background-color: #333;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.remove-button:hover {
+    opacity: 0.8;
+}
+
+.remove-button:focus {
+    outline: 3px solid #555;
+
+    outline-offset: 2px;
 }
 
 
@@ -385,7 +556,9 @@ body {
 ================================= */
 
 .bill-summary {
-    margin-top: 20px;
+    padding-top: 15px;
+
+    margin-top: 0;
 }
 
 
@@ -393,15 +566,20 @@ body {
     display: flex;
 
     justify-content: space-between;
+    align-items: center;
 
     margin: 12px 0;
+
+    font-size: 15px;
 }
 
 
 .summary-row.total {
-    font-size: 20px;
+    font-size: 21px;
 
     font-weight: bold;
+
+    padding-top: 5px;
 }
 
 
@@ -411,6 +589,71 @@ body {
     border-top: 1px solid #ddd;
 
     margin: 15px 0;
+}
+
+
+/* ==============================
+   BILLING ACTIONS
+================================= */
+
+.billing-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.clear-button,
+.checkout-button {
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.clear-button {
+    background-color: #eee;
+
+    color: #222;
+}
+
+
+.checkout-button {
+    background-color: #222;
+
+    color: white;
+}
+
+
+/* Disabled Buttons */
+
+.clear-button:disabled,
+.checkout-button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+/* Keyboard Focus */
+
+.clear-button:focus,
+.checkout-button:focus {
+    outline: 3px solid #555;
+
+    outline-offset: 3px;
 }
 
 
