@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Restaurant Billing System</title>
@@ -10,25 +11,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
+    <!-- ============================= -->
     <!-- Header -->
+    <!-- ============================= -->
+
     <header class="header">
 
-        <!-- Restaurant Brand -->
         <div class="brand">
 
             <span class="brand-icon">🍽️</span>
 
             <div>
+
                 <h1>Restaurant Billing System</h1>
+
                 <p>Fast • Simple • Accessible</p>
+
             </div>
 
         </div>
 
 
         <!-- Navigation -->
+
         <nav class="navigation" aria-label="Main navigation">
 
             <a href="#menu">Home</a>
@@ -42,290 +50,135 @@
     </header>
 
 
-    <!-- Main Application -->
+
+    <!-- ============================= -->
+    <!-- Main Content -->
+    <!-- ============================= -->
+
     <main class="container">
 
 
+        <!-- ============================= -->
         <!-- Menu Section -->
-<section class="menu-section" id="menu">
+        <!-- ============================= -->
 
-    <div class="section-heading">
-        <div>
-            <h2>Our Menu</h2>
-            <p>Select an item to add it to your bill.</p>
-        </div>
-    </div>
+        <section class="menu-section" id="menu">
 
-
-    <!-- Food Category -->
-    <div class="menu-category">
-
-        <h3 class="category-title">🍽️ Main Course</h3>
-
-        <div class="menu-grid">
-
-            <!-- Burger -->
-            <article class="menu-item">
-
-                <span class="food-icon">🍔</span>
-
-                <span class="food-category">Main Course</span>
-
-                <h3>Classic Burger</h3>
-
-                <p class="food-description">
-                    Crispy vegetables with a delicious burger patty.
-                </p>
-
-                <p class="food-price">₹120</p>
-
-                <button type="button" class="add-button">
-                    Add to Bill
-                </button>
-
-            </article>
-
-
-            <!-- Pizza -->
-            <article class="menu-item">
-
-                <span class="food-icon">🍕</span>
-
-                <span class="food-category">Main Course</span>
-
-                <h3>Cheese Pizza</h3>
-
-                <p class="food-description">
-                    Fresh pizza topped with melted cheese.
-                </p>
-
-                <p class="food-price">₹250</p>
-
-                <button type="button" class="add-button">
-                    Add to Bill
-                </button>
-
-            </article>
-
-
-            <!-- Pasta -->
-            <article class="menu-item">
-
-                <span class="food-icon">🍝</span>
-
-                <span class="food-category">Main Course</span>
-
-                <h3>Italian Pasta</h3>
-
-                <p class="food-description">
-                    Creamy pasta prepared with Italian herbs.
-                </p>
-
-                <p class="food-price">₹180</p>
-
-                <button type="button" class="add-button">
-                    Add to Bill
-                </button>
-
-            </article>
-
-
-            <!-- Sandwich -->
-            <article class="menu-item">
-
-                <span class="food-icon">🥪</span>
-
-                <span class="food-category">Main Course</span>
-
-                <h3>Veg Sandwich</h3>
-
-                <p class="food-description">
-                    Fresh vegetables served in toasted bread.
-                </p>
-
-                <p class="food-price">₹100</p>
-
-                <button type="button" class="add-button">
-                    Add to Bill
-                </button>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- Snacks Category -->
-    <div class="menu-category">
-
-        <h3 class="category-title">🍟 Snacks & Drinks</h3>
-
-        <div class="menu-grid">
-
-            <!-- French Fries -->
-            <article class="menu-item">
-
-                <span class="food-icon">🍟</span>
-
-                <span class="food-category">Snack</span>
-
-                <h3>French Fries</h3>
-
-                <p class="food-description">
-                    Crispy golden fries served hot.
-                </p>
-
-                <p class="food-price">₹90</p>
-
-                <button type="button" class="add-button">
-                    Add to Bill
-                </button>
-
-            </article>
-
-
-            <!-- Coffee -->
-            <article class="menu-item">
-
-                <span class="food-icon">☕</span>
-
-                <span class="food-category">Drink</span>
-
-                <h3>Hot Coffee</h3>
-
-                <p class="food-description">
-                    Freshly brewed hot coffee.
-                </p>
-
-                <p class="food-price">₹80</p>
-
-                <button type="button" class="add-button">
-                    Add to Bill
-                </button>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-        <!-- Billing Section -->
-<section class="billing-section" id="billing">
-
-    <div class="billing-header">
-        <div>
-            <h2>Your Bill</h2>
-            <p class="billing-subtitle">Review your selected items</p>
-        </div>
-
-        <span class="bill-count" aria-label="Number of items in bill">
-            0 Items
-        </span>
-    </div>
-
-
-    <!-- Bill Items -->
-    <div class="bill-items">
-
-        <!-- Empty Bill Message -->
-        <div class="empty-bill">
-
-            <span class="empty-icon">🧾</span>
-
-            <h3>No items added</h3>
-
-            <p>
-                Select an item from the menu to add it to your bill.
-            </p>
-
-        </div>
-
-
-        <!-- Example Bill Item
-             This will be generated dynamically with JavaScript later.
-
-        <div class="bill-item">
-
-            <div class="bill-item-info">
-
-                <span class="bill-item-icon">🍔</span>
+            <div class="section-heading">
 
                 <div>
-                    <h3>Classic Burger</h3>
-                    <p>₹120 × 1</p>
+
+                    <h2>Our Menu</h2>
+
+                    <p>
+                        Select an item to add it to your bill.
+                    </p>
+
                 </div>
 
             </div>
 
-            <div class="bill-item-actions">
 
-                <strong>₹120</strong>
 
-                <button
-                    type="button"
-                    class="remove-button"
-                    aria-label="Remove Classic Burger">
-                    Remove
-                </button>
+            <!-- Main Course -->
+
+            <div class="menu-category">
+
+                <h3 class="category-title">
+                    🍽️ Main Course
+                </h3>
+
+
+                <div
+                    class="menu-grid"
+                    id="main-course-menu">
+
+                    <!-- Menu items will be generated by JavaScript -->
+
+                </div>
 
             </div>
 
-        </div>
-
-        -->
-
-    </div>
 
 
-    <!-- Bill Summary -->
-    <div class="bill-summary">
+            <!-- Snacks and Drinks -->
 
-        <div class="summary-row">
-            <span>Subtotal</span>
-            <span>₹0</span>
-        </div>
+            <div class="menu-category">
 
-        <div class="summary-row">
-            <span>Tax</span>
-            <span>₹0</span>
-        </div>
-
-        <hr>
-
-        <div class="summary-row total">
-            <span>Total</span>
-            <span>₹0</span>
-        </div>
-
-    </div>
+                <h3 class="category-title">
+                    🍟 Snacks & Drinks
+                </h3>
 
 
-    <!-- Billing Actions -->
-    <div class="billing-actions">
+                <div
+                    class="menu-grid"
+                    id="snacks-drinks-menu">
 
-        <button
-            type="button"
-            class="clear-button"
-            disabled>
-            Clear Bill
-        </button>
+                    <!-- Menu items will be generated by JavaScript -->
 
-        <button
-            type="button"
-            class="checkout-button"
-            disabled>
-            Checkout
-        </button>
+                </div>
 
-    </div>
+            </div>
 
-</section>
-        
+        </section>
+
+
+
+        <!-- ============================= -->
+        <!-- Billing Section -->
+        <!-- ============================= -->
+
+        <section class="billing-section" id="billing">
+
+
+            <div class="billing-header">
+
+                <div>
+
+                    <h2>Your Bill</h2>
+
+                    <p class="billing-subtitle">
+                        Review your selected items
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="bill-count"
+                    aria-label="Number of items in bill">
+
+                    0 Items
+
+                </span>
+
+            </div>
+
+
+
+            <!-- Bill Items -->
+
+            <div class="bill-items">
+
+                <div class="empty-bill">
+
+                    <span class="empty-icon">🧾</span>
+
+                    <h3>No items added</h3>
+
+                    <p>
+                        Select an item from the menu
+                        to add it to your bill.
+                    </p>
+
+                </div>
+
+            </div>
+
+
 
             <!-- Bill Summary -->
+
             <div class="bill-summary">
 
                 <div class="summary-row">
@@ -359,25 +212,63 @@
 
             </div>
 
+
+
+            <!-- Billing Actions -->
+
+            <div class="billing-actions">
+
+                <button
+                    type="button"
+                    class="clear-button"
+                    disabled>
+
+                    Clear Bill
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="checkout-button"
+                    disabled>
+
+                    Checkout
+
+                </button>
+
+            </div>
+
         </section>
 
 
-        <!-- Accessibility Placeholder -->
-        <section class="accessibility-section" id="accessibility">
+
+        <!-- ============================= -->
+        <!-- Accessibility Section -->
+        <!-- ============================= -->
+
+        <section
+            class="accessibility-section"
+            id="accessibility">
 
             <h2>Accessibility</h2>
 
             <p>
-                Accessibility controls will be added in upcoming
-                development stages.
+                Accessibility controls will be added
+                in upcoming development stages.
             </p>
 
         </section>
 
+
     </main>
 
 
+
+    <!-- ============================= -->
     <!-- JavaScript -->
+    <!-- ============================= -->
+
     <script src="script.js"></script>
 
 </body>

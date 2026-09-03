@@ -64,6 +64,53 @@ const menuItems = [
 
 ];
 
+// ==========================================
+// Display Menu Items
+// ==========================================
+
+const mainCourseMenu = document.getElementById("main-course-menu");
+const snacksDrinksMenu = document.getElementById("snacks-drinks-menu");
+
+
+menuItems.forEach(function(item) {
+
+    const menuCard = document.createElement("article");
+
+    menuCard.className = "menu-item";
+
+    menuCard.innerHTML = `
+        <span class="food-icon">${item.icon}</span>
+
+        <span class="food-category">${item.category}</span>
+
+        <h3>${item.name}</h3>
+
+        <p class="food-description">
+            ${item.description}
+        </p>
+
+        <p class="food-price">
+            ₹${item.price}
+        </p>
+
+        <button type="button" class="add-button">
+            Add to Bill
+        </button>
+    `;
+
+
+    if (item.category === "Main Course") {
+
+        mainCourseMenu.appendChild(menuCard);
+
+    } else {
+
+        snacksDrinksMenu.appendChild(menuCard);
+
+    }
+
+});
+
 
 // Check Menu Data
 
