@@ -1,10 +1,12 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 6 - Menu Data Structure
+// Day 8 - Add Items to Bill
 // ==========================================
 
 
+// ==========================================
 // Menu Items
+// ==========================================
 
 const menuItems = [
 
@@ -64,13 +66,39 @@ const menuItems = [
 
 ];
 
+
 // ==========================================
-// Display Menu Items
+// Bill
 // ==========================================
 
-const mainCourseMenu = document.getElementById("main-course-menu");
-const snacksDrinksMenu = document.getElementById("snacks-drinks-menu");
+let billItems = [];
 
+
+// ==========================================
+// Menu Containers
+// ==========================================
+
+const mainCourseMenu =
+    document.getElementById("main-course-menu");
+
+const snacksDrinksMenu =
+    document.getElementById("snacks-drinks-menu");
+
+
+// ==========================================
+// Billing Elements
+// ==========================================
+
+const billItemsContainer =
+    document.querySelector(".bill-items");
+
+const billCount =
+    document.querySelector(".bill-count");
+
+
+// ==========================================
+// Display Menu
+// ==========================================
 
 menuItems.forEach(function(item) {
 
@@ -93,8 +121,13 @@ menuItems.forEach(function(item) {
             ₹${item.price}
         </p>
 
-        <button type="button" class="add-button">
+        <button
+            type="button"
+            class="add-button"
+            data-id="${item.id}">
+
             Add to Bill
+
         </button>
     `;
 
@@ -112,6 +145,97 @@ menuItems.forEach(function(item) {
 });
 
 
-// Check Menu Data
+// ==========================================
+// Add Item to Bill
+// ==========================================
 
-console.log("Menu items loaded:", menuItems);
+const addButtons =
+    document.querySelectorAll(".add-button");
+
+
+addButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const itemId =
+            Number(button.dataset.id);
+
+        const selectedItem =
+            menuItems.find(function(item) {
+
+                return item.id === itemId;
+
+            });
+
+
+        if (selectedItem) {
+
+            billItems.push(selectedItem);
+
+            updateBill();
+
+        }
+
+    });
+
+});
+
+
+// ==========================================
+// Update Bill
+// ==========================================
+
+function updateBill() {
+
+    billItemsContainer.innerHTML = "";
+
+
+    billItems.forEach(function(item) {
+
+        const billItem =
+            document.createElement("div");
+
+        billItem.className = "bill-item";
+
+
+        billItem.innerHTML = `
+
+            <div class="bill-item-info">
+
+                <span class="bill-item-icon">
+                    ${item.icon}
+                </span>
+
+                <div>
+
+                    <h3>${item.name}</h3>
+
+                    <p>₹${item.price} × 1</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="bill-item-actions">
+
+                <strong>
+                    ₹${item.price}
+                </strong>
+
+            </div>
+
+        `;
+
+
+        billItemsContainer.appendChild(billItem);
+
+    });
+
+
+    // Update item count
+
+    billCount.textContent =
+        `${billItems.length} Items`;
+
+}
