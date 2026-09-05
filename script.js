@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 8 - Add Items to Bill
+// Day 9 - Quantity Handling
 // ==========================================
 
 
@@ -102,7 +102,8 @@ const billCount =
 
 menuItems.forEach(function(item) {
 
-    const menuCard = document.createElement("article");
+    const menuCard =
+        document.createElement("article");
 
     menuCard.className = "menu-item";
 
@@ -160,6 +161,7 @@ addButtons.forEach(function(button) {
         const itemId =
             Number(button.dataset.id);
 
+
         const selectedItem =
             menuItems.find(function(item) {
 
@@ -170,7 +172,30 @@ addButtons.forEach(function(button) {
 
         if (selectedItem) {
 
-            billItems.push(selectedItem);
+            const existingItem =
+                billItems.find(function(item) {
+
+                    return item.id === itemId;
+
+                });
+
+
+            if (existingItem) {
+
+                existingItem.quantity++;
+
+            } else {
+
+                billItems.push({
+
+                    ...selectedItem,
+
+                    quantity: 1
+
+                });
+
+            }
+
 
             updateBill();
 
@@ -210,7 +235,9 @@ function updateBill() {
 
                     <h3>${item.name}</h3>
 
-                    <p>₹${item.price} × 1</p>
+                    <p>
+                        ₹${item.price} × ${item.quantity}
+                    </p>
 
                 </div>
 
@@ -219,8 +246,35 @@ function updateBill() {
 
             <div class="bill-item-actions">
 
+                <button
+                    type="button"
+                    class="quantity-button decrease-button"
+                    data-id="${item.id}"
+                    aria-label="Decrease ${item.name} quantity">
+
+                    −
+
+                </button>
+
+
+                <span class="quantity">
+                    ${item.quantity}
+                </span>
+
+
+                <button
+                    type="button"
+                    class="quantity-button increase-button"
+                    data-id="${item.id}"
+                    aria-label="Increase ${item.name} quantity">
+
+                    +
+
+                </button>
+
+
                 <strong>
-                    ₹${item.price}
+                    ₹${item.price * item.quantity}
                 </strong>
 
             </div>
@@ -233,9 +287,103 @@ function updateBill() {
     });
 
 
-    // Update item count
+    // ==========================================
+    // Update Total Item Count
+    // ==========================================
+
+    const totalQuantity =
+        billItems.reduce(function(total, item) {
+
+            return total + item.quantity;
+
+        }, 0);
+
 
     billCount.textContent =
-        `${billItems.length} Items`;
+        `${totalQuantity} Items`;
+
+
+    // ==========================================
+    // Quantity Buttons
+    // ==========================================
+
+    const increaseButtons =
+        document.querySelectorAll(".increase-button");
+
+
+    increaseButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const itemId =
+                Number(button.dataset.id);
+
+
+            const item =
+                billItems.find(function(item) {
+
+                    return item.id === itemId;
+
+                });
+
+
+            if (item) {
+
+                item.quantity++;
+
+                updateBill();
+
+            }
+
+        });
+
+    });
+
+
+    const decreaseButtons =
+        document.querySelectorAll(".decrease-button");
+
+
+    decreaseButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const itemId =
+                Number(button.dataset.id);
+
+
+            const item =
+                billItems.find(function(item) {
+
+                    return item.id === itemId;
+
+                });
+
+
+            if (item) {
+
+                if (item.quantity > 1) {
+
+                    item.quantity--;
+
+                } else {
+
+                    billItems =
+                        billItems.filter(function(item) {
+
+                            return item.id !== itemId;
+
+                        });
+
+                }
+
+
+                updateBill();
+
+            }
+
+        });
+
+    });
 
 }
