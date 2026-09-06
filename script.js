@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 9 - Quantity Handling
+// Day 10 - Remove Items from Bill
 // ==========================================
 
 
@@ -215,6 +215,28 @@ function updateBill() {
     billItemsContainer.innerHTML = "";
 
 
+    if (billItems.length === 0) {
+
+        billItemsContainer.innerHTML = `
+
+            <div class="empty-bill">
+
+                <span class="empty-icon">🧾</span>
+
+                <h3>No items added</h3>
+
+                <p>
+                    Select an item from the menu
+                    to add it to your bill.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
     billItems.forEach(function(item) {
 
         const billItem =
@@ -277,6 +299,17 @@ function updateBill() {
                     ₹${item.price * item.quantity}
                 </strong>
 
+
+                <button
+                    type="button"
+                    class="remove-button"
+                    data-id="${item.id}"
+                    aria-label="Remove ${item.name} from bill">
+
+                    Remove
+
+                </button>
+
             </div>
 
         `;
@@ -288,7 +321,7 @@ function updateBill() {
 
 
     // ==========================================
-    // Update Total Item Count
+    // Update Item Count
     // ==========================================
 
     const totalQuantity =
@@ -304,7 +337,7 @@ function updateBill() {
 
 
     // ==========================================
-    // Quantity Buttons
+    // Increase Quantity
     // ==========================================
 
     const increaseButtons =
@@ -339,6 +372,10 @@ function updateBill() {
 
     });
 
+
+    // ==========================================
+    // Decrease Quantity
+    // ==========================================
 
     const decreaseButtons =
         document.querySelectorAll(".decrease-button");
@@ -381,6 +418,37 @@ function updateBill() {
                 updateBill();
 
             }
+
+        });
+
+    });
+
+
+    // ==========================================
+    // Remove Item
+    // ==========================================
+
+    const removeButtons =
+        document.querySelectorAll(".remove-button");
+
+
+    removeButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const itemId =
+                Number(button.dataset.id);
+
+
+            billItems =
+                billItems.filter(function(item) {
+
+                    return item.id !== itemId;
+
+                });
+
+
+            updateBill();
 
         });
 
