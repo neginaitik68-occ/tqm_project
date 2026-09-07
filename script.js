@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 10 - Remove Items from Bill
+// Day 11 - Subtotal Calculation
 // ==========================================
 
 
@@ -94,6 +94,9 @@ const billItemsContainer =
 
 const billCount =
     document.querySelector(".bill-count");
+
+const subtotalElement =
+    document.querySelector(".summary-row span:last-child");
 
 
 // ==========================================
@@ -215,6 +218,8 @@ function updateBill() {
     billItemsContainer.innerHTML = "";
 
 
+    // Show empty bill message
+
     if (billItems.length === 0) {
 
         billItemsContainer.innerHTML = `
@@ -236,6 +241,8 @@ function updateBill() {
 
     }
 
+
+    // Display bill items
 
     billItems.forEach(function(item) {
 
@@ -334,6 +341,22 @@ function updateBill() {
 
     billCount.textContent =
         `${totalQuantity} Items`;
+
+
+    // ==========================================
+    // Calculate Subtotal
+    // ==========================================
+
+    const subtotal =
+        billItems.reduce(function(total, item) {
+
+            return total + (item.price * item.quantity);
+
+        }, 0);
+
+
+    subtotalElement.textContent =
+        `₹${subtotal}`;
 
 
     // ==========================================
