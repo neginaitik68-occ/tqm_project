@@ -1,7 +1,8 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 11 - Subtotal Calculation
+// Day 12 - Tax Calculation
 // ==========================================
+
 
 
 // ==========================================
@@ -19,6 +20,7 @@ const menuItems = [
         icon: "🍔"
     },
 
+
     {
         id: 2,
         name: "Cheese Pizza",
@@ -27,6 +29,7 @@ const menuItems = [
         description: "Fresh pizza topped with melted cheese.",
         icon: "🍕"
     },
+
 
     {
         id: 3,
@@ -37,6 +40,7 @@ const menuItems = [
         icon: "🍝"
     },
 
+
     {
         id: 4,
         name: "Veg Sandwich",
@@ -46,6 +50,7 @@ const menuItems = [
         icon: "🥪"
     },
 
+
     {
         id: 5,
         name: "French Fries",
@@ -54,6 +59,7 @@ const menuItems = [
         description: "Crispy golden fries served hot.",
         icon: "🍟"
     },
+
 
     {
         id: 6,
@@ -67,11 +73,13 @@ const menuItems = [
 ];
 
 
+
 // ==========================================
 // Bill
 // ==========================================
 
 let billItems = [];
+
 
 
 // ==========================================
@@ -81,8 +89,10 @@ let billItems = [];
 const mainCourseMenu =
     document.getElementById("main-course-menu");
 
+
 const snacksDrinksMenu =
     document.getElementById("snacks-drinks-menu");
+
 
 
 // ==========================================
@@ -92,11 +102,22 @@ const snacksDrinksMenu =
 const billItemsContainer =
     document.querySelector(".bill-items");
 
+
 const billCount =
     document.querySelector(".bill-count");
 
+
 const subtotalElement =
-    document.querySelector(".summary-row span:last-child");
+    document.getElementById("subtotal");
+
+
+const taxElement =
+    document.getElementById("tax");
+
+
+const totalElement =
+    document.getElementById("total");
+
 
 
 // ==========================================
@@ -105,25 +126,45 @@ const subtotalElement =
 
 menuItems.forEach(function(item) {
 
+
     const menuCard =
         document.createElement("article");
 
-    menuCard.className = "menu-item";
+
+    menuCard.className =
+        "menu-item";
+
 
     menuCard.innerHTML = `
-        <span class="food-icon">${item.icon}</span>
 
-        <span class="food-category">${item.category}</span>
+        <span class="food-icon">
+            ${item.icon}
+        </span>
 
-        <h3>${item.name}</h3>
+
+        <span class="food-category">
+            ${item.category}
+        </span>
+
+
+        <h3>
+            ${item.name}
+        </h3>
+
 
         <p class="food-description">
+
             ${item.description}
+
         </p>
 
+
         <p class="food-price">
+
             ₹${item.price}
+
         </p>
+
 
         <button
             type="button"
@@ -133,20 +174,25 @@ menuItems.forEach(function(item) {
             Add to Bill
 
         </button>
+
     `;
+
 
 
     if (item.category === "Main Course") {
 
         mainCourseMenu.appendChild(menuCard);
 
-    } else {
+    }
+
+    else {
 
         snacksDrinksMenu.appendChild(menuCard);
 
     }
 
 });
+
 
 
 // ==========================================
@@ -157,12 +203,16 @@ const addButtons =
     document.querySelectorAll(".add-button");
 
 
+
 addButtons.forEach(function(button) {
+
 
     button.addEventListener("click", function() {
 
+
         const itemId =
             Number(button.dataset.id);
+
 
 
         const selectedItem =
@@ -173,7 +223,9 @@ addButtons.forEach(function(button) {
             });
 
 
+
         if (selectedItem) {
+
 
             const existingItem =
                 billItems.find(function(item) {
@@ -183,11 +235,14 @@ addButtons.forEach(function(button) {
                 });
 
 
+
             if (existingItem) {
 
                 existingItem.quantity++;
 
-            } else {
+            }
+
+            else {
 
                 billItems.push({
 
@@ -200,6 +255,7 @@ addButtons.forEach(function(button) {
             }
 
 
+
             updateBill();
 
         }
@@ -209,26 +265,40 @@ addButtons.forEach(function(button) {
 });
 
 
+
 // ==========================================
 // Update Bill
 // ==========================================
 
 function updateBill() {
 
+
+    // Clear current bill display
+
     billItemsContainer.innerHTML = "";
 
 
-    // Show empty bill message
+
+    // ==========================================
+    // Empty Bill
+    // ==========================================
 
     if (billItems.length === 0) {
+
 
         billItemsContainer.innerHTML = `
 
             <div class="empty-bill">
 
-                <span class="empty-icon">🧾</span>
+                <span class="empty-icon">
+                    🧾
+                </span>
 
-                <h3>No items added</h3>
+
+                <h3>
+                    No items added
+                </h3>
+
 
                 <p>
                     Select an item from the menu
@@ -242,38 +312,64 @@ function updateBill() {
     }
 
 
-    // Display bill items
+
+    // ==========================================
+    // Display Bill Items
+    // ==========================================
 
     billItems.forEach(function(item) {
+
 
         const billItem =
             document.createElement("div");
 
-        billItem.className = "bill-item";
+
+        billItem.className =
+            "bill-item";
+
 
 
         billItem.innerHTML = `
 
             <div class="bill-item-info">
 
+
                 <span class="bill-item-icon">
+
                     ${item.icon}
+
                 </span>
+
+
 
                 <div>
 
-                    <h3>${item.name}</h3>
+
+                    <h3>
+
+                        ${item.name}
+
+                    </h3>
+
+
 
                     <p>
+
                         ₹${item.price} × ${item.quantity}
+
                     </p>
+
 
                 </div>
 
             </div>
 
 
+
             <div class="bill-item-actions">
+
+
+                <!-- Decrease Quantity -->
 
                 <button
                     type="button"
@@ -286,10 +382,18 @@ function updateBill() {
                 </button>
 
 
+
+                <!-- Quantity -->
+
                 <span class="quantity">
+
                     ${item.quantity}
+
                 </span>
 
+
+
+                <!-- Increase Quantity -->
 
                 <button
                     type="button"
@@ -302,10 +406,18 @@ function updateBill() {
                 </button>
 
 
+
+                <!-- Item Total -->
+
                 <strong>
+
                     ₹${item.price * item.quantity}
+
                 </strong>
 
+
+
+                <!-- Remove -->
 
                 <button
                     type="button"
@@ -322,13 +434,15 @@ function updateBill() {
         `;
 
 
+
         billItemsContainer.appendChild(billItem);
 
     });
 
 
+
     // ==========================================
-    // Update Item Count
+    // Calculate Total Quantity
     // ==========================================
 
     const totalQuantity =
@@ -339,8 +453,10 @@ function updateBill() {
         }, 0);
 
 
+
     billCount.textContent =
         `${totalQuantity} Items`;
+
 
 
     // ==========================================
@@ -350,13 +466,45 @@ function updateBill() {
     const subtotal =
         billItems.reduce(function(total, item) {
 
-            return total + (item.price * item.quantity);
+            return total +
+                (item.price * item.quantity);
 
         }, 0);
 
 
+
     subtotalElement.textContent =
         `₹${subtotal}`;
+
+
+
+    // ==========================================
+    // Calculate Tax
+    // ==========================================
+
+    const taxRate = 0.05;
+
+
+    const tax =
+        subtotal * taxRate;
+
+
+
+    taxElement.textContent =
+        `₹${tax.toFixed(2)}`;
+
+
+
+    // ==========================================
+    // Total
+    // ==========================================
+    // Total calculation will be added
+    // in Day 13.
+    // ==========================================
+
+    totalElement.textContent =
+        "₹0";
+
 
 
     // ==========================================
@@ -364,36 +512,47 @@ function updateBill() {
     // ==========================================
 
     const increaseButtons =
-        document.querySelectorAll(".increase-button");
+        document.querySelectorAll(
+            ".increase-button"
+        );
+
 
 
     increaseButtons.forEach(function(button) {
 
-        button.addEventListener("click", function() {
 
-            const itemId =
-                Number(button.dataset.id);
-
-
-            const item =
-                billItems.find(function(item) {
-
-                    return item.id === itemId;
-
-                });
+        button.addEventListener(
+            "click",
+            function() {
 
 
-            if (item) {
+                const itemId =
+                    Number(button.dataset.id);
 
-                item.quantity++;
 
-                updateBill();
+
+                const item =
+                    billItems.find(function(item) {
+
+                        return item.id === itemId;
+
+                    });
+
+
+
+                if (item) {
+
+                    item.quantity++;
+
+                    updateBill();
+
+                }
 
             }
-
-        });
+        );
 
     });
+
 
 
     // ==========================================
@@ -401,50 +560,67 @@ function updateBill() {
     // ==========================================
 
     const decreaseButtons =
-        document.querySelectorAll(".decrease-button");
+        document.querySelectorAll(
+            ".decrease-button"
+        );
+
 
 
     decreaseButtons.forEach(function(button) {
 
-        button.addEventListener("click", function() {
 
-            const itemId =
-                Number(button.dataset.id);
-
-
-            const item =
-                billItems.find(function(item) {
-
-                    return item.id === itemId;
-
-                });
+        button.addEventListener(
+            "click",
+            function() {
 
 
-            if (item) {
+                const itemId =
+                    Number(button.dataset.id);
 
-                if (item.quantity > 1) {
 
-                    item.quantity--;
 
-                } else {
+                const item =
+                    billItems.find(function(item) {
 
-                    billItems =
-                        billItems.filter(function(item) {
+                        return item.id === itemId;
 
-                            return item.id !== itemId;
+                    });
 
-                        });
+
+
+                if (item) {
+
+
+                    if (item.quantity > 1) {
+
+                        item.quantity--;
+
+                    }
+
+                    else {
+
+                        billItems =
+                            billItems.filter(
+                                function(item) {
+
+                                    return item.id !== itemId;
+
+                                }
+                            );
+
+                    }
+
+
+
+                    updateBill();
 
                 }
 
-
-                updateBill();
-
             }
-
-        });
+        );
 
     });
+
 
 
     // ==========================================
@@ -452,28 +628,40 @@ function updateBill() {
     // ==========================================
 
     const removeButtons =
-        document.querySelectorAll(".remove-button");
+        document.querySelectorAll(
+            ".remove-button"
+        );
+
 
 
     removeButtons.forEach(function(button) {
 
-        button.addEventListener("click", function() {
 
-            const itemId =
-                Number(button.dataset.id);
-
-
-            billItems =
-                billItems.filter(function(item) {
-
-                    return item.id !== itemId;
-
-                });
+        button.addEventListener(
+            "click",
+            function() {
 
 
-            updateBill();
+                const itemId =
+                    Number(button.dataset.id);
 
-        });
+
+
+                billItems =
+                    billItems.filter(
+                        function(item) {
+
+                            return item.id !== itemId;
+
+                        }
+                    );
+
+
+
+                updateBill();
+
+            }
+        );
 
     });
 
