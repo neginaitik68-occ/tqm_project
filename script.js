@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 12 - Tax Calculation
+// Day 13 - Total Calculation
 // ==========================================
 
 
@@ -273,7 +273,7 @@ addButtons.forEach(function(button) {
 function updateBill() {
 
 
-    // Clear current bill display
+    // Clear current bill
 
     billItemsContainer.innerHTML = "";
 
@@ -333,7 +333,6 @@ function updateBill() {
 
             <div class="bill-item-info">
 
-
                 <span class="bill-item-icon">
 
                     ${item.icon}
@@ -341,9 +340,7 @@ function updateBill() {
                 </span>
 
 
-
                 <div>
-
 
                     <h3>
 
@@ -352,13 +349,11 @@ function updateBill() {
                     </h3>
 
 
-
                     <p>
 
                         ₹${item.price} × ${item.quantity}
 
                     </p>
-
 
                 </div>
 
@@ -369,7 +364,7 @@ function updateBill() {
             <div class="bill-item-actions">
 
 
-                <!-- Decrease Quantity -->
+                <!-- Decrease -->
 
                 <button
                     type="button"
@@ -393,7 +388,7 @@ function updateBill() {
 
 
 
-                <!-- Increase Quantity -->
+                <!-- Increase -->
 
                 <button
                     type="button"
@@ -442,7 +437,7 @@ function updateBill() {
 
 
     // ==========================================
-    // Calculate Total Quantity
+    // Item Count
     // ==========================================
 
     const totalQuantity =
@@ -496,14 +491,16 @@ function updateBill() {
 
 
     // ==========================================
-    // Total
-    // ==========================================
-    // Total calculation will be added
-    // in Day 13.
+    // Calculate Total
     // ==========================================
 
+    const total =
+        subtotal + tax;
+
+
+
     totalElement.textContent =
-        "₹0";
+        `₹${total.toFixed(2)}`;
 
 
 
