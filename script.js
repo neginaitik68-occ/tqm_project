@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// Day 13 - Total Calculation
+// Day 14 - Clear Bill Functionality
 // ==========================================
 
 
@@ -119,6 +119,18 @@ const totalElement =
     document.getElementById("total");
 
 
+// Clear Bill Button
+
+const clearButton =
+    document.querySelector(".clear-button");
+
+
+// Checkout Button
+
+const checkoutButton =
+    document.querySelector(".checkout-button");
+
+
 
 // ==========================================
 // Display Menu
@@ -153,16 +165,12 @@ menuItems.forEach(function(item) {
 
 
         <p class="food-description">
-
             ${item.description}
-
         </p>
 
 
         <p class="food-price">
-
             ₹${item.price}
-
         </p>
 
 
@@ -201,7 +209,6 @@ menuItems.forEach(function(item) {
 
 const addButtons =
     document.querySelectorAll(".add-button");
-
 
 
 addButtons.forEach(function(button) {
@@ -273,14 +280,14 @@ addButtons.forEach(function(button) {
 function updateBill() {
 
 
-    // Clear current bill
+    // Clear existing display
 
     billItemsContainer.innerHTML = "";
 
 
 
     // ==========================================
-    // Empty Bill
+    // Check Empty Bill
     // ==========================================
 
     if (billItems.length === 0) {
@@ -328,31 +335,24 @@ function updateBill() {
             "bill-item";
 
 
-
         billItem.innerHTML = `
 
             <div class="bill-item-info">
 
                 <span class="bill-item-icon">
-
                     ${item.icon}
-
                 </span>
 
 
                 <div>
 
                     <h3>
-
                         ${item.name}
-
                     </h3>
 
 
                     <p>
-
                         ₹${item.price} × ${item.quantity}
-
                     </p>
 
                 </div>
@@ -363,8 +363,6 @@ function updateBill() {
 
             <div class="bill-item-actions">
 
-
-                <!-- Decrease -->
 
                 <button
                     type="button"
@@ -378,8 +376,6 @@ function updateBill() {
 
 
 
-                <!-- Quantity -->
-
                 <span class="quantity">
 
                     ${item.quantity}
@@ -387,8 +383,6 @@ function updateBill() {
                 </span>
 
 
-
-                <!-- Increase -->
 
                 <button
                     type="button"
@@ -402,8 +396,6 @@ function updateBill() {
 
 
 
-                <!-- Item Total -->
-
                 <strong>
 
                     ₹${item.price * item.quantity}
@@ -411,8 +403,6 @@ function updateBill() {
                 </strong>
 
 
-
-                <!-- Remove -->
 
                 <button
                     type="button"
@@ -429,7 +419,6 @@ function updateBill() {
         `;
 
 
-
         billItemsContainer.appendChild(billItem);
 
     });
@@ -437,7 +426,7 @@ function updateBill() {
 
 
     // ==========================================
-    // Item Count
+    // Calculate Item Count
     // ==========================================
 
     const totalQuantity =
@@ -446,7 +435,6 @@ function updateBill() {
             return total + item.quantity;
 
         }, 0);
-
 
 
     billCount.textContent =
@@ -467,7 +455,6 @@ function updateBill() {
         }, 0);
 
 
-
     subtotalElement.textContent =
         `₹${subtotal}`;
 
@@ -484,7 +471,6 @@ function updateBill() {
         subtotal * taxRate;
 
 
-
     taxElement.textContent =
         `₹${tax.toFixed(2)}`;
 
@@ -498,9 +484,44 @@ function updateBill() {
         subtotal + tax;
 
 
-
     totalElement.textContent =
         `₹${total.toFixed(2)}`;
+
+
+
+    // ==========================================
+    // Enable / Disable Clear Button
+    // ==========================================
+
+    if (billItems.length > 0) {
+
+        clearButton.disabled = false;
+
+    }
+
+    else {
+
+        clearButton.disabled = true;
+
+    }
+
+
+
+    // ==========================================
+    // Enable / Disable Checkout Button
+    // ==========================================
+
+    if (billItems.length > 0) {
+
+        checkoutButton.disabled = false;
+
+    }
+
+    else {
+
+        checkoutButton.disabled = true;
+
+    }
 
 
 
@@ -512,7 +533,6 @@ function updateBill() {
         document.querySelectorAll(
             ".increase-button"
         );
-
 
 
     increaseButtons.forEach(function(button) {
@@ -527,14 +547,12 @@ function updateBill() {
                     Number(button.dataset.id);
 
 
-
                 const item =
                     billItems.find(function(item) {
 
                         return item.id === itemId;
 
                     });
-
 
 
                 if (item) {
@@ -562,7 +580,6 @@ function updateBill() {
         );
 
 
-
     decreaseButtons.forEach(function(button) {
 
 
@@ -575,14 +592,12 @@ function updateBill() {
                     Number(button.dataset.id);
 
 
-
                 const item =
                     billItems.find(function(item) {
 
                         return item.id === itemId;
 
                     });
-
 
 
                 if (item) {
@@ -608,7 +623,6 @@ function updateBill() {
                     }
 
 
-
                     updateBill();
 
                 }
@@ -630,7 +644,6 @@ function updateBill() {
         );
 
 
-
     removeButtons.forEach(function(button) {
 
 
@@ -643,7 +656,6 @@ function updateBill() {
                     Number(button.dataset.id);
 
 
-
                 billItems =
                     billItems.filter(
                         function(item) {
@@ -654,7 +666,6 @@ function updateBill() {
                     );
 
 
-
                 updateBill();
 
             }
@@ -663,3 +674,27 @@ function updateBill() {
     });
 
 }
+
+
+
+// ==========================================
+// Clear Bill
+// ==========================================
+
+clearButton.addEventListener(
+    "click",
+    function() {
+
+
+        // Remove all items
+
+        billItems = [];
+
+
+
+        // Update the complete bill
+
+        updateBill();
+
+    }
+);
