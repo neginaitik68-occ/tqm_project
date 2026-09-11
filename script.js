@@ -698,3 +698,40 @@ clearButton.addEventListener(
 
     }
 );
+
+// ==========================================
+// Checkout Functionality - Day 15
+// ==========================================
+
+checkoutButton.addEventListener(
+    "click",
+    function() {
+
+        // Check if bill is empty
+        if (billItems.length === 0) {
+
+            alert("Your bill is empty. Please add items first.");
+
+            return;
+
+        }
+
+        // Get final total
+        const finalTotal =
+            totalElement.textContent;
+
+        // Show checkout confirmation
+        alert(
+            `Checkout successful!\n\n` +
+            `Final Amount: ${finalTotal}\n\n` +
+            `Thank you for visiting our restaurant!`
+        );
+
+        // Clear bill after checkout
+        billItems = [];
+
+        // Update bill display
+        updateBill();
+
+    }
+);
