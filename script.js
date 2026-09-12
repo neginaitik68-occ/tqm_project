@@ -700,17 +700,108 @@ clearButton.addEventListener(
 );
 
 // ==========================================
-// Checkout Functionality - Day 15
+// Bill Validation - Day 16
+// ==========================================
+
+function validateBill() {
+
+    // Check if bill is empty
+    if (billItems.length === 0) {
+
+        return {
+            valid: false,
+            message: "Your bill is empty. Please add items first."
+        };
+
+    }
+
+    // Check every item
+    for (let item of billItems) {
+
+        // Check quantity
+        if (
+            typeof item.quantity !== "number" ||
+            item.quantity <= 0
+        ) {
+
+            return {
+                valid: false,
+                message: `Invalid quantity for ${item.name}.`
+            };
+
+        }
+
+        // Check price
+        if (
+            typeof item.price !== "number" ||
+            item.price < 0
+        ) {
+
+            return {
+                valid: false,
+                message: `Invalid price for ${item.name}.`
+            };
+
+        }
+
+    }
+
+    // Calculate subtotal
+    const subtotal =
+        billItems.reduce(function(total, item) {
+
+            return total +
+                (item.price * item.quantity);
+
+        }, 0);
+
+    // Calculate tax
+    const tax =
+        subtotal * 0.05;
+
+    // Calculate total
+    const total =
+        subtotal + tax;
+
+    // Check total
+    if (
+        typeof total !== "number" ||
+        !Number.isFinite(total) ||
+        total <= 0
+    ) {
+
+        return {
+            valid: false,
+            message: "Invalid bill total."
+        };
+
+    }
+
+    // Bill is valid
+    return {
+        valid: true,
+        message: "Bill validation successful."
+    };
+
+}
+
+
+// ==========================================
+// Checkout Functionality
 // ==========================================
 
 checkoutButton.addEventListener(
     "click",
     function() {
 
-        // Check if bill is empty
-        if (billItems.length === 0) {
+        // Validate bill before checkout
+        const validation =
+            validateBill();
 
-            alert("Your bill is empty. Please add items first.");
+        // Stop checkout if validation fails
+        if (!validation.valid) {
+
+            alert(validation.message);
 
             return;
 
