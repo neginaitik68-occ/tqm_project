@@ -1,17 +1,21 @@
 /* ==========================================
-   TQM CUSTOMER IDENTIFICATION
-   Day 17
+   TQM CUSTOMER REQUIREMENTS
+   Day 18
    ========================================== */
 
 
 /* ==========================================
-   General
+   GENERAL
    ========================================== */
 
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
 
 
@@ -32,7 +36,7 @@ body {
 
 
 /* ==========================================
-   Header
+   HEADER
    ========================================== */
 
 .header {
@@ -70,6 +74,21 @@ body {
 }
 
 
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+
+.navigation-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+
 .back-button {
 
     color: white;
@@ -82,6 +101,8 @@ body {
 
     border-radius: 8px;
 
+    display: inline-block;
+
 }
 
 
@@ -93,14 +114,14 @@ body {
 
 
 /* ==========================================
-   Main Container
+   MAIN CONTAINER
    ========================================== */
 
 .container {
 
-    width: 90%;
+    width: 92%;
 
-    max-width: 1200px;
+    max-width: 1300px;
 
     margin: 40px auto;
 
@@ -108,7 +129,7 @@ body {
 
 
 /* ==========================================
-   Intro Section
+   INTRO
    ========================================== */
 
 .intro-section {
@@ -129,43 +150,129 @@ body {
 
 .intro-section h2 {
 
-    margin-bottom: 15px;
-
     font-size: 26px;
+
+    margin-bottom: 15px;
 
 }
 
 
 .intro-section p {
 
-    margin-bottom: 10px;
-
     color: #555;
+
+    margin-bottom: 10px;
 
 }
 
 
 /* ==========================================
-   Customer Section
+   REQUIREMENTS SECTION
    ========================================== */
 
-.customer-section {
+.requirements-section {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.requirements-section h2 {
+
+    font-size: 26px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ==========================================
+   TABLE
+   ========================================== */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 950px;
+
+}
+
+
+th,
+td {
+
+    padding: 15px;
+
+    text-align: left;
+
+    border-bottom:
+        1px solid #ddd;
+
+    vertical-align: top;
+
+}
+
+
+th {
+
+    background: #1f2937;
+
+    color: white;
+
+    font-size: 15px;
+
+}
+
+
+tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+/* ==========================================
+   OBJECTIVES
+   ========================================== */
+
+.objectives-section {
 
     margin-bottom: 30px;
 
 }
 
 
-.customer-section > h2 {
-
-    margin-bottom: 20px;
+.objectives-section h2 {
 
     font-size: 26px;
+
+    margin-bottom: 20px;
 
 }
 
 
-.customer-grid {
+.objective-grid {
 
     display: grid;
 
@@ -177,11 +284,7 @@ body {
 }
 
 
-/* ==========================================
-   Customer Cards
-   ========================================== */
-
-.customer-card {
+.objective-card {
 
     background: white;
 
@@ -195,76 +298,40 @@ body {
 }
 
 
-.customer-icon {
+.objective-number {
 
-    font-size: 40px;
+    display: inline-block;
 
-    display: block;
+    font-size: 13px;
+
+    font-weight: bold;
 
     margin-bottom: 10px;
 
 }
 
 
-.customer-card h3 {
+.objective-card h3 {
 
     font-size: 21px;
 
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 }
 
 
-.customer-type {
-
-    display: inline-block;
-
-    margin-bottom: 15px;
-
-    font-size: 14px;
-
-    font-weight: bold;
+.objective-card p {
 
     color: #555;
-
-}
-
-
-.customer-card p {
-
-    color: #555;
-
-    margin-bottom: 18px;
-
-}
-
-
-.customer-card h4 {
-
-    margin-bottom: 8px;
-
-}
-
-
-.customer-card ul {
-
-    padding-left: 20px;
-
-}
-
-
-.customer-card li {
-
-    margin-bottom: 6px;
 
 }
 
 
 /* ==========================================
-   TQM Section
+   TQM FLOW
    ========================================== */
 
-.tqm-section {
+.flow-section {
 
     background: white;
 
@@ -278,25 +345,14 @@ body {
 }
 
 
-.tqm-section h2 {
+.flow-section h2 {
 
-    margin-bottom: 10px;
-
-}
-
-
-.tqm-section > p {
-
-    color: #555;
+    font-size: 26px;
 
     margin-bottom: 25px;
 
 }
 
-
-/* ==========================================
-   Quality Flow
-   ========================================== */
 
 .quality-flow {
 
@@ -306,31 +362,49 @@ body {
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 10px;
 
     flex-wrap: wrap;
 
 }
 
 
-.quality-flow div {
+.flow-box {
 
     background: #f1f5f9;
 
-    padding: 15px 18px;
+    padding: 18px;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
     text-align: center;
+
+    min-width: 150px;
 
 }
 
 
-.quality-flow span {
+.flow-box strong {
 
     display: block;
 
-    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+
+.flow-box span {
+
+    font-size: 13px;
+
+    color: #666;
+
+}
+
+
+.arrow {
+
+    font-size: 24px;
 
     font-weight: bold;
 
@@ -338,18 +412,18 @@ body {
 
 
 /* ==========================================
-   Footer
+   FOOTER
    ========================================== */
 
 .footer {
 
-    text-align: center;
-
-    padding: 25px;
-
     background: #1f2937;
 
     color: white;
+
+    text-align: center;
+
+    padding: 25px;
 
     margin-top: 40px;
 
@@ -366,22 +440,22 @@ body {
 
 
 /* ==========================================
-   Responsive Design
+   RESPONSIVE
    ========================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-    .customer-grid {
+    .objective-grid {
 
         grid-template-columns:
-            1fr;
+            repeat(2, 1fr);
 
     }
 
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .header {
 
@@ -397,11 +471,23 @@ body {
 
     }
 
-    .intro-section,
-    .customer-card,
-    .tqm-section {
+    .objective-grid {
 
-        padding: 20px;
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .quality-flow {
+
+        flex-direction: column;
+
+    }
+
+    .arrow {
+
+        transform:
+            rotate(90deg);
 
     }
 
