@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +10,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>
-        TQM - Customer Identification
-    </title>
+    <title>Customers & Stakeholders</title>
 
     <link
         rel="stylesheet"
@@ -21,167 +20,142 @@
 
 <body>
 
-    <!-- ==========================================
-         HEADER
-         ========================================== -->
+
+    <!-- HEADER -->
 
     <header class="header">
 
         <div class="header-content">
 
+            <span class="header-label">
+                TOTAL QUALITY MANAGEMENT
+            </span>
+
             <h1>
-                TQM Customer Identification
+                Customers & Stakeholders
             </h1>
 
             <p>
-                Restaurant Billing System
+                Identifying customer requirements for
+                continuous quality improvement
             </p>
 
         </div>
 
-
-        <nav
-            class="navigation-buttons"
-            aria-label="Customer navigation">
-
-
-            <a
-                href="../index.html"
-                class="back-button">
-
-                ← Billing System
-
-            </a>
-
-
-            <a
-                href="customer.html"
-                class="back-button">
-
-                Customer Module →
-
-            </a>
-
-
-            <a
-                href="cashier.html"
-                class="back-button">
-
-                Cashier Module →
-
-            </a>
-
-
-            <a
-                href="requirements.html"
-                class="back-button">
-
-                Requirements →
-
-            </a>
-
-        </nav>
-
     </header>
 
 
-    <!-- ==========================================
-         MAIN CONTENT
-         ========================================== -->
+    <!-- NAVIGATION -->
+
+    <nav
+        class="navigation"
+        aria-label="Main navigation">
+
+        <a href="../index.html">
+            Billing System
+        </a>
+
+        <a href="customer.html">
+            Customer Module
+        </a>
+
+        <a href="cashier.html">
+            Cashier Module
+        </a>
+
+        <a href="owner.html">
+            Owner Module
+        </a>
+
+        <a href="requirements.html">
+            Requirements
+        </a>
+
+    </nav>
+
+
+    <!-- MAIN -->
 
     <main class="container">
 
 
-        <!-- ==========================================
-             INTRODUCTION
-             ========================================== -->
+        <!-- INTRODUCTION -->
 
         <section class="intro-section">
 
+            <span class="section-label">
+                TQM PRINCIPLE
+            </span>
+
             <h2>
-                Customer Identification
+                Customer Focus
             </h2>
 
             <p>
                 Total Quality Management focuses on
-                understanding customer requirements and
+                understanding customer needs and
                 continuously improving processes to
-                achieve customer satisfaction.
+                satisfy those needs.
             </p>
 
             <p>
-                The Restaurant Billing System considers
-                both external and internal customers.
+                In the Restaurant Billing System,
+                different users interact with the
+                system and therefore have different
+                requirements.
             </p>
 
         </section>
 
 
-        <!-- ==========================================
-             IDENTIFIED CUSTOMERS
-             ========================================== -->
+        <!-- CUSTOMER TYPES -->
 
-        <section class="customer-section">
+        <section class="customers-section">
 
-            <h2>
-                Identified Customers
-            </h2>
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Identified Customers
+                    </h2>
+
+                    <p>
+                        External and internal customers
+                        of the restaurant billing process.
+                    </p>
+
+                </div>
+
+            </div>
 
 
-            <div class="customer-grid">
+            <div class="customers-grid">
 
 
-                <!-- ==================================
-                     RESTAURANT CUSTOMER
-                     ================================== -->
+                <!-- RESTAURANT CUSTOMER -->
 
                 <article class="customer-card">
 
-                    <span class="customer-icon">
+                    <div class="customer-icon">
                         🍽️
+                    </div>
+
+                    <span class="customer-type">
+                        EXTERNAL CUSTOMER
                     </span>
 
                     <h3>
                         Restaurant Customer
                     </h3>
 
-                    <span class="customer-type">
-                        External Customer
-                    </span>
-
                     <p>
-                        The person who visits the restaurant
-                        and purchases food or beverages.
+                        The restaurant customer receives
+                        the final service and bill.
+                        Accuracy, simplicity and a good
+                        experience are important quality
+                        requirements.
                     </p>
-
-                    <h4>
-                        Customer Requirements
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            Accurate billing
-                        </li>
-
-                        <li>
-                            Easy-to-read bill
-                        </li>
-
-                        <li>
-                            Fast service
-                        </li>
-
-                        <li>
-                            Accessible interface
-                        </li>
-
-                        <li>
-                            Clear total amount
-                        </li>
-
-                    </ul>
-
 
                     <a
                         href="customer.html"
@@ -194,58 +168,27 @@
                 </article>
 
 
-                <!-- ==================================
-                     CASHIER
-                     ================================== -->
+                <!-- CASHIER -->
 
                 <article class="customer-card">
 
-                    <span class="customer-icon">
-                        👨‍💼
+                    <div class="customer-icon">
+                        🧑‍💼
+                    </div>
+
+                    <span class="customer-type">
+                        INTERNAL CUSTOMER
                     </span>
 
                     <h3>
                         Cashier / Staff
                     </h3>
 
-                    <span class="customer-type">
-                        Internal Customer
-                    </span>
-
                     <p>
-                        The employee who uses the billing
-                        system to create and process
-                        customer bills.
+                        Cashiers and restaurant staff use
+                        the billing system to process
+                        orders and prepare accurate bills.
                     </p>
-
-                    <h4>
-                        Customer Requirements
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            Simple billing process
-                        </li>
-
-                        <li>
-                            Fast item selection
-                        </li>
-
-                        <li>
-                            Automatic calculations
-                        </li>
-
-                        <li>
-                            Reduced manual errors
-                        </li>
-
-                        <li>
-                            Easy bill management
-                        </li>
-
-                    </ul>
-
 
                     <a
                         href="cashier.html"
@@ -258,168 +201,221 @@
                 </article>
 
 
-                <!-- ==================================
-                     OWNER / MANAGER
-                     ================================== -->
+                <!-- OWNER / MANAGER -->
 
                 <article class="customer-card">
 
-                    <span class="customer-icon">
-                        👔
+                    <div class="customer-icon">
+                        👨‍💼
+                    </div>
+
+                    <span class="customer-type">
+                        INTERNAL CUSTOMER
                     </span>
 
                     <h3>
                         Restaurant Owner / Manager
                     </h3>
 
-                    <span class="customer-type">
-                        Internal Customer
-                    </span>
-
                     <p>
-                        The person responsible for managing
-                        the restaurant and monitoring the
-                        billing process.
+                        The owner or manager requires
+                        accurate, efficient and accessible
+                        billing operations to support
+                        restaurant management and
+                        continuous improvement.
                     </p>
 
-                    <h4>
-                        Customer Requirements
-                    </h4>
+                    <a
+                        href="owner.html"
+                        class="customer-module-link">
 
-                    <ul>
+                        Open Owner / Manager Module →
 
-                        <li>
-                            Accurate transactions
-                        </li>
-
-                        <li>
-                            Reliable billing process
-                        </li>
-
-                        <li>
-                            Reduced billing errors
-                        </li>
-
-                        <li>
-                            Quality monitoring
-                        </li>
-
-                        <li>
-                            Useful business information
-                        </li>
-
-                    </ul>
+                    </a>
 
                 </article>
 
+
             </div>
 
         </section>
 
 
-        <!-- ==========================================
-             TQM CUSTOMER FOCUS
-             ========================================== -->
+        <!-- CUSTOMER RELATIONSHIP -->
+
+        <section class="relationship-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Customer Relationship in TQM
+                    </h2>
+
+                    <p>
+                        Every customer group contributes
+                        to the quality improvement process.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="relationship-flow">
+
+                <div class="flow-box">
+
+                    <strong>
+                        Restaurant Customer
+                    </strong>
+
+                    <span>
+                        External Customer
+                    </span>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-box">
+
+                    <strong>
+                        Cashier / Staff
+                    </strong>
+
+                    <span>
+                        Internal Customer
+                    </span>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-box">
+
+                    <strong>
+                        Owner / Manager
+                    </strong>
+
+                    <span>
+                        Internal Customer
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TQM CUSTOMER FOCUS -->
 
         <section class="tqm-section">
 
+            <span class="section-label">
+                TQM CUSTOMER FOCUS
+            </span>
+
             <h2>
-                TQM Customer Focus
+                From Customer Needs to Quality
             </h2>
 
-            <p>
-                Customer requirements are used to define
-                quality objectives and improve the billing
-                system.
-            </p>
 
+            <div class="tqm-flow">
 
-            <div class="quality-flow">
-
-
-                <div>
-
-                    <strong>
-                        Customer
-                    </strong>
-
-                    <span>
-                        ↓
-                    </span>
-
+                <div class="tqm-box">
+                    Customer Needs
                 </div>
 
+                <span>
+                    →
+                </span>
 
-                <div>
-
-                    <strong>
-                        Requirements
-                    </strong>
-
-                    <span>
-                        ↓
-                    </span>
-
+                <div class="tqm-box">
+                    Requirements
                 </div>
 
+                <span>
+                    →
+                </span>
 
-                <div>
-
-                    <strong>
-                        Quality Objectives
-                    </strong>
-
-                    <span>
-                        ↓
-                    </span>
-
+                <div class="tqm-box">
+                    Quality Process
                 </div>
 
+                <span>
+                    →
+                </span>
 
-                <div>
-
-                    <strong>
-                        System Improvement
-                    </strong>
-
-                    <span>
-                        ↓
-                    </span>
-
+                <div class="tqm-box">
+                    Measurement
                 </div>
 
+                <span>
+                    →
+                </span>
 
-                <div>
-
-                    <strong>
-                        Customer Satisfaction
-                    </strong>
-
+                <div class="tqm-box">
+                    Continuous Improvement
                 </div>
 
             </div>
 
+
+            <p>
+                The billing system uses customer
+                requirements as a foundation for
+                improving service quality.
+            </p>
+
         </section>
+
+
+        <!-- NAVIGATION BUTTON -->
+
+        <section class="navigation-section">
+
+            <a
+                href="../index.html"
+                class="billing-button">
+
+                ← Back to Billing System
+
+            </a>
+
+        </section>
+
 
     </main>
 
 
-    <!-- ==========================================
-         FOOTER
-         ========================================== -->
+    <!-- FOOTER -->
 
     <footer class="footer">
 
         <p>
-            TQM Restaurant Billing System
+            Restaurant Billing System —
+            Total Quality Management Project
         </p>
 
         <p>
-            Customer-focused quality management
+            Customer & Stakeholder Management
         </p>
 
     </footer>
 
+
 </body>
 
 </html>
+```
