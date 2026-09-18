@@ -1,7 +1,7 @@
-css
+
 /* ==========================================
-   RESTAURANT OWNER / MANAGER MODULE
-   Day 21 - TQM Project
+   QUALITY REQUIREMENT MAPPING
+   DAY 22 - TQM PROJECT
 ========================================== */
 
 
@@ -41,7 +41,7 @@ body {
 
 
 .header-content {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
     text-align: center;
 }
@@ -50,7 +50,7 @@ body {
 .header-label {
     display: inline-block;
     padding: 7px 14px;
-    border: 1px solid #ffffff;
+    border: 1px solid white;
     border-radius: 20px;
     font-size: 13px;
     font-weight: bold;
@@ -105,12 +105,18 @@ body {
 }
 
 
+.navigation a.active {
+    background: #1f2937;
+    color: white;
+}
+
+
 /* ==========================================
-   MAIN CONTAINER
+   CONTAINER
 ========================================== */
 
 .container {
-    width: min(1150px, 92%);
+    width: min(1200px, 92%);
     margin: 40px auto;
 }
 
@@ -147,22 +153,13 @@ body {
 .intro-section p {
     color: #4b5563;
     margin-top: 10px;
-    max-width: 900px;
+    max-width: 950px;
 }
 
 
 /* ==========================================
-   SECTIONS
+   SECTION HEADING
 ========================================== */
-
-.section {
-    background: white;
-    padding: 40px;
-    border-radius: 14px;
-    border: 1px solid #e1e5ea;
-    margin-bottom: 35px;
-}
-
 
 .section-heading {
     display: flex;
@@ -197,47 +194,101 @@ body {
 
 
 /* ==========================================
-   REQUIREMENT CARDS
+   FLOW SECTION
 ========================================== */
 
-.requirements-grid {
-    display: grid;
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-    gap: 20px;
+.flow-section {
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid #e1e5ea;
+    margin-bottom: 35px;
 }
 
 
-.requirement-card {
+.main-flow {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.flow-card {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 22px 15px;
+    background: #fafafa;
     border: 1px solid #e1e5ea;
     border-radius: 12px;
-    padding: 25px;
-    background: #fafafa;
-    transition: 0.2s;
 }
 
 
-.requirement-card:hover {
-    transform: translateY(-3px);
-    border-color: #9ca3af;
+.flow-icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
 
-.card-icon {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-
-.requirement-card h3 {
+.flow-card h3 {
+    font-size: 17px;
     margin-bottom: 8px;
-    font-size: 19px;
 }
 
 
-.requirement-card p {
+.flow-card p {
     color: #6b7280;
-    font-size: 15px;
+    font-size: 14px;
+}
+
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   MAPPING SECTION
+========================================== */
+
+.mapping-section {
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid #e1e5ea;
+    margin-bottom: 35px;
+}
+
+
+/* ==========================================
+   CUSTOMER LABEL
+========================================== */
+
+.customer-label {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+
+.customer-label.external {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+
+.customer-label.internal {
+    background: #e5e7eb;
+    color: #1f2937;
 }
 
 
@@ -245,15 +296,16 @@ body {
    TABLE
 ========================================== */
 
-.table-container {
+.mapping-table-container {
+    width: 100%;
     overflow-x: auto;
 }
 
 
 table {
     width: 100%;
+    min-width: 850px;
     border-collapse: collapse;
-    min-width: 700px;
 }
 
 
@@ -262,6 +314,7 @@ td {
     padding: 16px;
     text-align: left;
     border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
 }
 
 
@@ -273,77 +326,22 @@ th {
 
 
 td {
-    color: #4b5563;
     background: white;
+    color: #4b5563;
+    font-size: 14px;
 }
 
 
-tr:hover td {
+tbody tr:hover td {
     background: #f9fafb;
 }
 
 
 /* ==========================================
-   WORKFLOW
+   SUMMARY SECTION
 ========================================== */
 
-.workflow {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 12px;
-}
-
-
-.workflow-step {
-    flex: 1;
-    text-align: center;
-    border: 1px solid #e1e5ea;
-    border-radius: 12px;
-    padding: 22px 15px;
-    background: #fafafa;
-}
-
-
-.step-number {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 12px;
-    border-radius: 50%;
-    background: #1f2937;
-    color: white;
-    font-weight: bold;
-}
-
-
-.workflow-step h3 {
-    font-size: 16px;
-    margin-bottom: 7px;
-}
-
-
-.workflow-step p {
-    color: #6b7280;
-    font-size: 14px;
-}
-
-
-.workflow-arrow {
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-
-/* ==========================================
-   TQM SECTION
-========================================== */
-
-.tqm-section {
+.summary-section {
     background: #1f2937;
     color: white;
     padding: 40px;
@@ -352,45 +350,48 @@ tr:hover td {
 }
 
 
-.tqm-section .section-label {
+.summary-section .section-label {
     color: #d1d5db;
 }
 
 
-.tqm-section h2 {
-    font-size: 27px;
+.summary-section h2 {
+    font-size: 28px;
     margin-bottom: 30px;
 }
 
 
-.tqm-flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 25px;
+.summary-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 18px;
 }
 
 
-.tqm-box {
-    padding: 14px 18px;
-    border: 1px solid #9ca3af;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
+.summary-card {
     background: #374151;
+    border: 1px solid #6b7280;
+    border-radius: 12px;
+    padding: 25px;
 }
 
 
-.tqm-flow span {
-    font-size: 22px;
+.summary-icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 12px;
 }
 
 
-.tqm-section > p {
+.summary-card h3 {
+    margin-bottom: 8px;
+}
+
+
+.summary-card p {
     color: #d1d5db;
-    max-width: 900px;
+    font-size: 14px;
 }
 
 
@@ -401,13 +402,15 @@ tr:hover td {
 .navigation-section {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 15px;
     margin-bottom: 40px;
 }
 
 
 .back-button,
+.requirements-button,
 .billing-button {
     display: inline-block;
     padding: 13px 20px;
@@ -425,6 +428,12 @@ tr:hover td {
 }
 
 
+.requirements-button {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+
 .billing-button {
     background: #1f2937;
     color: white;
@@ -434,6 +443,13 @@ tr:hover td {
 .back-button:hover,
 .back-button:focus {
     background: #e5e7eb;
+    outline: none;
+}
+
+
+.requirements-button:hover,
+.requirements-button:focus {
+    background: #d1d5db;
     outline: none;
 }
 
@@ -469,17 +485,19 @@ tr:hover td {
 
 @media (max-width: 1050px) {
 
-    .requirements-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .workflow {
+    .main-flow {
         flex-wrap: wrap;
     }
 
-    .workflow-step {
-        flex: 1 1 40%;
+
+    .flow-card {
+        flex: 1 1 28%;
+    }
+
+
+    .summary-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
 }
@@ -495,40 +513,38 @@ tr:hover td {
         font-size: 30px;
     }
 
+
     .header p {
         font-size: 15px;
     }
 
+
     .intro-section,
-    .section,
-    .tqm-section {
+    .flow-section,
+    .mapping-section,
+    .summary-section {
         padding: 28px 22px;
     }
 
-    .requirements-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .workflow {
+    .main-flow {
         flex-direction: column;
     }
 
-    .workflow-step {
-        flex: 1;
+
+    .flow-card {
         width: 100%;
     }
 
-    .workflow-arrow {
+
+    .flow-arrow {
         justify-content: center;
         transform: rotate(90deg);
     }
 
-    .tqm-flow {
-        flex-direction: column;
-    }
 
-    .tqm-flow span {
-        transform: rotate(90deg);
+    .summary-grid {
+        grid-template-columns: 1fr;
     }
 
 }
@@ -544,47 +560,59 @@ tr:hover td {
         padding: 40px 15px;
     }
 
+
     .header h1 {
         font-size: 25px;
     }
+
 
     .container {
         width: 94%;
         margin-top: 25px;
     }
 
+
     .navigation {
         flex-direction: column;
         align-items: stretch;
     }
 
+
     .navigation a {
         text-align: center;
     }
+
 
     .intro-section h2 {
         font-size: 24px;
     }
 
-    .section-heading h2 {
-        font-size: 22px;
-    }
 
     .section-heading {
         gap: 12px;
     }
+
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
 
     .section-number {
         min-width: 40px;
         height: 40px;
     }
 
+
     .navigation-section {
         flex-direction: column;
     }
 
+
     .back-button,
+    .requirements-button,
     .billing-button {
+        width: 100%;
         text-align: center;
     }
 

@@ -4,67 +4,75 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <title>Customer Module | TQM</title>
 
-    <title>
-        TQM - Customer Module
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="customer.css">
+    <link rel="stylesheet" href="customer.css">
 
 </head>
 
 <body>
 
-    <!-- ==========================================
-         HEADER
-         ========================================== -->
-
+    <!-- HEADER -->
     <header class="header">
 
-        <div class="header-content">
+        <div class="brand">
 
-            <h1>
-                Customer Module
-            </h1>
+            <span class="brand-icon">
+                🍽️
+            </span>
 
-            <p>
-                TQM Restaurant Billing System
-            </p>
+            <div>
+
+                <h1>
+                    TQM Restaurant Billing System
+                </h1>
+
+                <p>
+                    Restaurant Customer Module
+                </p>
+
+            </div>
 
         </div>
 
+
+        <!-- NAVIGATION -->
         <nav
-            class="navigation-buttons"
-            aria-label="Customer module navigation">
+            class="navigation"
+            aria-label="Main navigation">
 
-            <a
-                href="customers.html"
-                class="nav-button">
-
-                ← Customers
-
-            </a>
-
-            <a
-                href="requirements.html"
-                class="nav-button">
-
-                Requirements
-
-            </a>
-
-            <a
-                href="../index.html"
-                class="nav-button">
-
+            <a href="../index.html">
                 Billing System
+            </a>
 
+            <a href="customers.html">
+                Customers
+            </a>
+
+            <a
+                href="customer.html"
+                class="active">
+
+                Customer Module
+
+            </a>
+
+            <a href="cashier.html">
+                Cashier Module
+            </a>
+
+            <a href="owner.html">
+                Owner Module
+            </a>
+
+            <a href="requirements.html">
+                Requirements
+            </a>
+
+            <a href="quality-mapping.html">
+                Quality Mapping
             </a>
 
         </nav>
@@ -72,20 +80,14 @@
     </header>
 
 
-    <!-- ==========================================
-         MAIN CONTENT
-         ========================================== -->
-
+    <!-- MAIN -->
     <main class="container">
 
 
-        <!-- ==========================================
-             INTRODUCTION
-             ========================================== -->
-
+        <!-- INTRODUCTION -->
         <section class="intro-section">
 
-            <span class="section-label">
+            <span class="module-label">
                 EXTERNAL CUSTOMER
             </span>
 
@@ -94,635 +96,343 @@
             </h2>
 
             <p>
-                The restaurant customer is the primary
-                external customer of the Restaurant
-                Billing System.
-            </p>
-
-            <p>
-                The purpose of this customer module is to
-                connect customer requirements with the
-                quality goals of the billing system.
+                The restaurant customer is the external customer
+                of the billing system. The system should provide
+                an accurate, simple, clear and accessible billing
+                experience.
             </p>
 
         </section>
 
 
-        <!-- ==========================================
-             CUSTOMER REQUIREMENTS
-             ========================================== -->
-
+        <!-- CUSTOMER REQUIREMENTS -->
         <section class="requirements-section">
 
-            <div class="section-heading">
-
-                <h2>
-                    Customer Requirements
-                </h2>
-
-                <p>
-                    The system is designed according to
-                    the needs and expectations of the
-                    restaurant customer.
-                </p>
-
-            </div>
-
+            <h2>
+                Customer Requirements
+            </h2>
 
             <div class="requirements-grid">
 
 
-                <!-- Requirement 1 -->
-
                 <article class="requirement-card">
 
-                    <span class="requirement-icon">
+                    <div class="card-icon">
                         🧾
-                    </span>
+                    </div>
 
                     <h3>
-                        Accurate Billing
+                        Accurate Bill
                     </h3>
 
                     <p>
-                        Customers expect the bill to contain
-                        correct item prices, quantities,
-                        subtotal, tax and final total.
+                        Customers expect all item prices,
+                        quantities, tax and final totals to
+                        be calculated correctly.
                     </p>
 
-                    <span class="quality-tag">
-                        Quality: Accuracy
+                    <span class="quality-objective">
+                        Quality Objective:
+                        Reduce billing errors
                     </span>
 
                 </article>
 
 
-                <!-- Requirement 2 -->
-
                 <article class="requirement-card">
 
-                    <span class="requirement-icon">
-                        👁️
-                    </span>
+                    <div class="card-icon">
+                        🖥️
+                    </div>
 
                     <h3>
-                        Easy-to-Read Bill
+                        Simple Billing
                     </h3>
 
                     <p>
-                        Billing information should be clearly
-                        displayed so that customers can
-                        understand their charges easily.
+                        Customers should be able to understand
+                        the billing process without unnecessary
+                        complexity.
                     </p>
 
-                    <span class="quality-tag">
-                        Quality: Readability
+                    <span class="quality-objective">
+                        Quality Objective:
+                        Simplify the interface
                     </span>
 
                 </article>
 
 
-                <!-- Requirement 3 -->
+                <article class="requirement-card">
+
+                    <div class="card-icon">
+                        👀
+                    </div>
+
+                    <h3>
+                        Clear Bill
+                    </h3>
+
+                    <p>
+                        Selected items, quantities, prices,
+                        tax and total should be clearly visible.
+                    </p>
+
+                    <span class="quality-objective">
+                        Quality Objective:
+                        Improve information clarity
+                    </span>
+
+                </article>
+
 
                 <article class="requirement-card">
 
-                    <span class="requirement-icon">
+                    <div class="card-icon">
                         ⚡
-                    </span>
+                    </div>
 
                     <h3>
-                        Fast Service
+                        Easy Checkout
                     </h3>
 
                     <p>
-                        The billing process should be quick
-                        and efficient to reduce unnecessary
-                        waiting time.
+                        Customers should be able to complete
+                        the billing process efficiently.
                     </p>
 
-                    <span class="quality-tag">
-                        Quality: Efficiency
+                    <span class="quality-objective">
+                        Quality Objective:
+                        Reduce unnecessary steps
                     </span>
 
                 </article>
 
 
-                <!-- Requirement 4 -->
-
                 <article class="requirement-card">
 
-                    <span class="requirement-icon">
+                    <div class="card-icon">
                         ♿
-                    </span>
-
-                    <h3>
-                        Accessible Interface
-                    </h3>
-
-                    <p>
-                        The system should be usable by
-                        customers with different accessibility
-                        requirements.
-                    </p>
-
-                    <span class="quality-tag">
-                        Quality: Accessibility
-                    </span>
-
-                </article>
-
-
-                <!-- Requirement 5 -->
-
-                <article class="requirement-card">
-
-                    <span class="requirement-icon">
-                        🔍
-                    </span>
-
-                    <h3>
-                        Clear Information
-                    </h3>
-
-                    <p>
-                        Menu items, prices, quantities, tax
-                        and final amounts should be presented
-                        clearly.
-                    </p>
-
-                    <span class="quality-tag">
-                        Quality: Clarity
-                    </span>
-
-                </article>
-
-
-                <!-- Requirement 6 -->
-
-                <article class="requirement-card">
-
-                    <span class="requirement-icon">
-                        😊
-                    </span>
-
-                    <h3>
-                        Customer Satisfaction
-                    </h3>
-
-                    <p>
-                        The overall billing experience should
-                        meet customer expectations and provide
-                        a satisfactory service.
-                    </p>
-
-                    <span class="quality-tag">
-                        Quality: Satisfaction
-                    </span>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================================
-             QUALITY COMMITMENTS
-             ========================================== -->
-
-        <section class="quality-section">
-
-            <div class="section-heading">
-
-                <h2>
-                    Quality Commitments
-                </h2>
-
-                <p>
-                    Customer requirements are converted into
-                    quality commitments using the TQM
-                    customer-focus principle.
-                </p>
-
-            </div>
-
-
-            <div class="commitment-grid">
-
-
-                <article class="commitment-card">
-
-                    <span class="commitment-number">
-                        01
-                    </span>
-
-                    <h3>
-                        Accuracy
-                    </h3>
-
-                    <p>
-                        Automatic calculations and bill
-                        validation help reduce calculation
-                        errors.
-                    </p>
-
-                </article>
-
-
-                <article class="commitment-card">
-
-                    <span class="commitment-number">
-                        02
-                    </span>
+                    </div>
 
                     <h3>
                         Accessibility
                     </h3>
 
                     <p>
-                        Accessibility features will be added
-                        to make the system easier to use.
+                        The system is being developed to support
+                        different accessibility needs.
                     </p>
 
-                </article>
-
-
-                <article class="commitment-card">
-
-                    <span class="commitment-number">
-                        03
+                    <span class="quality-objective">
+                        Planned:
+                        Days 24–27
                     </span>
 
-                    <h3>
-                        Simplicity
-                    </h3>
-
-                    <p>
-                        The billing process should contain
-                        simple and understandable steps.
-                    </p>
-
                 </article>
 
-
-                <article class="commitment-card">
-
-                    <span class="commitment-number">
-                        04
-                    </span>
-
-                    <h3>
-                        Reliability
-                    </h3>
-
-                    <p>
-                        Invalid billing information should
-                        be detected before checkout.
-                    </p>
-
-                </article>
-
-
-                <article class="commitment-card">
-
-                    <span class="commitment-number">
-                        05
-                    </span>
-
-                    <h3>
-                        Efficiency
-                    </h3>
-
-                    <p>
-                        The system should reduce unnecessary
-                        manual work during billing.
-                    </p>
-
-                </article>
-
-
-                <article class="commitment-card">
-
-                    <span class="commitment-number">
-                        06
-                    </span>
-
-                    <h3>
-                        Continuous Improvement
-                    </h3>
-
-                    <p>
-                        Testing and customer feedback will
-                        be used to improve system quality.
-                    </p>
-
-                </article>
 
             </div>
 
         </section>
 
 
-        <!-- ==========================================
-             CUSTOMER JOURNEY
-             ========================================== -->
-
-        <section class="journey-section">
-
-            <div class="section-heading">
-
-                <h2>
-                    Customer Billing Journey
-                </h2>
-
-                <p>
-                    The customer experience follows a simple
-                    quality-focused billing process.
-                </p>
-
-            </div>
-
-
-            <div class="journey">
-
-
-                <div class="journey-step">
-
-                    <span class="step-number">
-                        01
-                    </span>
-
-                    <span class="step-icon">
-                        🍔
-                    </span>
-
-                    <h3>
-                        Select Items
-                    </h3>
-
-                    <p>
-                        Select the required food and
-                        beverage items.
-                    </p>
-
-                </div>
-
-
-                <div class="journey-arrow">
-                    →
-                </div>
-
-
-                <div class="journey-step">
-
-                    <span class="step-number">
-                        02
-                    </span>
-
-                    <span class="step-icon">
-                        🧾
-                    </span>
-
-                    <h3>
-                        Review Bill
-                    </h3>
-
-                    <p>
-                        Check selected items and their
-                        quantities.
-                    </p>
-
-                </div>
-
-
-                <div class="journey-arrow">
-                    →
-                </div>
-
-
-                <div class="journey-step">
-
-                    <span class="step-number">
-                        03
-                    </span>
-
-                    <span class="step-icon">
-                        🔢
-                    </span>
-
-                    <h3>
-                        Verify Total
-                    </h3>
-
-                    <p>
-                        Review subtotal, tax and
-                        final amount.
-                    </p>
-
-                </div>
-
-
-                <div class="journey-arrow">
-                    →
-                </div>
-
-
-                <div class="journey-step">
-
-                    <span class="step-number">
-                        04
-                    </span>
-
-                    <span class="step-icon">
-                        ✅
-                    </span>
-
-                    <h3>
-                        Checkout
-                    </h3>
-
-                    <p>
-                        Complete the billing process
-                        successfully.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================================
-             TQM CONNECTION
-             ========================================== -->
-
-        <section class="tqm-section">
+        <!-- CUSTOMER QUALITY EXPECTATIONS -->
+        <section class="quality-section">
 
             <h2>
-                TQM Customer Focus
+                Customer Quality Expectations
+            </h2>
+
+            <div class="quality-table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Requirement
+                            </th>
+
+                            <th>
+                                System Feature
+                            </th>
+
+                            <th>
+                                Expected Quality Result
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Accurate Bill
+                            </td>
+
+                            <td>
+                                Automatic calculations
+                            </td>
+
+                            <td>
+                                Correct billing information
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Simple Billing
+                            </td>
+
+                            <td>
+                                Menu and billing interface
+                            </td>
+
+                            <td>
+                                Easier billing experience
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Clear Bill
+                            </td>
+
+                            <td>
+                                Bill item display
+                            </td>
+
+                            <td>
+                                Better understanding of charges
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Easy Checkout
+                            </td>
+
+                            <td>
+                                Checkout functionality
+                            </td>
+
+                            <td>
+                                Faster billing completion
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Accessibility
+                            </td>
+
+                            <td>
+                                Accessibility features
+                            </td>
+
+                            <td>
+                                More accessible system
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUALITY MAPPING -->
+        <section class="mapping-section">
+
+            <h2>
+                Customer Requirement Mapping
             </h2>
 
             <p>
-                This module demonstrates how the customer's
-                needs are connected to the quality management
-                process.
-            </p>
-
-
-            <div class="tqm-flow">
-
-
-                <div class="flow-box">
-
-                    <span>
-                        👤
-                    </span>
-
-                    <strong>
-                        Customer
-                    </strong>
-
-                    <small>
-                        External customer
-                    </small>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <span>
-                        📋
-                    </span>
-
-                    <strong>
-                        Requirements
-                    </strong>
-
-                    <small>
-                        Customer expectations
-                    </small>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <span>
-                        🎯
-                    </span>
-
-                    <strong>
-                        Quality
-                    </strong>
-
-                    <small>
-                        Quality objectives
-                    </small>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <span>
-                        ⚙️
-                    </span>
-
-                    <strong>
-                        Improvement
-                    </strong>
-
-                    <small>
-                        Better system
-                    </small>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <span>
-                        😊
-                    </span>
-
-                    <strong>
-                        Satisfaction
-                    </strong>
-
-                    <small>
-                        Customer satisfaction
-                    </small>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==========================================
-             BILLING ACTION
-             ========================================== -->
-
-        <section class="action-section">
-
-            <h2>
-                Customer Billing Experience
-            </h2>
-
-            <p>
-                Open the main billing system to experience
-                the customer-focused interface.
+                Customer requirements are connected to system
+                features and quality objectives using the
+                TQM quality mapping process.
             </p>
 
             <a
-                href="../index.html"
-                class="billing-button">
+                href="quality-mapping.html"
+                class="primary-button">
 
-                Start Billing →
+                Open Quality Mapping →
 
             </a>
 
         </section>
 
 
+        <!-- NAVIGATION -->
+        <section class="navigation-buttons">
+
+            <a
+                href="customers.html"
+                class="secondary-button">
+
+                ← Customers
+
+            </a>
+
+            <a
+                href="cashier.html"
+                class="primary-button">
+
+                Cashier Module →
+
+            </a>
+
+            <a
+                href="requirements.html"
+                class="primary-button">
+
+                Requirements
+
+            </a>
+
+            <a
+                href="../index.html"
+                class="secondary-button">
+
+                Billing System
+
+            </a>
+
+        </section>
+
     </main>
 
 
-    <!-- ==========================================
-         FOOTER
-         ========================================== -->
-
+    <!-- FOOTER -->
     <footer class="footer">
 
         <p>
-            TQM Restaurant Billing System
+            Restaurant Billing System |
+            Total Quality Management Project
         </p>
 
         <p>
-            Customer-focused quality management
+            Customer-focused quality improvement
         </p>
 
     </footer>

@@ -4,74 +4,87 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <title>Customer Requirements | TQM</title>
 
-    <title>
-        TQM - Customer Requirements
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="requirements.css">
+    <link rel="stylesheet" href="requirements.css">
 
 </head>
 
 <body>
 
-
-    <!-- ==========================================
-         HEADER
-         ========================================== -->
-
+    <!-- HEADER -->
     <header class="header">
 
-        <div class="header-content">
+        <div class="brand">
 
-            <h1>
-                TQM Customer Requirements
-            </h1>
+            <span class="brand-icon">
+                🍽️
+            </span>
 
-            <p>
-                Restaurant Billing System
-            </p>
+            <div>
+
+                <h1>
+                    TQM Restaurant Billing System
+                </h1>
+
+                <p>
+                    Customer Requirements & Quality Objectives
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="navigation-buttons">
 
-            <a
-                href="customers.html"
-                class="back-button">
+        <!-- NAVIGATION -->
+        <nav
+            class="navigation"
+            aria-label="Main navigation">
 
-                ← Customers
-
-            </a>
-
-            <a
-                href="../index.html"
-                class="back-button">
-
+            <a href="../index.html">
                 Billing System
+            </a>
+
+            <a href="customers.html">
+                Customers
+            </a>
+
+            <a href="customer.html">
+                Customer Module
+            </a>
+
+            <a href="cashier.html">
+                Cashier Module
+            </a>
+
+            <a href="owner.html">
+                Owner Module
+            </a>
+
+            <a
+                href="requirements.html"
+                class="active">
+
+                Requirements
 
             </a>
 
-        </div>
+            <a href="quality-mapping.html">
+                Quality Mapping
+            </a>
+
+        </nav>
 
     </header>
 
 
-    <!-- ==========================================
-         MAIN
-         ========================================== -->
-
+    <!-- MAIN -->
     <main class="container">
 
 
-        <!-- INTRODUCTION -->
-
+        <!-- INTRO -->
         <section class="intro-section">
 
             <h2>
@@ -79,27 +92,333 @@
             </h2>
 
             <p>
-                Total Quality Management begins by
-                understanding customer expectations.
+                TQM begins by understanding customer needs
+                and converting those needs into measurable
+                quality objectives.
             </p>
 
             <p>
-                The requirements of external and internal
-                customers are converted into measurable
-                quality objectives.
+                The Restaurant Billing System identifies
+                requirements for external customers,
+                internal staff and restaurant management.
             </p>
 
         </section>
 
 
-        <!-- REQUIREMENT MATRIX -->
-
+        <!-- CUSTOMER REQUIREMENTS -->
         <section class="requirements-section">
 
             <h2>
-                Customer Requirement Matrix
+                Restaurant Customer Requirements
             </h2>
 
+            <div class="requirements-grid">
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Accurate Bill
+                    </h3>
+
+                    <p>
+                        Customers expect the bill to contain
+                        correct prices, quantities, tax and
+                        final total.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Minimize billing calculation errors.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Simple Billing
+                    </h3>
+
+                    <p>
+                        Customers should be able to understand
+                        the billing process easily.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Provide a simple and understandable
+                        billing interface.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Clear Bill
+                    </h3>
+
+                    <p>
+                        Selected items, quantities and charges
+                        should be clearly displayed.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Improve clarity of billing information.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Easy Checkout
+                    </h3>
+
+                    <p>
+                        The billing process should allow
+                        quick and simple checkout.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Reduce unnecessary steps during checkout.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CASHIER -->
+        <section class="requirements-section">
+
+            <h2>
+                Cashier / Staff Requirements
+            </h2>
+
+            <div class="requirements-grid">
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Fast Billing
+                    </h3>
+
+                    <p>
+                        Cashiers need to create bills quickly
+                        during restaurant operations.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Reduce the number of steps required
+                        for billing.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Easy Item Selection
+                    </h3>
+
+                    <p>
+                        Menu items should be easy to identify
+                        and add to the bill.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Simplify order entry.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Quantity Control
+                    </h3>
+
+                    <p>
+                        Cashiers should easily increase or
+                        decrease item quantities.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Make bill corrections simple.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Reduced Errors
+                    </h3>
+
+                    <p>
+                        The system should identify invalid
+                        billing conditions.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Improve billing reliability.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- OWNER -->
+        <section class="requirements-section">
+
+            <h2>
+                Owner / Manager Requirements
+            </h2>
+
+            <div class="requirements-grid">
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Accurate Billing Information
+                    </h3>
+
+                    <p>
+                        Management requires reliable billing
+                        calculations.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Maintain consistent billing accuracy.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Efficient Operations
+                    </h3>
+
+                    <p>
+                        The system should simplify restaurant
+                        billing operations.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Improve operational efficiency.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Quality Monitoring
+                    </h3>
+
+                    <p>
+                        Management should be able to identify
+                        quality problems and improvement areas.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Support continuous quality improvement.
+                    </p>
+
+                </article>
+
+
+                <article class="requirement-card">
+
+                    <h3>
+                        Accessibility
+                    </h3>
+
+                    <p>
+                        The system should become usable by
+                        customers with different accessibility
+                        needs.
+                    </p>
+
+                    <strong>
+                        Quality Objective:
+                    </strong>
+
+                    <p>
+                        Improve system accessibility.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUALITY OBJECTIVES TABLE -->
+        <section class="objectives-section">
+
+            <h2>
+                Quality Objectives
+            </h2>
 
             <div class="table-container">
 
@@ -114,10 +433,6 @@
                             </th>
 
                             <th>
-                                Type
-                            </th>
-
-                            <th>
                                 Requirement
                             </th>
 
@@ -126,18 +441,34 @@
                             </th>
 
                             <th>
-                                Measurement
+                                Expected Result
                             </th>
 
                         </tr>
 
                     </thead>
 
-
                     <tbody>
 
+                        <tr>
 
-                        <!-- CUSTOMER 1 -->
+                            <td>
+                                Restaurant Customer
+                            </td>
+
+                            <td>
+                                Accurate Bill
+                            </td>
+
+                            <td>
+                                Reduce calculation errors
+                            </td>
+
+                            <td>
+                                Reliable bill
+                            </td>
+
+                        </tr>
 
                         <tr>
 
@@ -146,110 +477,18 @@
                             </td>
 
                             <td>
-                                External
+                                Simple Billing
                             </td>
 
                             <td>
-                                Accurate billing
+                                Simplify interface
                             </td>
 
                             <td>
-                                Minimize calculation
-                                errors
-                            </td>
-
-                            <td>
-                                Correct subtotal,
-                                tax and total
+                                Easier billing experience
                             </td>
 
                         </tr>
-
-
-                        <!-- CUSTOMER 2 -->
-
-                        <tr>
-
-                            <td>
-                                Restaurant Customer
-                            </td>
-
-                            <td>
-                                External
-                            </td>
-
-                            <td>
-                                Easy-to-read bill
-                            </td>
-
-                            <td>
-                                Provide clear billing
-                                information
-                            </td>
-
-                            <td>
-                                Readability testing
-                            </td>
-
-                        </tr>
-
-
-                        <!-- CUSTOMER 3 -->
-
-                        <tr>
-
-                            <td>
-                                Restaurant Customer
-                            </td>
-
-                            <td>
-                                External
-                            </td>
-
-                            <td>
-                                Accessible interface
-                            </td>
-
-                            <td>
-                                Support different
-                                accessibility needs
-                            </td>
-
-                            <td>
-                                Accessibility testing
-                            </td>
-
-                        </tr>
-
-
-                        <!-- CUSTOMER 4 -->
-
-                        <tr>
-
-                            <td>
-                                Restaurant Customer
-                            </td>
-
-                            <td>
-                                External
-                            </td>
-
-                            <td>
-                                Fast service
-                            </td>
-
-                            <td>
-                                Reduce billing time
-                            </td>
-
-                            <td>
-                                Billing process time
-                            </td>
-
-                        </tr>
-
-
-                        <!-- CASHIER 1 -->
 
                         <tr>
 
@@ -258,27 +497,18 @@
                             </td>
 
                             <td>
-                                Internal
+                                Fast Billing
                             </td>
 
                             <td>
-                                Simple billing process
+                                Reduce billing steps
                             </td>
 
                             <td>
-                                Reduce unnecessary
-                                steps
-                            </td>
-
-                            <td>
-                                Number of process
-                                steps
+                                Faster operation
                             </td>
 
                         </tr>
-
-
-                        <!-- CASHIER 2 -->
 
                         <tr>
 
@@ -287,139 +517,58 @@
                             </td>
 
                             <td>
-                                Internal
+                                Reduced Errors
                             </td>
 
                             <td>
-                                Automatic calculations
+                                Validate billing data
                             </td>
 
                             <td>
-                                Reduce manual
-                                calculation errors
-                            </td>
-
-                            <td>
-                                Calculation test cases
+                                Improved reliability
                             </td>
 
                         </tr>
-
-
-                        <!-- CASHIER 3 -->
 
                         <tr>
 
                             <td>
-                                Cashier / Staff
+                                Owner / Manager
                             </td>
 
                             <td>
-                                Internal
+                                Efficient Operations
                             </td>
 
                             <td>
-                                Easy bill management
+                                Improve process efficiency
                             </td>
 
                             <td>
-                                Make adding and
-                                removing items simple
-                            </td>
-
-                            <td>
-                                Functional testing
+                                Better operations
                             </td>
 
                         </tr>
-
-
-                        <!-- OWNER 1 -->
 
                         <tr>
 
                             <td>
-                                Restaurant Owner /
-                                Manager
+                                Owner / Manager
                             </td>
 
                             <td>
-                                Internal
+                                Accessibility
                             </td>
 
                             <td>
-                                Accurate transactions
+                                Improve accessibility
                             </td>
 
                             <td>
-                                Maintain reliable
-                                calculations
-                            </td>
-
-                            <td>
-                                Transaction accuracy
+                                More accessible system
                             </td>
 
                         </tr>
-
-
-                        <!-- OWNER 2 -->
-
-                        <tr>
-
-                            <td>
-                                Restaurant Owner /
-                                Manager
-                            </td>
-
-                            <td>
-                                Internal
-                            </td>
-
-                            <td>
-                                Reduced billing errors
-                            </td>
-
-                            <td>
-                                Detect invalid bills
-                                before checkout
-                            </td>
-
-                            <td>
-                                Validation testing
-                            </td>
-
-                        </tr>
-
-
-                        <!-- OWNER 3 -->
-
-                        <tr>
-
-                            <td>
-                                Restaurant Owner /
-                                Manager
-                            </td>
-
-                            <td>
-                                Internal
-                            </td>
-
-                            <td>
-                                Quality monitoring
-                            </td>
-
-                            <td>
-                                Monitor and improve
-                                system quality
-                            </td>
-
-                            <td>
-                                Quality metrics
-                            </td>
-
-                        </tr>
-
 
                     </tbody>
 
@@ -430,254 +579,75 @@
         </section>
 
 
-        <!-- QUALITY OBJECTIVES -->
-
-        <section class="objectives-section">
+        <!-- QUALITY MAPPING -->
+        <section class="mapping-link-section">
 
             <h2>
-                Key Quality Objectives
+                Requirement to Feature Mapping
             </h2>
 
+            <p>
+                The next TQM step is to connect each customer
+                requirement with a quality objective and an
+                actual system feature.
+            </p>
 
-            <div class="objective-grid">
+            <a
+                href="quality-mapping.html"
+                class="customer-module-link">
 
+                Open Quality Mapping →
 
-                <article class="objective-card">
-
-                    <span class="objective-number">
-                        01
-                    </span>
-
-                    <h3>
-                        Accuracy
-                    </h3>
-
-                    <p>
-                        Subtotal, tax and total should
-                        be calculated correctly.
-                    </p>
-
-                </article>
-
-
-                <article class="objective-card">
-
-                    <span class="objective-number">
-                        02
-                    </span>
-
-                    <h3>
-                        Accessibility
-                    </h3>
-
-                    <p>
-                        The system should be usable
-                        by customers with different
-                        accessibility needs.
-                    </p>
-
-                </article>
-
-
-                <article class="objective-card">
-
-                    <span class="objective-number">
-                        03
-                    </span>
-
-                    <h3>
-                        Efficiency
-                    </h3>
-
-                    <p>
-                        The billing process should
-                        require minimal unnecessary
-                        steps.
-                    </p>
-
-                </article>
-
-
-                <article class="objective-card">
-
-                    <span class="objective-number">
-                        04
-                    </span>
-
-                    <h3>
-                        Reliability
-                    </h3>
-
-                    <p>
-                        Invalid billing transactions
-                        should be prevented.
-                    </p>
-
-                </article>
-
-
-                <article class="objective-card">
-
-                    <span class="objective-number">
-                        05
-                    </span>
-
-                    <h3>
-                        Customer Satisfaction
-                    </h3>
-
-                    <p>
-                        The system should satisfy
-                        external and internal
-                        customer requirements.
-                    </p>
-
-                </article>
-
-
-                <article class="objective-card">
-
-                    <span class="objective-number">
-                        06
-                    </span>
-
-                    <h3>
-                        Continuous Improvement
-                    </h3>
-
-                    <p>
-                        System quality should be
-                        regularly evaluated and
-                        improved.
-                    </p>
-
-                </article>
-
-
-            </div>
+            </a>
 
         </section>
 
 
-        <!-- TQM PROCESS -->
+        <!-- NAVIGATION -->
+        <section class="navigation-buttons">
 
-        <section class="flow-section">
+            <a
+                href="customers.html"
+                class="primary-button">
 
-            <h2>
-                TQM Requirement-to-Quality Process
-            </h2>
+                Customers
 
+            </a>
 
-            <div class="quality-flow">
+            <a
+                href="quality-mapping.html"
+                class="primary-button">
 
+                Quality Mapping
 
-                <div class="flow-box">
+            </a>
 
-                    <strong>
-                        Customer
-                    </strong>
+            <a
+                href="../index.html"
+                class="secondary-button">
 
-                    <span>
-                        Who needs quality?
-                    </span>
+                Back to Billing System
 
-                </div>
-
-
-                <div class="arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <strong>
-                        Requirement
-                    </strong>
-
-                    <span>
-                        What do they need?
-                    </span>
-
-                </div>
-
-
-                <div class="arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <strong>
-                        Quality Objective
-                    </strong>
-
-                    <span>
-                        What should improve?
-                    </span>
-
-                </div>
-
-
-                <div class="arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <strong>
-                        Measurement
-                    </strong>
-
-                    <span>
-                        How do we know?
-                    </span>
-
-                </div>
-
-
-                <div class="arrow">
-                    →
-                </div>
-
-
-                <div class="flow-box">
-
-                    <strong>
-                        Improvement
-                    </strong>
-
-                    <span>
-                        What can we improve?
-                    </span>
-
-                </div>
-
-
-            </div>
+            </a>
 
         </section>
-
 
     </main>
 
 
     <!-- FOOTER -->
-
     <footer class="footer">
 
         <p>
-            TQM Restaurant Billing System
+            Restaurant Billing System |
+            Total Quality Management Project
         </p>
 
         <p>
-            Customer-focused quality management
+            Customer-focused continuous improvement
         </p>
 
     </footer>
-
 
 </body>
 
