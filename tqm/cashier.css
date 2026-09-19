@@ -896,3 +896,30 @@ tbody tr:hover {
     }
 
 }
+
+.mapping-section {
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid #e1e5ea;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.mapping-section h2 {
+    margin-bottom: 10px;
+}
+
+.mapping-section p {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.primary-button {
+    display: inline-block;
+    background: #1f2937;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+}

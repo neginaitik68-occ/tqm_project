@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Feedback | TQM</title>
+
+    <link rel="stylesheet" href="feedback.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="brand">
+
+            <span class="brand-icon">
+                🍽️
+            </span>
+
+            <div>
+
+                <h1>
+                    TQM Restaurant Billing System
+                </h1>
+
+                <p>
+                    Customer Feedback & Quality Measurement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav
+            class="navigation"
+            aria-label="Main navigation">
+
+            <a href="../index.html">
+                Billing System
+            </a>
+
+            <a href="customers.html">
+                Customers
+            </a>
+
+            <a href="customer.html">
+                Customer Module
+            </a>
+
+            <a href="cashier.html">
+                Cashier Module
+            </a>
+
+            <a href="owner.html">
+                Owner Module
+            </a>
+
+            <a href="requirements.html">
+                Requirements
+            </a>
+
+            <a href="quality-mapping.html">
+                Quality Mapping
+            </a>
+
+            <a
+                href="feedback.html"
+                class="active">
+
+                Feedback
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+
+        <!-- INTRODUCTION -->
+        <section class="intro-section">
+
+            <span class="module-label">
+                CUSTOMER FEEDBACK
+            </span>
+
+            <h2>
+                Customer Feedback Mechanism
+            </h2>
+
+            <p>
+                Total Quality Management requires organizations
+                to understand customer satisfaction and use
+                feedback to identify areas for improvement.
+            </p>
+
+            <p>
+                This feedback module allows users to provide a
+                rating and comments about their billing experience.
+            </p>
+
+        </section>
+
+
+        <!-- FEEDBACK FORM -->
+        <section class="feedback-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Give Your Feedback
+                </h2>
+
+                <p>
+                    Tell us about your experience with the
+                    Restaurant Billing System.
+                </p>
+
+            </div>
+
+
+            <form
+                id="feedbackForm"
+                class="feedback-form">
+
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <!-- CUSTOMER TYPE -->
+                <div class="form-group">
+
+                    <label for="customerType">
+                        Customer Type
+                    </label>
+
+                    <select
+                        id="customerType"
+                        name="customerType"
+                        required>
+
+                        <option value="">
+                            Select customer type
+                        </option>
+
+                        <option value="Restaurant Customer">
+                            Restaurant Customer
+                        </option>
+
+                        <option value="Cashier / Staff">
+                            Cashier / Staff
+                        </option>
+
+                        <option value="Owner / Manager">
+                            Owner / Manager
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- RATING -->
+                <div class="form-group">
+
+                    <label for="rating">
+                        Overall Experience
+                    </label>
+
+                    <select
+                        id="rating"
+                        name="rating"
+                        required>
+
+                        <option value="">
+                            Select rating
+                        </option>
+
+                        <option value="5">
+                            5 - Excellent
+                        </option>
+
+                        <option value="4">
+                            4 - Good
+                        </option>
+
+                        <option value="3">
+                            3 - Average
+                        </option>
+
+                        <option value="2">
+                            2 - Needs Improvement
+                        </option>
+
+                        <option value="1">
+                            1 - Poor
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- AREA -->
+                <div class="form-group">
+
+                    <label for="feedbackArea">
+                        What would you like to give feedback about?
+                    </label>
+
+                    <select
+                        id="feedbackArea"
+                        name="feedbackArea"
+                        required>
+
+                        <option value="">
+                            Select an area
+                        </option>
+
+                        <option value="Billing Accuracy">
+                            Billing Accuracy
+                        </option>
+
+                        <option value="Ease of Use">
+                            Ease of Use
+                        </option>
+
+                        <option value="Item Selection">
+                            Item Selection
+                        </option>
+
+                        <option value="Bill Management">
+                            Bill Management
+                        </option>
+
+                        <option value="Checkout">
+                            Checkout
+                        </option>
+
+                        <option value="Accessibility">
+                            Accessibility
+                        </option>
+
+                        <option value="Overall Experience">
+                            Overall Experience
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- COMMENTS -->
+                <div class="form-group">
+
+                    <label for="comments">
+                        Comments / Suggestions
+                    </label>
+
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        rows="6"
+                        placeholder="Enter your feedback or suggestion..."
+                        required></textarea>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="submit"
+                    class="submit-button">
+
+                    Submit Feedback
+
+                </button>
+
+
+                <!-- MESSAGE -->
+                <div
+                    id="feedbackMessage"
+                    class="feedback-message"
+                    role="status"
+                    aria-live="polite">
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- FEEDBACK SUMMARY -->
+        <section class="summary-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Feedback Summary
+                </h2>
+
+                <p>
+                    Current feedback measurements help identify
+                    areas that may require quality improvement.
+                </p>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+
+                <div class="summary-card">
+
+                    <span class="summary-icon">
+                        📝
+                    </span>
+
+                    <h3>
+                        Total Feedback
+                    </h3>
+
+                    <strong id="totalFeedback">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span class="summary-icon">
+                        ⭐
+                    </span>
+
+                    <h3>
+                        Average Rating
+                    </h3>
+
+                    <strong id="averageRating">
+                        0.0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span class="summary-icon">
+                        😊
+                    </span>
+
+                    <h3>
+                        Positive Feedback
+                    </h3>
+
+                    <strong id="positiveFeedback">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span class="summary-icon">
+                        🔧
+                    </span>
+
+                    <h3>
+                        Improvement Feedback
+                    </h3>
+
+                    <strong id="improvementFeedback">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- FEEDBACK RECORDS -->
+        <section class="records-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Recent Feedback
+                </h2>
+
+                <p>
+                    Feedback submitted during this session is
+                    displayed below.
+                </p>
+
+            </div>
+
+
+            <div
+                id="feedbackRecords"
+                class="feedback-records">
+
+                <div class="empty-records">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <h3>
+                        No feedback submitted yet
+                    </h3>
+
+                    <p>
+                        Submitted feedback will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TQM PROCESS -->
+        <section class="tqm-section">
+
+            <h2>
+                Feedback-Based Continuous Improvement
+            </h2>
+
+            <div class="tqm-flow">
+
+
+                <div class="flow-box">
+
+                    <span>
+                        👥
+                    </span>
+
+                    <h3>
+                        Customer
+                    </h3>
+
+                    <p>
+                        Uses the system
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>
+                        📝
+                    </span>
+
+                    <h3>
+                        Feedback
+                    </h3>
+
+                    <p>
+                        Shares experience
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>
+                        📊
+                    </span>
+
+                    <h3>
+                        Measurement
+                    </h3>
+
+                    <p>
+                        Analyze quality
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-box">
+
+                    <span>
+                        🔧
+                    </span>
+
+                    <h3>
+                        Improvement
+                    </h3>
+
+                    <p>
+                        Improve the system
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- QUALITY CONNECTION -->
+        <section class="mapping-section">
+
+            <h2>
+                Connect Feedback With TQM Requirements
+            </h2>
+
+            <p>
+                Feedback can be used to evaluate whether customer
+                requirements and quality objectives are being met.
+            </p>
+
+            <a
+                href="quality-mapping.html"
+                class="primary-button">
+
+                View Quality Mapping →
+
+            </a>
+
+        </section>
+
+
+        <!-- NAVIGATION -->
+        <section class="navigation-buttons">
+
+            <a
+                href="customers.html"
+                class="secondary-button">
+
+                ← Customers
+
+            </a>
+
+            <a
+                href="requirements.html"
+                class="primary-button">
+
+                Requirements
+
+            </a>
+
+            <a
+                href="quality-mapping.html"
+                class="primary-button">
+
+                Quality Mapping
+
+            </a>
+
+            <a
+                href="../index.html"
+                class="secondary-button">
+
+                Billing System
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            Restaurant Billing System |
+            Total Quality Management Project
+        </p>
+
+        <p>
+            Customer Feedback → Measurement → Continuous Improvement
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const feedbackForm =
+            document.getElementById("feedbackForm");
+
+        const feedbackMessage =
+            document.getElementById("feedbackMessage");
+
+        const totalFeedback =
+            document.getElementById("totalFeedback");
+
+        const averageRating =
+            document.getElementById("averageRating");
+
+        const positiveFeedback =
+            document.getElementById("positiveFeedback");
+
+        const improvementFeedback =
+            document.getElementById("improvementFeedback");
+
+        const feedbackRecords =
+            document.getElementById("feedbackRecords");
+
+
+        let feedbackList =
+            JSON.parse(
+                localStorage.getItem("tqmFeedback")
+            ) || [];
+
+
+        function updateSummary() {
+
+            const total =
+                feedbackList.length;
+
+            totalFeedback.textContent =
+                total;
+
+
+            if (total === 0) {
+
+                averageRating.textContent =
+                    "0.0";
+
+                positiveFeedback.textContent =
+                    "0";
+
+                improvementFeedback.textContent =
+                    "0";
+
+                return;
+
+            }
+
+
+            const ratingTotal =
+                feedbackList.reduce(
+                    function (sum, feedback) {
+
+                        return sum +
+                            Number(feedback.rating);
+
+                    },
+                    0
+                );
+
+
+            const average =
+                ratingTotal / total;
+
+
+            averageRating.textContent =
+                average.toFixed(1);
+
+
+            const positive =
+                feedbackList.filter(
+                    function (feedback) {
+
+                        return Number(feedback.rating) >= 4;
+
+                    }
+                ).length;
+
+
+            const improvement =
+                feedbackList.filter(
+                    function (feedback) {
+
+                        return Number(feedback.rating) <= 3;
+
+                    }
+                ).length;
+
+
+            positiveFeedback.textContent =
+                positive;
+
+            improvementFeedback.textContent =
+                improvement;
+
+        }
+
+
+        function displayFeedback() {
+
+            if (feedbackList.length === 0) {
+
+                feedbackRecords.innerHTML = `
+
+                    <div class="empty-records">
+
+                        <span>
+                            📋
+                        </span>
+
+                        <h3>
+                            No feedback submitted yet
+                        </h3>
+
+                        <p>
+                            Submitted feedback will appear here.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            feedbackRecords.innerHTML = "";
+
+
+            feedbackList
+                .slice()
+                .reverse()
+                .forEach(
+                    function (feedback) {
+
+                        const record =
+                            document.createElement("article");
+
+                        record.className =
+                            "feedback-record";
+
+
+                        record.innerHTML = `
+
+                            <div class="record-header">
+
+                                <div>
+
+                                    <h3>
+                                        ${escapeHTML(feedback.name)}
+                                    </h3>
+
+                                    <span>
+                                        ${escapeHTML(feedback.customerType)}
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    ${feedback.rating}/5 ⭐
+                                </strong>
+
+                            </div>
+
+
+                            <p class="record-area">
+
+                                <strong>
+                                    Area:
+                                </strong>
+
+                                ${escapeHTML(feedback.area)}
+
+                            </p>
+
+
+                            <p class="record-comment">
+
+                                ${escapeHTML(feedback.comments)}
+
+                            </p>
+
+
+                            <small>
+
+                                ${escapeHTML(feedback.date)}
+
+                            </small>
+
+                        `;
+
+
+                        feedbackRecords.appendChild(
+                            record
+                        );
+
+                    }
+                );
+
+        }
+
+
+        function escapeHTML(value) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent =
+                value;
+
+            return div.innerHTML;
+
+        }
+
+
+        feedbackForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "customerName"
+                    ).value.trim();
+
+
+                const customerType =
+                    document.getElementById(
+                        "customerType"
+                    ).value;
+
+
+                const rating =
+                    document.getElementById(
+                        "rating"
+                    ).value;
+
+
+                const area =
+                    document.getElementById(
+                        "feedbackArea"
+                    ).value;
+
+
+                const comments =
+                    document.getElementById(
+                        "comments"
+                    ).value.trim();
+
+
+                if (
+                    !name ||
+                    !customerType ||
+                    !rating ||
+                    !area ||
+                    !comments
+                ) {
+
+                    feedbackMessage.textContent =
+                        "Please complete all feedback fields.";
+
+                    feedbackMessage.className =
+                        "feedback-message error";
+
+                    return;
+
+                }
+
+
+                const feedback = {
+
+                    name: name,
+
+                    customerType: customerType,
+
+                    rating: Number(rating),
+
+                    area: area,
+
+                    comments: comments,
+
+                    date:
+                        new Date().toLocaleString()
+
+                };
+
+
+                feedbackList.push(
+                    feedback
+                );
+
+
+                localStorage.setItem(
+                    "tqmFeedback",
+                    JSON.stringify(feedbackList)
+                );
+
+
+                feedbackMessage.textContent =
+                    "Thank you! Your feedback has been recorded.";
+
+                feedbackMessage.className =
+                    "feedback-message success";
+
+
+                feedbackForm.reset();
+
+
+                updateSummary();
+
+                displayFeedback();
+
+            }
+        );
+
+
+        updateSummary();
+
+        displayFeedback();
+
+    </script>
+
+</body>
+
+</html>

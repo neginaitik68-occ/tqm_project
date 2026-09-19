@@ -4,41 +4,41 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cashier Module | TQM</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="cashier.css">
+    <title>Cashier Module</title>
+
+    <link
+        rel="stylesheet"
+        href="cashier.css">
 
 </head>
 
 <body>
 
+
     <!-- HEADER -->
+
     <header class="header">
 
         <div class="brand">
 
-            <span class="brand-icon">
-                🍽️
-            </span>
+            <h1>
+                Restaurant Billing System
+            </h1>
 
-            <div>
-
-                <h1>
-                    TQM Restaurant Billing System
-                </h1>
-
-                <p>
-                    Cashier / Staff Module
-                </p>
-
-            </div>
+            <p>
+                Total Quality Management
+            </p>
 
         </div>
 
 
         <!-- NAVIGATION -->
+
         <nav
             class="navigation"
             aria-label="Main navigation">
@@ -75,307 +75,245 @@
                 Quality Mapping
             </a>
 
+            <a href="feedback.html">
+                Feedback
+            </a>
+
         </nav>
 
     </header>
 
 
     <!-- MAIN -->
+
     <main class="container">
 
 
-        <!-- INTRODUCTION -->
-        <section class="intro-section">
+        <!-- INTRO -->
 
-            <span class="module-label">
-                INTERNAL CUSTOMER
-            </span>
+        <section class="intro">
 
             <h2>
-                Cashier / Staff
+                Cashier / Staff Module
             </h2>
 
             <p>
-                The cashier or staff member is an internal
-                customer of the Restaurant Billing System.
-                The system should help staff create and manage
-                bills quickly and accurately.
+                Cashiers are internal customers because they
+                directly use the restaurant billing system to
+                process customer orders and payments.
             </p>
 
         </section>
 
 
-        <!-- REQUIREMENTS -->
-        <section class="requirements-section">
+        <!-- RESPONSIBILITIES -->
+
+        <section class="responsibilities-section">
 
             <h2>
-                Cashier / Staff Requirements
+                Cashier Responsibilities
             </h2>
 
+            <div class="responsibility-grid">
 
-            <div class="requirements-grid">
-
-
-                <article class="requirement-card">
-
-                    <div class="card-icon">
-                        ⚡
-                    </div>
+                <div class="responsibility-card">
 
                     <h3>
-                        Fast Billing
+                        Select Items
                     </h3>
 
                     <p>
-                        Cashiers should be able to create bills
-                        quickly during restaurant operations.
+                        Cashiers should be able to quickly select
+                        food and beverage items.
                     </p>
 
-                    <span class="quality-objective">
-                        Quality Objective:
-                        Reduce billing steps
-                    </span>
-
-                </article>
+                </div>
 
 
-                <article class="requirement-card">
-
-                    <div class="card-icon">
-                        🍔
-                    </div>
+                <div class="responsibility-card">
 
                     <h3>
-                        Easy Item Selection
+                        Manage Quantity
                     </h3>
 
                     <p>
-                        Menu items should be clearly displayed
-                        and easy to add to the bill.
+                        Cashiers should be able to increase or
+                        decrease item quantities easily.
                     </p>
 
-                    <span class="quality-objective">
-                        Quality Objective:
-                        Simplify order entry
-                    </span>
-
-                </article>
+                </div>
 
 
-                <article class="requirement-card">
-
-                    <div class="card-icon">
-                        🔢
-                    </div>
+                <div class="responsibility-card">
 
                     <h3>
-                        Quantity Control
+                        Manage Bill
                     </h3>
 
                     <p>
-                        Staff should be able to increase or
-                        decrease quantities easily.
+                        Items should be added, removed and cleared
+                        easily.
                     </p>
 
-                    <span class="quality-objective">
-                        Quality Objective:
-                        Simplify bill corrections
-                    </span>
-
-                </article>
+                </div>
 
 
-                <article class="requirement-card">
-
-                    <div class="card-icon">
-                        🗑️
-                    </div>
+                <div class="responsibility-card">
 
                     <h3>
-                        Easy Bill Management
+                        Process Checkout
                     </h3>
 
                     <p>
-                        Incorrect items should be easy to remove
-                        or the complete bill should be easy to clear.
+                        The cashier should be able to complete
+                        checkout without unnecessary steps.
                     </p>
 
-                    <span class="quality-objective">
-                        Quality Objective:
-                        Reduce correction effort
-                    </span>
-
-                </article>
-
-
-                <article class="requirement-card">
-
-                    <div class="card-icon">
-                        🛡️
-                    </div>
-
-                    <h3>
-                        Reduced Errors
-                    </h3>
-
-                    <p>
-                        The system should identify invalid billing
-                        conditions before checkout.
-                    </p>
-
-                    <span class="quality-objective">
-                        Quality Objective:
-                        Improve billing reliability
-                    </span>
-
-                </article>
-
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- FEATURE MAPPING -->
+        <!-- QUALITY REQUIREMENTS -->
+
         <section class="quality-section">
 
             <h2>
-                Cashier Requirement to Feature Mapping
+                Cashier Quality Requirements
             </h2>
 
-            <div class="quality-table-container">
+            <table>
 
-                <table>
+                <thead>
 
-                    <thead>
+                    <tr>
 
-                        <tr>
+                        <th>
+                            Requirement
+                        </th>
 
-                            <th>
-                                Requirement
-                            </th>
+                        <th>
+                            System Feature
+                        </th>
 
-                            <th>
-                                System Feature
-                            </th>
+                        <th>
+                            Quality Goal
+                        </th>
 
-                            <th>
-                                Quality Result
-                            </th>
+                    </tr>
 
-                        </tr>
+                </thead>
 
-                    </thead>
+                <tbody>
 
-                    <tbody>
+                    <tr>
 
-                        <tr>
+                        <td>
+                            Fast Item Selection
+                        </td>
 
-                            <td>
-                                Fast Billing
-                            </td>
+                        <td>
+                            Menu buttons
+                        </td>
 
-                            <td>
-                                Direct menu selection
-                            </td>
+                        <td>
+                            Reduce billing time
+                        </td>
 
-                            <td>
-                                Faster billing
-                            </td>
+                    </tr>
 
-                        </tr>
+                    <tr>
 
-                        <tr>
+                        <td>
+                            Quantity Handling
+                        </td>
 
-                            <td>
-                                Easy Item Selection
-                            </td>
+                        <td>
+                            Quantity controls
+                        </td>
 
-                            <td>
-                                Menu cards and Add buttons
-                            </td>
+                        <td>
+                            Easy order modification
+                        </td>
 
-                            <td>
-                                Easier order entry
-                            </td>
+                    </tr>
 
-                        </tr>
+                    <tr>
 
-                        <tr>
+                        <td>
+                            Bill Management
+                        </td>
 
-                            <td>
-                                Quantity Control
-                            </td>
+                        <td>
+                            Remove and clear functions
+                        </td>
 
-                            <td>
-                                Increase / decrease controls
-                            </td>
+                        <td>
+                            Better control
+                        </td>
 
-                            <td>
-                                Easier corrections
-                            </td>
+                    </tr>
 
-                        </tr>
+                    <tr>
 
-                        <tr>
+                        <td>
+                            Reliable Calculation
+                        </td>
 
-                            <td>
-                                Easy Bill Management
-                            </td>
+                        <td>
+                            Automatic subtotal, tax and total
+                        </td>
 
-                            <td>
-                                Remove Item / Clear Bill
-                            </td>
+                        <td>
+                            Reduce calculation errors
+                        </td>
 
-                            <td>
-                                Reduced correction effort
-                            </td>
+                    </tr>
 
-                        </tr>
+                    <tr>
 
-                        <tr>
+                        <td>
+                            Easy Checkout
+                        </td>
 
-                            <td>
-                                Reduced Errors
-                            </td>
+                        <td>
+                            Checkout function
+                        </td>
 
-                            <td>
-                                Bill validation
-                            </td>
+                        <td>
+                            Efficient transaction processing
+                        </td>
 
-                            <td>
-                                Improved reliability
-                            </td>
+                    </tr>
 
-                        </tr>
+                </tbody>
 
-                    </tbody>
-
-                </table>
-
-            </div>
+            </table>
 
         </section>
 
 
-        <!-- QUALITY MAPPING -->
+        <!-- FEEDBACK -->
+
         <section class="mapping-section">
 
             <h2>
-                TQM Quality Mapping
+                Staff Feedback
             </h2>
 
             <p>
-                View the complete connection between cashier
-                requirements, quality objectives and actual
-                system features.
+                Cashiers and staff can provide feedback about
+                billing speed, item selection, quantity handling,
+                bill management and system reliability.
             </p>
 
             <a
-                href="quality-mapping.html"
+                href="feedback.html"
                 class="primary-button">
 
-                Open Quality Mapping →
+                Give Staff Feedback →
 
             </a>
 
@@ -383,38 +321,31 @@
 
 
         <!-- NAVIGATION -->
+
         <section class="navigation-buttons">
 
-            <a
-                href="customer.html"
-                class="secondary-button">
-
-                ← Customer Module
-
+            <a href="customers.html">
+                ← Customers
             </a>
 
-            <a
-                href="owner.html"
-                class="primary-button">
+            <a href="customer.html">
+                Customer Module
+            </a>
 
+            <a href="owner.html">
                 Owner Module →
-
             </a>
 
-            <a
-                href="requirements.html"
-                class="primary-button">
-
-                Requirements
-
+            <a href="requirements.html">
+                Requirements →
             </a>
 
-            <a
-                href="../index.html"
-                class="secondary-button">
+            <a href="feedback.html">
+                Feedback →
+            </a>
 
+            <a href="../index.html">
                 Billing System
-
             </a>
 
         </section>
@@ -423,18 +354,15 @@
 
 
     <!-- FOOTER -->
+
     <footer class="footer">
 
         <p>
-            Restaurant Billing System |
-            Total Quality Management Project
-        </p>
-
-        <p>
-            Customer-focused continuous improvement
+            Restaurant Billing System | Total Quality Management Project
         </p>
 
     </footer>
+
 
 </body>
 
