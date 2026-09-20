@@ -309,9 +309,33 @@
 
 
             <p>
-                Accessibility controls will be added
-                in upcoming development stages.
+                Use the control below to improve visibility
+                and readability while using the billing system.
             </p>
+
+            <div class="accessibility-controls">
+
+                <button
+                    type="button"
+                    id="high-contrast-toggle"
+                    class="accessibility-button"
+                    aria-pressed="false"
+                    aria-describedby="contrast-status">
+
+                    High Contrast: OFF
+
+                </button>
+
+                <p
+                    id="contrast-status"
+                    class="accessibility-status"
+                    aria-live="polite">
+
+                    High contrast mode is currently off.
+
+                </p>
+
+            </div>
 
         </section>
 

@@ -699,6 +699,8 @@ clearButton.addEventListener(
     }
 );
 
+
+
 // ==========================================
 // Bill Validation - Day 16
 // ==========================================
@@ -714,6 +716,7 @@ function validateBill() {
         };
 
     }
+
 
     // Check every item
     for (let item of billItems) {
@@ -731,6 +734,7 @@ function validateBill() {
 
         }
 
+
         // Check price
         if (
             typeof item.price !== "number" ||
@@ -746,6 +750,7 @@ function validateBill() {
 
     }
 
+
     // Calculate subtotal
     const subtotal =
         billItems.reduce(function(total, item) {
@@ -755,13 +760,16 @@ function validateBill() {
 
         }, 0);
 
+
     // Calculate tax
     const tax =
         subtotal * 0.05;
 
+
     // Calculate total
     const total =
         subtotal + tax;
+
 
     // Check total
     if (
@@ -777,6 +785,7 @@ function validateBill() {
 
     }
 
+
     // Bill is valid
     return {
         valid: true,
@@ -784,6 +793,7 @@ function validateBill() {
     };
 
 }
+
 
 
 // ==========================================
@@ -794,11 +804,15 @@ checkoutButton.addEventListener(
     "click",
     function() {
 
+
         // Validate bill before checkout
+
         const validation =
             validateBill();
 
+
         // Stop checkout if validation fails
+
         if (!validation.valid) {
 
             alert(validation.message);
@@ -807,22 +821,195 @@ checkoutButton.addEventListener(
 
         }
 
+
         // Get final total
+
         const finalTotal =
             totalElement.textContent;
 
+
         // Show checkout confirmation
+
         alert(
             `Checkout successful!\n\n` +
             `Final Amount: ${finalTotal}\n\n` +
             `Thank you for visiting our restaurant!`
         );
 
+
         // Clear bill after checkout
+
         billItems = [];
 
+
         // Update bill display
+
         updateBill();
 
     }
 );
+
+
+
+// ==========================================
+// DAY 24 - HIGH CONTRAST ACCESSIBILITY MODE
+// ==========================================
+
+
+// High Contrast Toggle Button
+
+const highContrastToggle =
+    document.getElementById("high-contrast-toggle");
+
+
+// High Contrast Status Message
+
+const contrastStatus =
+    document.getElementById("contrast-status");
+
+
+
+// ==========================================
+// Apply High Contrast Mode
+// ==========================================
+
+function applyHighContrastMode(enabled) {
+
+
+    if (enabled) {
+
+
+        // Add high contrast class
+
+        document.body.classList.add(
+            "high-contrast"
+        );
+
+
+        // Update button text
+
+        if (highContrastToggle) {
+
+            highContrastToggle.textContent =
+                "High Contrast: ON";
+
+
+            // Update accessibility state
+
+            highContrastToggle.setAttribute(
+                "aria-pressed",
+                "true"
+            );
+
+        }
+
+
+        // Update status message
+
+        if (contrastStatus) {
+
+            contrastStatus.textContent =
+                "High contrast mode is currently on.";
+
+        }
+
+    }
+
+
+    else {
+
+
+        // Remove high contrast class
+
+        document.body.classList.remove(
+            "high-contrast"
+        );
+
+
+        // Update button text
+
+        if (highContrastToggle) {
+
+            highContrastToggle.textContent =
+                "High Contrast: OFF";
+
+
+            // Update accessibility state
+
+            highContrastToggle.setAttribute(
+                "aria-pressed",
+                "false"
+            );
+
+        }
+
+
+        // Update status message
+
+        if (contrastStatus) {
+
+            contrastStatus.textContent =
+                "High contrast mode is currently off.";
+
+        }
+
+    }
+
+}
+
+
+
+// ==========================================
+// Load Saved High Contrast Preference
+// ==========================================
+
+const savedHighContrast =
+    localStorage.getItem(
+        "tqmHighContrast"
+    ) === "true";
+
+
+applyHighContrastMode(
+    savedHighContrast
+);
+
+
+
+// ==========================================
+// Toggle High Contrast Mode
+// ==========================================
+
+if (highContrastToggle) {
+
+
+    highContrastToggle.addEventListener(
+        "click",
+        function() {
+
+
+            // Check current state
+
+            const enabled =
+                !document.body.classList.contains(
+                    "high-contrast"
+                );
+
+
+            // Apply new state
+
+            applyHighContrastMode(
+                enabled
+            );
+
+
+            // Save preference
+
+            localStorage.setItem(
+                "tqmHighContrast",
+                enabled.toString()
+            );
+
+        }
+    );
+
+}
