@@ -4,7 +4,6 @@
 // ==========================================
 
 
-
 // ==========================================
 // Menu Items
 // ==========================================
@@ -20,7 +19,6 @@ const menuItems = [
         icon: "🍔"
     },
 
-
     {
         id: 2,
         name: "Cheese Pizza",
@@ -29,7 +27,6 @@ const menuItems = [
         description: "Fresh pizza topped with melted cheese.",
         icon: "🍕"
     },
-
 
     {
         id: 3,
@@ -40,7 +37,6 @@ const menuItems = [
         icon: "🍝"
     },
 
-
     {
         id: 4,
         name: "Veg Sandwich",
@@ -50,7 +46,6 @@ const menuItems = [
         icon: "🥪"
     },
 
-
     {
         id: 5,
         name: "French Fries",
@@ -59,7 +54,6 @@ const menuItems = [
         description: "Crispy golden fries served hot.",
         icon: "🍟"
     },
-
 
     {
         id: 6,
@@ -73,13 +67,11 @@ const menuItems = [
 ];
 
 
-
 // ==========================================
 // Bill
 // ==========================================
 
 let billItems = [];
-
 
 
 // ==========================================
@@ -89,10 +81,8 @@ let billItems = [];
 const mainCourseMenu =
     document.getElementById("main-course-menu");
 
-
 const snacksDrinksMenu =
     document.getElementById("snacks-drinks-menu");
-
 
 
 // ==========================================
@@ -102,34 +92,23 @@ const snacksDrinksMenu =
 const billItemsContainer =
     document.querySelector(".bill-items");
 
-
 const billCount =
     document.querySelector(".bill-count");
-
 
 const subtotalElement =
     document.getElementById("subtotal");
 
-
 const taxElement =
     document.getElementById("tax");
-
 
 const totalElement =
     document.getElementById("total");
 
-
-// Clear Bill Button
-
 const clearButton =
     document.querySelector(".clear-button");
 
-
-// Checkout Button
-
 const checkoutButton =
     document.querySelector(".checkout-button");
-
 
 
 // ==========================================
@@ -138,14 +117,11 @@ const checkoutButton =
 
 menuItems.forEach(function(item) {
 
-
     const menuCard =
         document.createElement("article");
 
-
     menuCard.className =
         "menu-item";
-
 
     menuCard.innerHTML = `
 
@@ -153,26 +129,21 @@ menuItems.forEach(function(item) {
             ${item.icon}
         </span>
 
-
         <span class="food-category">
             ${item.category}
         </span>
-
 
         <h3>
             ${item.name}
         </h3>
 
-
         <p class="food-description">
             ${item.description}
         </p>
 
-
         <p class="food-price">
             ₹${item.price}
         </p>
-
 
         <button
             type="button"
@@ -184,7 +155,6 @@ menuItems.forEach(function(item) {
         </button>
 
     `;
-
 
 
     if (item.category === "Main Course") {
@@ -202,7 +172,6 @@ menuItems.forEach(function(item) {
 });
 
 
-
 // ==========================================
 // Add Item to Bill
 // ==========================================
@@ -213,64 +182,58 @@ const addButtons =
 
 addButtons.forEach(function(button) {
 
+    button.addEventListener(
+        "click",
+        function() {
 
-    button.addEventListener("click", function() {
+            const itemId =
+                Number(button.dataset.id);
 
-
-        const itemId =
-            Number(button.dataset.id);
-
-
-
-        const selectedItem =
-            menuItems.find(function(item) {
-
-                return item.id === itemId;
-
-            });
-
-
-
-        if (selectedItem) {
-
-
-            const existingItem =
-                billItems.find(function(item) {
+            const selectedItem =
+                menuItems.find(function(item) {
 
                     return item.id === itemId;
 
                 });
 
 
+            if (selectedItem) {
 
-            if (existingItem) {
+                const existingItem =
+                    billItems.find(function(item) {
 
-                existingItem.quantity++;
+                        return item.id === itemId;
+
+                    });
+
+
+                if (existingItem) {
+
+                    existingItem.quantity++;
+
+                }
+
+                else {
+
+                    billItems.push({
+
+                        ...selectedItem,
+
+                        quantity: 1
+
+                    });
+
+                }
+
+
+                updateBill();
 
             }
-
-            else {
-
-                billItems.push({
-
-                    ...selectedItem,
-
-                    quantity: 1
-
-                });
-
-            }
-
-
-
-            updateBill();
 
         }
-
-    });
+    );
 
 });
-
 
 
 // ==========================================
@@ -279,11 +242,7 @@ addButtons.forEach(function(button) {
 
 function updateBill() {
 
-
-    // Clear existing display
-
     billItemsContainer.innerHTML = "";
-
 
 
     // ==========================================
@@ -291,7 +250,6 @@ function updateBill() {
     // ==========================================
 
     if (billItems.length === 0) {
-
 
         billItemsContainer.innerHTML = `
 
@@ -301,11 +259,9 @@ function updateBill() {
                     🧾
                 </span>
 
-
                 <h3>
                     No items added
                 </h3>
-
 
                 <p>
                     Select an item from the menu
@@ -319,21 +275,17 @@ function updateBill() {
     }
 
 
-
     // ==========================================
     // Display Bill Items
     // ==========================================
 
     billItems.forEach(function(item) {
 
-
         const billItem =
             document.createElement("div");
 
-
         billItem.className =
             "bill-item";
-
 
         billItem.innerHTML = `
 
@@ -343,13 +295,11 @@ function updateBill() {
                     ${item.icon}
                 </span>
 
-
                 <div>
 
                     <h3>
                         ${item.name}
                     </h3>
-
 
                     <p>
                         ₹${item.price} × ${item.quantity}
@@ -360,9 +310,7 @@ function updateBill() {
             </div>
 
 
-
             <div class="bill-item-actions">
-
 
                 <button
                     type="button"
@@ -375,13 +323,11 @@ function updateBill() {
                 </button>
 
 
-
                 <span class="quantity">
 
                     ${item.quantity}
 
                 </span>
-
 
 
                 <button
@@ -395,13 +341,11 @@ function updateBill() {
                 </button>
 
 
-
                 <strong>
 
                     ₹${item.price * item.quantity}
 
                 </strong>
-
 
 
                 <button
@@ -424,22 +368,23 @@ function updateBill() {
     });
 
 
-
     // ==========================================
     // Calculate Item Count
     // ==========================================
 
     const totalQuantity =
-        billItems.reduce(function(total, item) {
+        billItems.reduce(
+            function(total, item) {
 
-            return total + item.quantity;
+                return total + item.quantity;
 
-        }, 0);
+            },
+            0
+        );
 
 
     billCount.textContent =
         `${totalQuantity} Items`;
-
 
 
     // ==========================================
@@ -447,17 +392,19 @@ function updateBill() {
     // ==========================================
 
     const subtotal =
-        billItems.reduce(function(total, item) {
+        billItems.reduce(
+            function(total, item) {
 
-            return total +
-                (item.price * item.quantity);
+                return total +
+                    (item.price * item.quantity);
 
-        }, 0);
+            },
+            0
+        );
 
 
     subtotalElement.textContent =
         `₹${subtotal}`;
-
 
 
     // ==========================================
@@ -466,14 +413,11 @@ function updateBill() {
 
     const taxRate = 0.05;
 
-
     const tax =
         subtotal * taxRate;
 
-
     taxElement.textContent =
         `₹${tax.toFixed(2)}`;
-
 
 
     // ==========================================
@@ -483,10 +427,8 @@ function updateBill() {
     const total =
         subtotal + tax;
 
-
     totalElement.textContent =
         `₹${total.toFixed(2)}`;
-
 
 
     // ==========================================
@@ -506,7 +448,6 @@ function updateBill() {
     }
 
 
-
     // ==========================================
     // Enable / Disable Checkout Button
     // ==========================================
@@ -524,7 +465,6 @@ function updateBill() {
     }
 
 
-
     // ==========================================
     // Increase Quantity
     // ==========================================
@@ -537,15 +477,12 @@ function updateBill() {
 
     increaseButtons.forEach(function(button) {
 
-
         button.addEventListener(
             "click",
             function() {
 
-
                 const itemId =
                     Number(button.dataset.id);
-
 
                 const item =
                     billItems.find(function(item) {
@@ -569,7 +506,6 @@ function updateBill() {
     });
 
 
-
     // ==========================================
     // Decrease Quantity
     // ==========================================
@@ -582,15 +518,12 @@ function updateBill() {
 
     decreaseButtons.forEach(function(button) {
 
-
         button.addEventListener(
             "click",
             function() {
 
-
                 const itemId =
                     Number(button.dataset.id);
-
 
                 const item =
                     billItems.find(function(item) {
@@ -601,7 +534,6 @@ function updateBill() {
 
 
                 if (item) {
-
 
                     if (item.quantity > 1) {
 
@@ -633,7 +565,6 @@ function updateBill() {
     });
 
 
-
     // ==========================================
     // Remove Item
     // ==========================================
@@ -646,11 +577,9 @@ function updateBill() {
 
     removeButtons.forEach(function(button) {
 
-
         button.addEventListener(
             "click",
             function() {
-
 
                 const itemId =
                     Number(button.dataset.id);
@@ -676,7 +605,6 @@ function updateBill() {
 }
 
 
-
 // ==========================================
 // Clear Bill
 // ==========================================
@@ -685,20 +613,12 @@ clearButton.addEventListener(
     "click",
     function() {
 
-
-        // Remove all items
-
         billItems = [];
-
-
-
-        // Update the complete bill
 
         updateBill();
 
     }
 );
-
 
 
 // ==========================================
@@ -707,21 +627,19 @@ clearButton.addEventListener(
 
 function validateBill() {
 
-    // Check if bill is empty
     if (billItems.length === 0) {
 
         return {
             valid: false,
-            message: "Your bill is empty. Please add items first."
+            message:
+                "Your bill is empty. Please add items first."
         };
 
     }
 
 
-    // Check every item
     for (let item of billItems) {
 
-        // Check quantity
         if (
             typeof item.quantity !== "number" ||
             item.quantity <= 0
@@ -729,13 +647,13 @@ function validateBill() {
 
             return {
                 valid: false,
-                message: `Invalid quantity for ${item.name}.`
+                message:
+                    `Invalid quantity for ${item.name}.`
             };
 
         }
 
 
-        // Check price
         if (
             typeof item.price !== "number" ||
             item.price < 0
@@ -743,7 +661,8 @@ function validateBill() {
 
             return {
                 valid: false,
-                message: `Invalid price for ${item.name}.`
+                message:
+                    `Invalid price for ${item.name}.`
             };
 
         }
@@ -751,27 +670,26 @@ function validateBill() {
     }
 
 
-    // Calculate subtotal
     const subtotal =
-        billItems.reduce(function(total, item) {
+        billItems.reduce(
+            function(total, item) {
 
-            return total +
-                (item.price * item.quantity);
+                return total +
+                    (item.price * item.quantity);
 
-        }, 0);
+            },
+            0
+        );
 
 
-    // Calculate tax
     const tax =
         subtotal * 0.05;
 
 
-    // Calculate total
     const total =
         subtotal + tax;
 
 
-    // Check total
     if (
         typeof total !== "number" ||
         !Number.isFinite(total) ||
@@ -780,20 +698,20 @@ function validateBill() {
 
         return {
             valid: false,
-            message: "Invalid bill total."
+            message:
+                "Invalid bill total."
         };
 
     }
 
 
-    // Bill is valid
     return {
         valid: true,
-        message: "Bill validation successful."
+        message:
+            "Bill validation successful."
     };
 
 }
-
 
 
 // ==========================================
@@ -804,14 +722,9 @@ checkoutButton.addEventListener(
     "click",
     function() {
 
-
-        // Validate bill before checkout
-
         const validation =
             validateBill();
 
-
-        // Stop checkout if validation fails
 
         if (!validation.valid) {
 
@@ -822,13 +735,9 @@ checkoutButton.addEventListener(
         }
 
 
-        // Get final total
-
         const finalTotal =
             totalElement.textContent;
 
-
-        // Show checkout confirmation
 
         alert(
             `Checkout successful!\n\n` +
@@ -837,12 +746,7 @@ checkoutButton.addEventListener(
         );
 
 
-        // Clear bill after checkout
-
         billItems = [];
-
-
-        // Update bill display
 
         updateBill();
 
@@ -850,23 +754,20 @@ checkoutButton.addEventListener(
 );
 
 
-
 // ==========================================
 // DAY 24 - HIGH CONTRAST ACCESSIBILITY MODE
 // ==========================================
 
-
-// High Contrast Toggle Button
-
 const highContrastToggle =
-    document.getElementById("high-contrast-toggle");
+    document.getElementById(
+        "high-contrast-toggle"
+    );
 
-
-// High Contrast Status Message
 
 const contrastStatus =
-    document.getElementById("contrast-status");
-
+    document.getElementById(
+        "contrast-status"
+    );
 
 
 // ==========================================
@@ -875,26 +776,18 @@ const contrastStatus =
 
 function applyHighContrastMode(enabled) {
 
-
     if (enabled) {
-
-
-        // Add high contrast class
 
         document.body.classList.add(
             "high-contrast"
         );
 
 
-        // Update button text
-
         if (highContrastToggle) {
 
             highContrastToggle.textContent =
                 "High Contrast: ON";
 
-
-            // Update accessibility state
 
             highContrastToggle.setAttribute(
                 "aria-pressed",
@@ -903,8 +796,6 @@ function applyHighContrastMode(enabled) {
 
         }
 
-
-        // Update status message
 
         if (contrastStatus) {
 
@@ -915,26 +806,18 @@ function applyHighContrastMode(enabled) {
 
     }
 
-
     else {
-
-
-        // Remove high contrast class
 
         document.body.classList.remove(
             "high-contrast"
         );
 
 
-        // Update button text
-
         if (highContrastToggle) {
 
             highContrastToggle.textContent =
                 "High Contrast: OFF";
 
-
-            // Update accessibility state
 
             highContrastToggle.setAttribute(
                 "aria-pressed",
@@ -943,8 +826,6 @@ function applyHighContrastMode(enabled) {
 
         }
 
-
-        // Update status message
 
         if (contrastStatus) {
 
@@ -956,7 +837,6 @@ function applyHighContrastMode(enabled) {
     }
 
 }
-
 
 
 // ==========================================
@@ -974,20 +854,15 @@ applyHighContrastMode(
 );
 
 
-
 // ==========================================
 // Toggle High Contrast Mode
 // ==========================================
 
 if (highContrastToggle) {
 
-
     highContrastToggle.addEventListener(
         "click",
         function() {
-
-
-            // Check current state
 
             const enabled =
                 !document.body.classList.contains(
@@ -995,18 +870,288 @@ if (highContrastToggle) {
                 );
 
 
-            // Apply new state
-
             applyHighContrastMode(
                 enabled
             );
 
 
-            // Save preference
-
             localStorage.setItem(
                 "tqmHighContrast",
                 enabled.toString()
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// DAY 25 - FONT RESIZING ACCESSIBILITY
+// ==========================================
+
+
+// Font Size Buttons
+
+const fontNormalButton =
+    document.getElementById(
+        "font-normal"
+    );
+
+
+const fontLargeButton =
+    document.getElementById(
+        "font-large"
+    );
+
+
+const fontExtraLargeButton =
+    document.getElementById(
+        "font-extra-large"
+    );
+
+
+// Font Size Status
+
+const fontSizeStatus =
+    document.getElementById(
+        "font-size-status"
+    );
+
+
+// ==========================================
+// Apply Font Size
+// ==========================================
+
+function applyFontSize(size) {
+
+    // Remove previous font-size classes
+
+    document.body.classList.remove(
+        "font-large",
+        "font-extra-large"
+    );
+
+
+    // Apply Large
+
+    if (size === "large") {
+
+        document.body.classList.add(
+            "font-large"
+        );
+
+    }
+
+
+    // Apply Extra Large
+
+    else if (size === "extra-large") {
+
+        document.body.classList.add(
+            "font-extra-large"
+        );
+
+    }
+
+
+    // Update buttons and status
+
+    updateFontSizeControls(size);
+
+}
+
+
+// ==========================================
+// Update Font Size Controls
+// ==========================================
+
+function updateFontSizeControls(size) {
+
+    const buttons = [
+
+        fontNormalButton,
+
+        fontLargeButton,
+
+        fontExtraLargeButton
+
+    ];
+
+
+    // Reset all buttons
+
+    buttons.forEach(function(button) {
+
+        if (button) {
+
+            button.classList.remove(
+                "active"
+            );
+
+
+            button.setAttribute(
+                "aria-pressed",
+                "false"
+            );
+
+        }
+
+    });
+
+
+    // Default selection
+
+    let selectedButton =
+        fontNormalButton;
+
+
+    let statusMessage =
+        "Normal font size is currently selected.";
+
+
+    // Large
+
+    if (size === "large") {
+
+        selectedButton =
+            fontLargeButton;
+
+
+        statusMessage =
+            "Large font size is currently selected.";
+
+    }
+
+
+    // Extra Large
+
+    else if (size === "extra-large") {
+
+        selectedButton =
+            fontExtraLargeButton;
+
+
+        statusMessage =
+            "Extra large font size is currently selected.";
+
+    }
+
+
+    // Highlight selected button
+
+    if (selectedButton) {
+
+        selectedButton.classList.add(
+            "active"
+        );
+
+
+        selectedButton.setAttribute(
+            "aria-pressed",
+            "true"
+        );
+
+    }
+
+
+    // Update accessibility status
+
+    if (fontSizeStatus) {
+
+        fontSizeStatus.textContent =
+            statusMessage;
+
+    }
+
+}
+
+
+// ==========================================
+// Load Saved Font Size
+// ==========================================
+
+const savedFontSize =
+    localStorage.getItem(
+        "tqmFontSize"
+    ) || "normal";
+
+
+applyFontSize(
+    savedFontSize
+);
+
+
+// ==========================================
+// Normal Font Size
+// ==========================================
+
+if (fontNormalButton) {
+
+    fontNormalButton.addEventListener(
+        "click",
+        function() {
+
+            applyFontSize(
+                "normal"
+            );
+
+
+            localStorage.setItem(
+                "tqmFontSize",
+                "normal"
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// Large Font Size
+// ==========================================
+
+if (fontLargeButton) {
+
+    fontLargeButton.addEventListener(
+        "click",
+        function() {
+
+            applyFontSize(
+                "large"
+            );
+
+
+            localStorage.setItem(
+                "tqmFontSize",
+                "large"
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// Extra Large Font Size
+// ==========================================
+
+if (fontExtraLargeButton) {
+
+    fontExtraLargeButton.addEventListener(
+        "click",
+        function() {
+
+            applyFontSize(
+                "extra-large"
+            );
+
+
+            localStorage.setItem(
+                "tqmFontSize",
+                "extra-large"
             );
 
         }

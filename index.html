@@ -309,9 +309,14 @@
 
 
             <p>
-                Use the control below to improve visibility
+                Use the controls below to improve visibility
                 and readability while using the billing system.
             </p>
+
+
+            <!-- ==========================================
+                 HIGH CONTRAST
+            =========================================== -->
 
             <div class="accessibility-controls">
 
@@ -326,6 +331,7 @@
 
                 </button>
 
+
                 <p
                     id="contrast-status"
                     class="accessibility-status"
@@ -337,11 +343,88 @@
 
             </div>
 
+
+
+            <!-- ==========================================
+                 FONT SIZE - DAY 25
+            =========================================== -->
+
+            <div class="font-size-controls">
+
+                <h3>
+                    Font Size
+                </h3>
+
+
+                <p>
+                    Choose a text size that is comfortable to read.
+                </p>
+
+
+                <div
+                    class="font-size-buttons"
+                    role="group"
+                    aria-label="Font size controls">
+
+
+                    <button
+                        type="button"
+                        id="font-normal"
+                        class="font-size-button"
+                        aria-pressed="false">
+
+                        Normal
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        id="font-large"
+                        class="font-size-button"
+                        aria-pressed="false">
+
+                        Large
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        id="font-extra-large"
+                        class="font-size-button"
+                        aria-pressed="false">
+
+                        Extra Large
+
+                    </button>
+
+
+                </div>
+
+
+                <p
+                    id="font-size-status"
+                    class="font-size-status"
+                    aria-live="polite">
+
+                    Normal font size is currently selected.
+
+                </p>
+
+            </div>
+
         </section>
 
     </main>
 
 
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
 
     <script src="script.js"></script>
 
