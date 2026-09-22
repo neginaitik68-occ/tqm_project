@@ -21,6 +21,17 @@
 <body>
 
     <!-- ==========================================
+         DAY 26 - SKIP LINK
+    =========================================== -->
+
+    <a
+        href="#main-content"
+        class="skip-link">
+        Skip to main content
+    </a>
+
+
+    <!-- ==========================================
          HEADER
     =========================================== -->
 
@@ -28,7 +39,11 @@
 
         <div class="brand">
 
-            <span class="brand-icon">🍽️</span>
+            <span
+                class="brand-icon"
+                aria-hidden="true">
+                🍽️
+            </span>
 
             <div>
 
@@ -66,12 +81,14 @@
     </header>
 
 
-
     <!-- ==========================================
          MAIN CONTENT
     =========================================== -->
 
-    <main class="container">
+    <main
+        class="container"
+        id="main-content"
+        tabindex="-1">
 
 
         <!-- ==========================================
@@ -80,13 +97,14 @@
 
         <section
             class="menu-section"
-            id="menu">
+            id="menu"
+            aria-labelledby="menu-heading">
 
             <div class="section-heading">
 
                 <div>
 
-                    <h2>
+                    <h2 id="menu-heading">
                         Our Menu
                     </h2>
 
@@ -97,7 +115,6 @@
                 </div>
 
             </div>
-
 
 
             <!-- Main Course -->
@@ -111,14 +128,14 @@
 
                 <div
                     class="menu-grid"
-                    id="main-course-menu">
+                    id="main-course-menu"
+                    aria-label="Main course menu">
 
-                    <!-- JavaScript will generate menu items -->
+                    <!-- JavaScript generates menu items -->
 
                 </div>
 
             </div>
-
 
 
             <!-- Snacks and Drinks -->
@@ -132,9 +149,10 @@
 
                 <div
                     class="menu-grid"
-                    id="snacks-drinks-menu">
+                    id="snacks-drinks-menu"
+                    aria-label="Snacks and drinks menu">
 
-                    <!-- JavaScript will generate menu items -->
+                    <!-- JavaScript generates menu items -->
 
                 </div>
 
@@ -150,7 +168,8 @@
 
         <section
             class="billing-section"
-            id="billing">
+            id="billing"
+            aria-labelledby="billing-heading">
 
 
             <!-- Billing Header -->
@@ -159,7 +178,7 @@
 
                 <div>
 
-                    <h2>
+                    <h2 id="billing-heading">
                         Your Bill
                     </h2>
 
@@ -172,7 +191,8 @@
 
                 <span
                     class="bill-count"
-                    aria-label="Number of items in bill">
+                    aria-label="Number of items in bill"
+                    aria-live="polite">
 
                     0 Items
 
@@ -184,11 +204,16 @@
 
             <!-- Bill Items -->
 
-            <div class="bill-items">
+            <div
+                class="bill-items"
+                aria-live="polite"
+                aria-label="Current bill items">
 
                 <div class="empty-bill">
 
-                    <span class="empty-icon">
+                    <span
+                        class="empty-icon"
+                        aria-hidden="true">
                         🧾
                     </span>
 
@@ -213,7 +238,9 @@
                  BILL SUMMARY
             =========================================== -->
 
-            <div class="bill-summary">
+            <div
+                class="bill-summary"
+                aria-label="Bill summary">
 
 
                 <div class="summary-row">
@@ -273,7 +300,8 @@
                 <button
                     type="button"
                     class="clear-button"
-                    disabled>
+                    disabled
+                    aria-label="Clear the current bill">
 
                     Clear Bill
 
@@ -283,7 +311,8 @@
                 <button
                     type="button"
                     class="checkout-button"
-                    disabled>
+                    disabled
+                    aria-label="Checkout the current bill">
 
                     Checkout
 
@@ -301,17 +330,19 @@
 
         <section
             class="accessibility-section"
-            id="accessibility">
+            id="accessibility"
+            aria-labelledby="accessibility-heading">
 
-            <h2>
+            <h2 id="accessibility-heading">
                 Accessibility
             </h2>
 
 
             <p>
-                Use the controls below to improve visibility
-                and readability while using the billing system.
+                Use the controls below to improve visibility,
+                readability and keyboard accessibility.
             </p>
+
 
 
             <!-- ==========================================
@@ -319,6 +350,10 @@
             =========================================== -->
 
             <div class="accessibility-controls">
+
+                <h3>
+                    High Contrast
+                </h3>
 
                 <button
                     type="button"
@@ -346,7 +381,7 @@
 
 
             <!-- ==========================================
-                 FONT SIZE - DAY 25
+                 FONT SIZE
             =========================================== -->
 
             <div class="font-size-controls">
@@ -354,7 +389,6 @@
                 <h3>
                     Font Size
                 </h3>
-
 
                 <p>
                     Choose a text size that is comfortable to read.
@@ -366,7 +400,6 @@
                     role="group"
                     aria-label="Font size controls">
 
-
                     <button
                         type="button"
                         id="font-normal"
@@ -376,7 +409,6 @@
                         Normal
 
                     </button>
-
 
 
                     <button
@@ -390,7 +422,6 @@
                     </button>
 
 
-
                     <button
                         type="button"
                         id="font-extra-large"
@@ -400,7 +431,6 @@
                         Extra Large
 
                     </button>
-
 
                 </div>
 
@@ -416,15 +446,70 @@
 
             </div>
 
+
+
+            <!-- ==========================================
+                 DAY 26 - KEYBOARD NAVIGATION
+            =========================================== -->
+
+            <div class="keyboard-navigation-controls">
+
+                <h3>
+                    Keyboard Navigation
+                </h3>
+
+
+                <p>
+                    You can use the keyboard to navigate
+                    and operate the billing system.
+                </p>
+
+
+                <ul class="keyboard-help-list">
+
+                    <li>
+                        <strong>Tab:</strong>
+                        Move to the next interactive element.
+                    </li>
+
+                    <li>
+                        <strong>Shift + Tab:</strong>
+                        Move to the previous interactive element.
+                    </li>
+
+                    <li>
+                        <strong>Enter:</strong>
+                        Activate the focused link or button.
+                    </li>
+
+                    <li>
+                        <strong>Space:</strong>
+                        Activate a focused button.
+                    </li>
+
+                    <li>
+                        <strong>Escape:</strong>
+                        Return focus to the main content.
+                    </li>
+
+                </ul>
+
+
+                <p
+                    id="keyboard-status"
+                    class="keyboard-status"
+                    aria-live="polite">
+
+                    Keyboard navigation is available.
+
+                </p>
+
+            </div>
+
         </section>
 
     </main>
 
-
-
-    <!-- ==========================================
-         JAVASCRIPT
-    =========================================== -->
 
     <script src="script.js"></script>
 

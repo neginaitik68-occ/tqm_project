@@ -15,10 +15,50 @@
 
 body {
     font-family: Arial, sans-serif;
+
     background-color: #f4f6f8;
+
     color: #222;
+
     min-height: 100vh;
+
     line-height: 1.5;
+}
+
+
+/* ==============================
+   DAY 26 - SKIP LINK
+================================= */
+
+.skip-link {
+    position: fixed;
+
+    top: -100px;
+    left: 20px;
+
+    z-index: 9999;
+
+    background-color: #222;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 20px;
+
+    outline: 4px solid #ffff00;
+
+    outline-offset: 3px;
 }
 
 
@@ -28,12 +68,15 @@ body {
 
 .header {
     background-color: #222;
+
     color: white;
 
     padding: 20px 40px;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     gap: 30px;
@@ -44,7 +87,9 @@ body {
 
 .brand {
     display: flex;
+
     align-items: center;
+
     gap: 15px;
 }
 
@@ -54,11 +99,13 @@ body {
 
 .brand h1 {
     font-size: 28px;
+
     margin-bottom: 5px;
 }
 
 .brand p {
     font-size: 14px;
+
     opacity: 0.8;
 }
 
@@ -69,12 +116,15 @@ body {
 
 .navigation {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
 }
 
 .navigation a {
     color: white;
+
     text-decoration: none;
 
     padding: 10px 15px;
@@ -121,7 +171,8 @@ body {
 
     border-radius: 12px;
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .menu-section h2,
@@ -169,13 +220,16 @@ body {
 
 .category-title {
     font-size: 18px;
+
     margin-bottom: 15px;
+
     padding-bottom: 8px;
+
     border-bottom: 2px solid #eee;
 }
 
 
-/* Food Category Label */
+/* Food Category */
 
 .food-category {
     display: inline-block;
@@ -218,47 +272,7 @@ body {
 }
 
 
-/* Add Button */
-
-.add-button {
-    width: 100%;
-
-    border: none;
-
-    padding: 12px;
-
-    border-radius: 7px;
-
-    background-color: #222;
-
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
-    transition: transform 0.2s ease,
-                opacity 0.2s ease;
-}
-
-
-.add-button:hover {
-    transform: translateY(-2px);
-
-    opacity: 0.85;
-}
-
-
-/* Keyboard Focus */
-
-.add-button:focus {
-    outline: 3px solid #555;
-
-    outline-offset: 3px;
-}
-
+/* Menu Card */
 
 .menu-item {
     border: 1px solid #ddd;
@@ -271,8 +285,9 @@ body {
 
     background-color: white;
 
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 
     display: flex;
 
@@ -281,11 +296,11 @@ body {
     align-items: center;
 }
 
-
 .menu-item:hover {
     transform: translateY(-3px);
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -309,25 +324,18 @@ body {
 }
 
 
-/* Food Price */
-
-.menu-item p {
-    font-weight: bold;
-
-    margin-bottom: 15px;
-}
-
-
 /* ==============================
-   BUTTONS
+   MENU BUTTONS
 ================================= */
 
-.menu-item button {
+.add-button {
+    width: 100%;
+
     border: none;
 
-    padding: 10px 18px;
+    padding: 12px;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     background-color: #222;
 
@@ -335,24 +343,19 @@ body {
 
     cursor: pointer;
 
-    font-size: 14px;
+    font-size: 15px;
 
-    transition: opacity 0.2s ease;
+    font-weight: bold;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
+.add-button:hover {
+    transform: translateY(-2px);
 
-.menu-item button:hover {
-    opacity: 0.8;
-}
-
-
-/* Keyboard focus */
-
-.menu-item button:focus,
-.navigation a:focus {
-    outline: 3px solid #555;
-
-    outline-offset: 3px;
+    opacity: 0.85;
 }
 
 
@@ -371,9 +374,13 @@ body {
 
 .billing-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-start;
+
     gap: 15px;
+
     margin-bottom: 20px;
 }
 
@@ -383,6 +390,7 @@ body {
 
 .billing-subtitle {
     color: #666;
+
     font-size: 14px;
 }
 
@@ -391,6 +399,7 @@ body {
 
 .bill-count {
     background-color: #f0f0f0;
+
     color: #333;
 
     padding: 6px 10px;
@@ -416,17 +425,17 @@ body {
 }
 
 
-/* ==============================
-   EMPTY BILL
-================================= */
+/* Empty Bill */
 
 .empty-bill {
     min-height: 220px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
@@ -461,6 +470,7 @@ body {
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 
     gap: 15px;
@@ -476,7 +486,6 @@ body {
     background-color: #fafafa;
 }
 
-
 .bill-item-info {
     display: flex;
 
@@ -485,18 +494,15 @@ body {
     gap: 10px;
 }
 
-
 .bill-item-icon {
     font-size: 30px;
 }
-
 
 .bill-item-info h3 {
     font-size: 15px;
 
     margin-bottom: 3px;
 }
-
 
 .bill-item-info p {
     font-size: 13px;
@@ -515,9 +521,37 @@ body {
     gap: 12px;
 }
 
-
 .bill-item-actions strong {
     font-size: 15px;
+}
+
+
+/* ==============================
+   QUANTITY BUTTONS
+================================= */
+
+.quantity-button {
+    border: none;
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 5px;
+
+    background-color: #333;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.quantity-button:hover {
+    opacity: 0.8;
 }
 
 
@@ -545,12 +579,6 @@ body {
     opacity: 0.8;
 }
 
-.remove-button:focus {
-    outline: 3px solid #555;
-
-    outline-offset: 2px;
-}
-
 
 /* ==============================
    BILL SUMMARY
@@ -562,18 +590,17 @@ body {
     margin-top: 0;
 }
 
-
 .summary-row {
     display: flex;
 
     justify-content: space-between;
+
     align-items: center;
 
     margin: 12px 0;
 
     font-size: 15px;
 }
-
 
 .summary-row.total {
     font-size: 21px;
@@ -582,7 +609,6 @@ body {
 
     padding-top: 5px;
 }
-
 
 .bill-summary hr {
     border: none;
@@ -607,7 +633,6 @@ body {
     margin-top: 20px;
 }
 
-
 .clear-button,
 .checkout-button {
     border: none;
@@ -623,13 +648,11 @@ body {
     cursor: pointer;
 }
 
-
 .clear-button {
     background-color: #eee;
 
     color: #222;
 }
-
 
 .checkout-button {
     background-color: #222;
@@ -648,16 +671,6 @@ body {
 }
 
 
-/* Keyboard Focus */
-
-.clear-button:focus,
-.checkout-button:focus {
-    outline: 3px solid #555;
-
-    outline-offset: 3px;
-}
-
-
 /* ==============================
    ACCESSIBILITY SECTION
 ================================= */
@@ -668,9 +681,359 @@ body {
     text-align: center;
 }
 
-
 .accessibility-section p {
     color: #666;
+}
+
+
+/* ==============================
+   DAY 24 - HIGH CONTRAST
+================================= */
+
+.accessibility-controls {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+    margin-bottom: 30px;
+}
+
+.accessibility-button {
+    border: 2px solid #222;
+
+    padding: 12px 22px;
+
+    border-radius: 7px;
+
+    background-color: #222;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    min-width: 220px;
+}
+
+.accessibility-button:hover {
+    background-color: #444;
+}
+
+.accessibility-status {
+    color: #444;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   DAY 25 - FONT RESIZING
+================================= */
+
+.font-size-controls {
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+}
+
+.font-size-controls h3 {
+    margin-bottom: 8px;
+}
+
+.font-size-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.font-size-button {
+    border: 2px solid #222;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    background-color: white;
+
+    color: #222;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.font-size-button:hover {
+    background-color: #eee;
+}
+
+.font-size-button.active {
+    background-color: #222;
+
+    color: white;
+}
+
+.font-size-status {
+    margin-top: 12px;
+}
+
+
+/* Large Font */
+
+body.font-large {
+    font-size: 18px;
+}
+
+body.font-large .brand h1 {
+    font-size: 31px;
+}
+
+body.font-large .menu-item h3 {
+    font-size: 20px;
+}
+
+body.font-large .menu-item button,
+body.font-large .add-button {
+    font-size: 17px;
+}
+
+
+/* Extra Large Font */
+
+body.font-extra-large {
+    font-size: 21px;
+}
+
+body.font-extra-large .brand h1 {
+    font-size: 34px;
+}
+
+body.font-extra-large .menu-item h3 {
+    font-size: 22px;
+}
+
+body.font-extra-large .menu-item button,
+body.font-extra-large .add-button {
+    font-size: 19px;
+}
+
+
+/* ==============================
+   DAY 26 - KEYBOARD NAVIGATION
+================================= */
+
+.keyboard-navigation-controls {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+}
+
+.keyboard-navigation-controls h3 {
+    margin-bottom: 8px;
+}
+
+.keyboard-help-list {
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    padding-left: 25px;
+
+    text-align: left;
+}
+
+.keyboard-help-list li {
+    margin-bottom: 10px;
+}
+
+
+/* Strong Global Focus */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 4px solid #555;
+
+    outline-offset: 4px;
+
+    border-radius: 5px;
+}
+
+
+/* Main focus after skip link */
+
+#main-content:focus {
+    outline: none;
+}
+
+
+/* Keyboard status */
+
+.keyboard-status {
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   DAY 24 - HIGH CONTRAST THEME
+================================= */
+
+body.high-contrast {
+    background-color: #000;
+
+    color: #fff;
+}
+
+body.high-contrast .header {
+    background-color: #000;
+
+    color: #fff;
+
+    border-bottom: 3px solid #fff;
+}
+
+body.high-contrast .navigation a {
+    color: #fff;
+
+    border: 1px solid transparent;
+}
+
+body.high-contrast .navigation a:hover,
+body.high-contrast .navigation a:focus {
+    background-color: #fff;
+
+    color: #000;
+}
+
+body.high-contrast .menu-section,
+body.high-contrast .billing-section,
+body.high-contrast .accessibility-section,
+body.high-contrast .menu-item {
+    background-color: #000;
+
+    color: #fff;
+
+    border-color: #fff;
+
+    box-shadow: none;
+}
+
+body.high-contrast .section-heading p,
+body.high-contrast .billing-subtitle,
+body.high-contrast .food-description,
+body.high-contrast .empty-bill p,
+body.high-contrast .bill-item-info p,
+body.high-contrast .accessibility-status,
+body.high-contrast .accessibility-section p,
+body.high-contrast .keyboard-status {
+    color: #fff;
+}
+
+body.high-contrast .category-title {
+    border-bottom-color: #fff;
+}
+
+body.high-contrast .food-category {
+    background-color: #fff;
+
+    color: #000;
+}
+
+body.high-contrast .menu-item {
+    border-width: 2px;
+}
+
+body.high-contrast .add-button,
+body.high-contrast .menu-item button,
+body.high-contrast .quantity-button,
+body.high-contrast .remove-button,
+body.high-contrast .checkout-button,
+body.high-contrast .accessibility-button {
+    background-color: #fff;
+
+    color: #000;
+
+    border: 2px solid #fff;
+}
+
+body.high-contrast .clear-button {
+    background-color: #000;
+
+    color: #fff;
+
+    border: 2px solid #fff;
+}
+
+body.high-contrast .add-button:hover,
+body.high-contrast .menu-item button:hover,
+body.high-contrast .quantity-button:hover,
+body.high-contrast .remove-button:hover,
+body.high-contrast .checkout-button:hover,
+body.high-contrast .accessibility-button:hover {
+    background-color: #000;
+
+    color: #fff;
+}
+
+body.high-contrast .bill-count {
+    background-color: #fff;
+
+    color: #000;
+
+    border: 2px solid #fff;
+}
+
+body.high-contrast .bill-items {
+    border-bottom-color: #fff;
+}
+
+body.high-contrast .font-size-controls,
+body.high-contrast .keyboard-navigation-controls {
+    border-top-color: #fff;
+}
+
+body.high-contrast .font-size-button {
+    background-color: #000;
+
+    color: #fff;
+
+    border-color: #fff;
+}
+
+body.high-contrast .font-size-button.active {
+    background-color: #fff;
+
+    color: #000;
+}
+
+
+/* High Contrast Focus */
+
+body.high-contrast a:focus-visible,
+body.high-contrast button:focus-visible,
+body.high-contrast .skip-link:focus {
+    outline: 4px solid #ffff00;
+
+    outline-offset: 4px;
 }
 
 
@@ -680,8 +1043,6 @@ body {
 
 @media (max-width: 800px) {
 
-    /* Header */
-
     .header {
         flex-direction: column;
 
@@ -690,8 +1051,6 @@ body {
         padding: 20px;
     }
 
-
-    /* Navigation */
 
     .navigation {
         width: 100%;
@@ -705,8 +1064,6 @@ body {
     }
 
 
-    /* Main */
-
     .container {
         grid-template-columns: 1fr;
 
@@ -714,25 +1071,33 @@ body {
     }
 
 
-    /* Menu */
-
     .menu-grid {
         grid-template-columns: 1fr;
     }
 
 
-    /* Accessibility */
-
     .accessibility-section {
         grid-column: auto;
     }
 
+
+    .bill-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .bill-item-actions {
+        width: 100%;
+
+        justify-content: flex-end;
+
+        flex-wrap: wrap;
+    }
+
 }
 
-
-/* ==============================
-   SMALL MOBILE SCREENS
-================================= */
 
 @media (max-width: 480px) {
 
@@ -774,411 +1139,16 @@ body {
         padding: 18px;
     }
 
-}
 
-
-/* ==============================
-   DAY 24 - HIGH CONTRAST MODE
-================================= */
-
-/* Accessibility Controls */
-
-.accessibility-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.accessibility-button {
-    border: 2px solid #222;
-    padding: 12px 22px;
-    border-radius: 7px;
-    background-color: #222;
-    color: white;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-    min-width: 220px;
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-}
-
-.accessibility-button:hover {
-    background-color: #444;
-}
-
-.accessibility-button:focus {
-    outline: 4px solid #555;
-    outline-offset: 3px;
-}
-
-.accessibility-status {
-    color: #444;
-    font-size: 14px;
-}
-
-
-/* High Contrast Theme */
-
-body.high-contrast {
-    background-color: #000;
-    color: #fff;
-}
-
-body.high-contrast .header {
-    background-color: #000;
-    color: #fff;
-    border-bottom: 3px solid #fff;
-}
-
-body.high-contrast .navigation a {
-    color: #fff;
-    border: 1px solid transparent;
-}
-
-body.high-contrast .navigation a:hover,
-body.high-contrast .navigation a:focus {
-    background-color: #fff;
-    color: #000;
-}
-
-body.high-contrast .menu-section,
-body.high-contrast .billing-section,
-body.high-contrast .accessibility-section,
-body.high-contrast .menu-item {
-    background-color: #000;
-    color: #fff;
-    border-color: #fff;
-    box-shadow: none;
-}
-
-body.high-contrast .section-heading p,
-body.high-contrast .billing-subtitle,
-body.high-contrast .food-description,
-body.high-contrast .empty-bill p,
-body.high-contrast .bill-item-info p,
-body.high-contrast .accessibility-status,
-body.high-contrast .accessibility-section p {
-    color: #fff;
-}
-
-body.high-contrast .category-title {
-    border-bottom-color: #fff;
-}
-
-body.high-contrast .food-category {
-    background-color: #fff;
-    color: #000;
-}
-
-body.high-contrast .menu-item {
-    border-width: 2px;
-}
-
-body.high-contrast .menu-item:hover {
-    box-shadow: 0 0 0 2px #fff;
-    transform: translateY(-3px);
-}
-
-body.high-contrast .add-button,
-body.high-contrast .menu-item button,
-body.high-contrast .remove-button,
-body.high-contrast .checkout-button {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .add-button:hover,
-body.high-contrast .menu-item button:hover,
-body.high-contrast .remove-button:hover,
-body.high-contrast .checkout-button:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-body.high-contrast .add-button:focus,
-body.high-contrast .menu-item button:focus,
-body.high-contrast .remove-button:focus,
-body.high-contrast .checkout-button:focus,
-body.high-contrast .clear-button:focus,
-body.high-contrast .accessibility-button:focus,
-body.high-contrast .navigation a:focus {
-    outline: 4px solid #ffff00;
-    outline-offset: 3px;
-}
-
-body.high-contrast .bill-count {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .bill-items {
-    border-bottom-color: #fff;
-}
-
-body.high-contrast .bill-item {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .bill-summary hr {
-    border-top-color: #fff;
-}
-
-body.high-contrast .clear-button {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .clear-button:hover:not(:disabled) {
-    background-color: #fff;
-    color: #000;
-}
-
-body.high-contrast .clear-button:disabled,
-body.high-contrast .checkout-button:disabled {
-    background-color: #555;
-    color: #fff;
-    border-color: #aaa;
-}
-
-body.high-contrast .accessibility-button {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .accessibility-button:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-body.high-contrast .accessibility-status {
-    color: #fff;
-}
-
-
-/* High Contrast Responsive Accessibility Controls */
-
-@media (max-width: 480px) {
-
-    .accessibility-button {
-        width: 100%;
-        min-width: 0;
+    .billing-actions {
+        grid-template-columns: 1fr;
     }
 
-}
-
-
-/* ==============================
-   DAY 25 - FONT RESIZING
-================================= */
-
-.font-size-controls {
-    margin-top: 30px;
-    padding-top: 25px;
-    border-top: 1px solid #ddd;
-}
-
-.font-size-controls h3 {
-    margin-bottom: 8px;
-}
-
-.font-size-controls > p {
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.font-size-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.font-size-button {
-    border: 2px solid #222;
-    padding: 10px 16px;
-    border-radius: 7px;
-    background-color: #fff;
-    color: #222;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-}
-
-.font-size-button:hover {
-    background-color: #222;
-    color: #fff;
-}
-
-.font-size-button:focus {
-    outline: 4px solid #555;
-    outline-offset: 3px;
-}
-
-.font-size-button.active {
-    background-color: #222;
-    color: #fff;
-}
-
-.font-size-status {
-    margin-top: 12px;
-    color: #444;
-    font-size: 14px;
-}
-
-
-/* Font Size Themes */
-
-body.font-large {
-    font-size: 18px;
-}
-
-body.font-extra-large {
-    font-size: 21px;
-}
-
-
-body.font-large .brand h1 {
-    font-size: 31px;
-}
-
-body.font-extra-large .brand h1 {
-    font-size: 34px;
-}
-
-
-body.font-large .brand p,
-body.font-extra-large .brand p {
-    font-size: 16px;
-}
-
-
-body.font-large .navigation a {
-    font-size: 17px;
-}
-
-body.font-extra-large .navigation a {
-    font-size: 19px;
-}
-
-
-body.font-large .menu-item h3 {
-    font-size: 21px;
-}
-
-body.font-extra-large .menu-item h3 {
-    font-size: 24px;
-}
-
-
-body.font-large .food-description,
-body.font-extra-large .food-description {
-    font-size: 16px;
-}
-
-
-body.font-large .food-price {
-    font-size: 21px;
-}
-
-body.font-extra-large .food-price {
-    font-size: 24px;
-}
-
-
-body.font-large .add-button,
-body.font-large .menu-item button,
-body.font-large .clear-button,
-body.font-large .checkout-button {
-    font-size: 17px;
-}
-
-body.font-extra-large .add-button,
-body.font-extra-large .menu-item button,
-body.font-extra-large .clear-button,
-body.font-extra-large .checkout-button {
-    font-size: 19px;
-}
-
-
-body.font-large .bill-item-info h3,
-body.font-extra-large .bill-item-info h3 {
-    font-size: 18px;
-}
-
-
-body.font-large .bill-item-info p,
-body.font-extra-large .bill-item-info p {
-    font-size: 15px;
-}
-
-
-body.font-large .summary-row {
-    font-size: 17px;
-}
-
-body.font-extra-large .summary-row {
-    font-size: 19px;
-}
-
-
-body.font-large .summary-row.total {
-    font-size: 23px;
-}
-
-body.font-extra-large .summary-row.total {
-    font-size: 25px;
-}
-
-
-/* High Contrast + Font Resizing */
-
-body.high-contrast .font-size-controls {
-    border-top-color: #fff;
-}
-
-body.high-contrast .font-size-controls > p {
-    color: #fff;
-}
-
-body.high-contrast .font-size-status {
-    color: #fff;
-}
-
-body.high-contrast .font-size-button {
-    background-color: #000;
-    color: #fff;
-    border-color: #fff;
-}
-
-body.high-contrast .font-size-button:hover,
-body.high-contrast .font-size-button.active {
-    background-color: #fff;
-    color: #000;
-}
-
-body.high-contrast .font-size-button:focus {
-    outline-color: #ffff00;
-}
-
-
-@media (max-width: 480px) {
 
     .font-size-buttons {
         flex-direction: column;
     }
+
 
     .font-size-button {
         width: 100%;
