@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// DAY 26 - KEYBOARD ACCESSIBILITY
+// DAY 27 - DARK MODE + ALL PREVIOUS FEATURES
 // ==========================================
 
 
@@ -148,6 +148,17 @@ const mainContent =
 
 const keyboardStatus =
     document.getElementById("keyboard-status");
+
+
+// ==========================================
+// DAY 27 - DARK MODE ELEMENTS
+// ==========================================
+
+const darkModeToggle =
+    document.getElementById("dark-mode-toggle");
+
+const darkModeStatus =
+    document.getElementById("dark-mode-status");
 
 
 // ==========================================
@@ -975,7 +986,9 @@ function applyFontSize(size) {
 function updateFontSizeControls(size) {
 
     fontNormalButton.classList.remove("active");
+
     fontLargeButton.classList.remove("active");
+
     fontExtraLargeButton.classList.remove("active");
 
 
@@ -1084,6 +1097,123 @@ else {
 
 
 // ==========================================
+// DAY 27 - DARK MODE
+// ==========================================
+
+function applyDarkMode(enabled) {
+
+    // If the button does not exist yet,
+    // simply do nothing.
+    if (!darkModeToggle) {
+        return;
+    }
+
+
+    if (enabled) {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        darkModeToggle.textContent =
+            "Dark Mode: ON";
+
+        darkModeToggle.setAttribute(
+            "aria-pressed",
+            "true"
+        );
+
+
+        if (darkModeStatus) {
+
+            darkModeStatus.textContent =
+                "Dark mode is currently on.";
+
+        }
+
+    }
+
+    else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+        darkModeToggle.textContent =
+            "Dark Mode: OFF";
+
+        darkModeToggle.setAttribute(
+            "aria-pressed",
+            "false"
+        );
+
+
+        if (darkModeStatus) {
+
+            darkModeStatus.textContent =
+                "Dark mode is currently off.";
+
+        }
+
+    }
+
+}
+
+
+const savedDarkMode =
+    localStorage.getItem("tqmDarkMode");
+
+
+if (savedDarkMode === "true") {
+
+    applyDarkMode(true);
+
+}
+
+else {
+
+    applyDarkMode(false);
+
+}
+
+
+if (darkModeToggle) {
+
+    darkModeToggle.addEventListener(
+        "click",
+        function() {
+
+            const enabled =
+                document.body.classList.contains(
+                    "dark-mode"
+                );
+
+
+            applyDarkMode(!enabled);
+
+
+            localStorage.setItem(
+                "tqmDarkMode",
+                String(!enabled)
+            );
+
+
+            if (keyboardStatus) {
+
+                keyboardStatus.textContent =
+                    !enabled
+                        ? "Dark mode enabled."
+                        : "Dark mode disabled.";
+
+            }
+
+        }
+    );
+
+}
+
+
+// ==========================================
 // DAY 26 - KEYBOARD NAVIGATION
 // ==========================================
 
@@ -1101,7 +1231,9 @@ mainContent.addEventListener(
 );
 
 
-// Escape key
+// ==========================================
+// ESCAPE KEY
+// ==========================================
 
 document.addEventListener(
     "keydown",
@@ -1120,7 +1252,9 @@ document.addEventListener(
 );
 
 
-// Track keyboard navigation
+// ==========================================
+// TRACK KEYBOARD NAVIGATION
+// ==========================================
 
 document.addEventListener(
     "keydown",
@@ -1137,7 +1271,9 @@ document.addEventListener(
 );
 
 
-// Enter and Space feedback
+// ==========================================
+// ENTER AND SPACE FEEDBACK
+// ==========================================
 
 document.addEventListener(
     "keydown",

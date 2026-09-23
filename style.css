@@ -893,6 +893,123 @@ button:focus-visible {
 }
 
 
+
+/* ==============================
+   DAY 27 - DARK MODE
+================================= */
+
+.dark-mode-controls {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.dark-mode-controls h3 {
+    margin-bottom: 8px;
+}
+
+.dark-mode-controls .accessibility-button {
+    margin-top: 15px;
+}
+
+body.dark-mode {
+    background-color: #181818;
+    color: #f1f1f1;
+}
+
+body.dark-mode .header {
+    background-color: #101010;
+    color: #f1f1f1;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode .navigation a { color: #f1f1f1; }
+body.dark-mode .navigation a:hover { background-color: #333; }
+
+body.dark-mode .menu-section,
+body.dark-mode .billing-section,
+body.dark-mode .accessibility-section {
+    background-color: #242424;
+    color: #f1f1f1;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .section-heading p,
+body.dark-mode .billing-subtitle,
+body.dark-mode .food-description,
+body.dark-mode .empty-bill p,
+body.dark-mode .bill-item-info p,
+body.dark-mode .accessibility-section p,
+body.dark-mode .accessibility-status { color: #cfcfcf; }
+
+body.dark-mode .category-title { border-bottom-color: #555; }
+
+body.dark-mode .menu-item,
+body.dark-mode .bill-item {
+    background-color: #2d2d2d;
+    color: #f1f1f1;
+    border-color: #555;
+}
+
+body.dark-mode .menu-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .food-category { background-color: #444; color: #f1f1f1; }
+body.dark-mode .add-button { background-color: #f1f1f1; color: #181818; }
+body.dark-mode .bill-count { background-color: #444; color: #f1f1f1; }
+body.dark-mode .bill-items { border-bottom-color: #555; }
+body.dark-mode .quantity-button,
+body.dark-mode .remove-button { background-color: #444; color: #fff; }
+body.dark-mode .quantity-button:hover,
+body.dark-mode .remove-button:hover { background-color: #555; }
+body.dark-mode .bill-summary hr { border-top-color: #555; }
+body.dark-mode .clear-button { background-color: #444; color: #f1f1f1; }
+body.dark-mode .checkout-button { background-color: #f1f1f1; color: #181818; }
+
+body.dark-mode .font-size-controls,
+body.dark-mode .keyboard-navigation-controls,
+body.dark-mode .dark-mode-controls { border-top-color: #555; }
+
+body.dark-mode .font-size-button {
+    background-color: #2d2d2d;
+    color: #f1f1f1;
+    border-color: #777;
+}
+body.dark-mode .font-size-button:hover { background-color: #444; }
+body.dark-mode .font-size-button.active { background-color: #f1f1f1; color: #181818; }
+
+body.dark-mode .accessibility-button {
+    background-color: #f1f1f1;
+    color: #181818;
+    border-color: #f1f1f1;
+}
+body.dark-mode .accessibility-button:hover { background-color: #d9d9d9; }
+body.dark-mode a:focus-visible,
+body.dark-mode button:focus-visible { outline-color: #ffff00; }
+
+/* High Contrast remains the priority when both modes are enabled. */
+body.high-contrast.dark-mode { background-color: #000; color: #fff; }
+body.high-contrast.dark-mode .header,
+body.high-contrast.dark-mode .menu-section,
+body.high-contrast.dark-mode .billing-section,
+body.high-contrast.dark-mode .accessibility-section,
+body.high-contrast.dark-mode .menu-item,
+body.high-contrast.dark-mode .bill-item {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+}
+body.high-contrast.dark-mode .navigation a,
+body.high-contrast.dark-mode .section-heading p,
+body.high-contrast.dark-mode .billing-subtitle,
+body.high-contrast.dark-mode .food-description,
+body.high-contrast.dark-mode .empty-bill p,
+body.high-contrast.dark-mode .bill-item-info p,
+body.high-contrast.dark-mode .accessibility-status,
+body.high-contrast.dark-mode .accessibility-section p { color: #fff; }
+body.high-contrast.dark-mode .dark-mode-controls { border-top-color: #fff; }
+
 /* ==============================
    DAY 24 - HIGH CONTRAST THEME
 ================================= */
