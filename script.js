@@ -1,6 +1,6 @@
 // ==========================================
 // RESTAURANT BILLING SYSTEM
-// DAY 27 - DARK MODE + ALL PREVIOUS FEATURES
+// DAY 29 - BILLING + DATABASE INTEGRATION
 // ==========================================
 
 
@@ -183,13 +183,11 @@ menuItems.forEach(function(item) {
 
         </span>
 
-
         <span class="food-category">
 
             ${item.category}
 
         </span>
-
 
         <h3>
 
@@ -197,20 +195,17 @@ menuItems.forEach(function(item) {
 
         </h3>
 
-
         <p class="food-description">
 
             ${item.description}
 
         </p>
 
-
         <p class="food-price">
 
             ₹${item.price}
 
         </p>
-
 
         <button
             type="button"
@@ -332,13 +327,11 @@ function updateBill() {
 
                 </span>
 
-
                 <h3>
 
                     No items added
 
                 </h3>
-
 
                 <p>
 
@@ -379,7 +372,6 @@ function updateBill() {
 
                 </span>
 
-
                 <div>
 
                     <h3>
@@ -387,7 +379,6 @@ function updateBill() {
                         ${item.name}
 
                     </h3>
-
 
                     <p>
 
@@ -401,7 +392,6 @@ function updateBill() {
 
 
             <div class="bill-item-actions">
-
 
                 <button
                     type="button"
@@ -808,12 +798,106 @@ function validateBill() {
 
 
 // ==========================================
+// SAVE BILL TO DATABASE
+// ==========================================
+
+async function saveBillToDatabase() {
+
+    const subtotal =
+        billItems.reduce(
+            function(total, item) {
+
+                return total +
+                    (item.price * item.quantity);
+
+            },
+            0
+        );
+
+
+    const tax =
+        subtotal * 0.05;
+
+
+    const total =
+        subtotal + tax;
+
+
+    const billData = {
+
+        customer_id: null,
+
+        subtotal: Number(subtotal.toFixed(2)),
+
+        total: Number(total.toFixed(2)),
+
+        items: billItems.map(function(item) {
+
+            return {
+
+                item_name: item.name,
+
+                quantity: item.quantity,
+
+                price: item.price,
+
+                amount:
+                    Number(
+                        (item.price * item.quantity)
+                            .toFixed(2)
+                    )
+
+            };
+
+        })
+
+    };
+
+
+    const response =
+        await fetch("/api/bills", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type":
+                    "application/json"
+
+            },
+
+            body:
+                JSON.stringify(billData)
+
+        });
+
+
+    const result =
+        await response.json();
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            result.error ||
+            "Unable to save bill."
+        );
+
+    }
+
+
+    return result;
+
+}
+
+
+// ==========================================
 // CHECKOUT
 // ==========================================
 
 checkoutButton.addEventListener(
     "click",
-    function() {
+    async function() {
 
         const validation =
             validateBill();
@@ -828,23 +912,60 @@ checkoutButton.addEventListener(
         }
 
 
-        const finalTotal =
-            totalElement.textContent;
+        // Prevent multiple checkout clicks
+        checkoutButton.disabled = true;
 
 
-        alert(
-            `Checkout successful!\n\n` +
-            `Final Amount: ${finalTotal}\n\n` +
-            `Thank you for visiting our restaurant!`
-        );
+        try {
+
+            const databaseResult =
+                await saveBillToDatabase();
 
 
-        billItems = [];
+            const finalTotal =
+                totalElement.textContent;
 
-        updateBill();
 
-        keyboardStatus.textContent =
-            "Checkout completed successfully.";
+            alert(
+                `Checkout successful!\n\n` +
+                `Bill ID: ${databaseResult.bill_id}\n` +
+                `Final Amount: ${finalTotal}\n\n` +
+                `Bill saved to database successfully.\n\n` +
+                `Thank you for visiting our restaurant!`
+            );
+
+
+            billItems = [];
+
+            updateBill();
+
+
+            keyboardStatus.textContent =
+                "Checkout completed and bill saved to database.";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Database error:",
+                error
+            );
+
+
+            alert(
+                "Checkout could not be completed.\n\n" +
+                "The bill was NOT saved to the database.\n\n" +
+                "Please make sure the Flask server is running."
+            );
+
+
+            checkoutButton.disabled =
+                false;
+
+            return;
+
+        }
 
     }
 );
@@ -1102,10 +1223,10 @@ else {
 
 function applyDarkMode(enabled) {
 
-    // If the button does not exist yet,
-    // simply do nothing.
     if (!darkModeToggle) {
+
         return;
+
     }
 
 

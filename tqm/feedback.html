@@ -627,296 +627,531 @@
     </footer>
 
 
-    <!-- JAVASCRIPT -->
     <script>
 
-        const feedbackForm =
-            document.getElementById("feedbackForm");
+    // ==========================================
+    // FEEDBACK ELEMENTS
+    // ==========================================
 
-        const feedbackMessage =
-            document.getElementById("feedbackMessage");
+    const feedbackForm =
+        document.getElementById("feedbackForm");
 
-        const totalFeedback =
-            document.getElementById("totalFeedback");
+    const feedbackMessage =
+        document.getElementById("feedbackMessage");
 
-        const averageRating =
-            document.getElementById("averageRating");
+    const totalFeedback =
+        document.getElementById("totalFeedback");
 
-        const positiveFeedback =
-            document.getElementById("positiveFeedback");
+    const averageRating =
+        document.getElementById("averageRating");
 
-        const improvementFeedback =
-            document.getElementById("improvementFeedback");
+    const positiveFeedback =
+        document.getElementById("positiveFeedback");
 
-        const feedbackRecords =
-            document.getElementById("feedbackRecords");
+    const improvementFeedback =
+        document.getElementById("improvementFeedback");
 
-
-        let feedbackList =
-            JSON.parse(
-                localStorage.getItem("tqmFeedback")
-            ) || [];
+    const feedbackRecords =
+        document.getElementById("feedbackRecords");
 
 
-        function updateSummary() {
+    // ==========================================
+    // LOCAL DISPLAY DATA
+    // ==========================================
 
-            const total =
-                feedbackList.length;
-
-            totalFeedback.textContent =
-                total;
-
-
-            if (total === 0) {
-
-                averageRating.textContent =
-                    "0.0";
-
-                positiveFeedback.textContent =
-                    "0";
-
-                improvementFeedback.textContent =
-                    "0";
-
-                return;
-
-            }
+    let feedbackList =
+        JSON.parse(
+            localStorage.getItem("tqmFeedback")
+        ) || [];
 
 
-            const ratingTotal =
-                feedbackList.reduce(
-                    function (sum, feedback) {
+    // ==========================================
+    // UPDATE SUMMARY
+    // ==========================================
 
-                        return sum +
-                            Number(feedback.rating);
+    function updateSummary() {
 
-                    },
-                    0
-                );
+        const total =
+            feedbackList.length;
 
 
-            const average =
-                ratingTotal / total;
+        totalFeedback.textContent =
+            total;
 
+
+        if (total === 0) {
 
             averageRating.textContent =
-                average.toFixed(1);
-
-
-            const positive =
-                feedbackList.filter(
-                    function (feedback) {
-
-                        return Number(feedback.rating) >= 4;
-
-                    }
-                ).length;
-
-
-            const improvement =
-                feedbackList.filter(
-                    function (feedback) {
-
-                        return Number(feedback.rating) <= 3;
-
-                    }
-                ).length;
-
+                "0.0";
 
             positiveFeedback.textContent =
-                positive;
+                "0";
 
             improvementFeedback.textContent =
-                improvement;
+                "0";
+
+            return;
 
         }
 
 
-        function displayFeedback() {
+        const ratingTotal =
+            feedbackList.reduce(
+                function (sum, feedback) {
 
-            if (feedbackList.length === 0) {
+                    return sum +
+                        Number(feedback.rating);
 
-                feedbackRecords.innerHTML = `
-
-                    <div class="empty-records">
-
-                        <span>
-                            📋
-                        </span>
-
-                        <h3>
-                            No feedback submitted yet
-                        </h3>
-
-                        <p>
-                            Submitted feedback will appear here.
-                        </p>
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
+                },
+                0
+            );
 
 
-            feedbackRecords.innerHTML = "";
+        const average =
+            ratingTotal / total;
 
 
-            feedbackList
-                .slice()
-                .reverse()
-                .forEach(
-                    function (feedback) {
-
-                        const record =
-                            document.createElement("article");
-
-                        record.className =
-                            "feedback-record";
+        averageRating.textContent =
+            average.toFixed(1);
 
 
-                        record.innerHTML = `
+        const positive =
+            feedbackList.filter(
+                function (feedback) {
 
-                            <div class="record-header">
+                    return Number(feedback.rating) >= 4;
 
-                                <div>
+                }
+            ).length;
 
-                                    <h3>
-                                        ${escapeHTML(feedback.name)}
-                                    </h3>
 
-                                    <span>
-                                        ${escapeHTML(feedback.customerType)}
-                                    </span>
+        const improvement =
+            feedbackList.filter(
+                function (feedback) {
 
-                                </div>
+                    return Number(feedback.rating) <= 3;
 
-                                <strong>
-                                    ${feedback.rating}/5 ⭐
-                                </strong>
+                }
+            ).length;
+
+
+        positiveFeedback.textContent =
+            positive;
+
+        improvementFeedback.textContent =
+            improvement;
+
+    }
+
+
+    // ==========================================
+    // DISPLAY FEEDBACK
+    // ==========================================
+
+    function displayFeedback() {
+
+        if (feedbackList.length === 0) {
+
+            feedbackRecords.innerHTML = `
+
+                <div class="empty-records">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <h3>
+                        No feedback submitted yet
+                    </h3>
+
+                    <p>
+                        Submitted feedback will appear here.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        feedbackRecords.innerHTML = "";
+
+
+        feedbackList
+            .slice()
+            .reverse()
+            .forEach(
+                function (feedback) {
+
+                    const record =
+                        document.createElement("article");
+
+                    record.className =
+                        "feedback-record";
+
+
+                    record.innerHTML = `
+
+                        <div class="record-header">
+
+                            <div>
+
+                                <h3>
+                                    ${escapeHTML(feedback.name)}
+                                </h3>
+
+                                <span>
+                                    ${escapeHTML(
+                                        feedback.customerType
+                                    )}
+                                </span>
 
                             </div>
 
+                            <strong>
+                                ${feedback.rating}/5 ⭐
+                            </strong>
 
-                            <p class="record-area">
-
-                                <strong>
-                                    Area:
-                                </strong>
-
-                                ${escapeHTML(feedback.area)}
-
-                            </p>
+                        </div>
 
 
-                            <p class="record-comment">
+                        <p class="record-area">
 
-                                ${escapeHTML(feedback.comments)}
+                            <strong>
+                                Area:
+                            </strong>
 
-                            </p>
+                            ${escapeHTML(feedback.area)}
 
-
-                            <small>
-
-                                ${escapeHTML(feedback.date)}
-
-                            </small>
-
-                        `;
+                        </p>
 
 
-                        feedbackRecords.appendChild(
-                            record
-                        );
+                        <p class="record-comment">
 
-                    }
+                            ${escapeHTML(feedback.comments)}
+
+                        </p>
+
+
+                        <small>
+
+                            ${escapeHTML(feedback.date)}
+
+                        </small>
+
+                    `;
+
+
+                    feedbackRecords.appendChild(
+                        record
+                    );
+
+                }
+            );
+
+    }
+
+
+    // ==========================================
+    // HTML SECURITY
+    // ==========================================
+
+    function escapeHTML(value) {
+
+        const div =
+            document.createElement("div");
+
+        div.textContent =
+            value;
+
+        return div.innerHTML;
+
+    }
+
+
+    // ==========================================
+    // SAVE CUSTOMER TO DATABASE
+    // ==========================================
+
+    async function saveCustomerToDatabase(
+        name
+    ) {
+
+        const response =
+            await fetch(
+                "/api/customers",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            name: name,
+
+                            phone: "",
+
+                            email: ""
+
+                        })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.error ||
+                "Unable to save customer."
+            );
+
+        }
+
+
+        return result;
+
+    }
+
+
+    // ==========================================
+    // SAVE FEEDBACK TO DATABASE
+    // ==========================================
+
+    async function saveFeedbackToDatabase(
+        customerId,
+        rating,
+        area,
+        comments
+    ) {
+
+        /*
+         * The current SQLite feedback table stores:
+         *
+         * customer_id
+         * rating
+         * comments
+         *
+         * Therefore the selected feedback area is
+         * included with the comments so that the
+         * information is not lost.
+         */
+
+        const databaseComments =
+            `[Feedback Area: ${area}] ${comments}`;
+
+
+        const response =
+            await fetch(
+                "/api/feedback",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            customer_id:
+                                customerId,
+
+                            rating:
+                                Number(rating),
+
+                            comments:
+                                databaseComments
+
+                        })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.error ||
+                "Unable to save feedback."
+            );
+
+        }
+
+
+        return result;
+
+    }
+
+
+    // ==========================================
+    // SUBMIT FEEDBACK
+    // ==========================================
+
+    feedbackForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            // ==========================================
+            // GET FORM VALUES
+            // ==========================================
+
+            const name =
+                document.getElementById(
+                    "customerName"
+                ).value.trim();
+
+
+            const customerType =
+                document.getElementById(
+                    "customerType"
+                ).value;
+
+
+            const rating =
+                document.getElementById(
+                    "rating"
+                ).value;
+
+
+            const area =
+                document.getElementById(
+                    "feedbackArea"
+                ).value;
+
+
+            const comments =
+                document.getElementById(
+                    "comments"
+                ).value.trim();
+
+
+            // ==========================================
+            // VALIDATION
+            // ==========================================
+
+            if (
+                !name ||
+                !customerType ||
+                !rating ||
+                !area ||
+                !comments
+            ) {
+
+                feedbackMessage.textContent =
+                    "Please complete all feedback fields.";
+
+                feedbackMessage.className =
+                    "feedback-message error";
+
+                return;
+
+            }
+
+
+            // ==========================================
+            // DISABLE SUBMIT
+            // ==========================================
+
+            const submitButton =
+                feedbackForm.querySelector(
+                    ".submit-button"
                 );
 
-        }
+
+            submitButton.disabled =
+                true;
 
 
-        function escapeHTML(value) {
-
-            const div =
-                document.createElement("div");
-
-            div.textContent =
-                value;
-
-            return div.innerHTML;
-
-        }
+            submitButton.textContent =
+                "Saving Feedback...";
 
 
-        feedbackForm.addEventListener(
-            "submit",
-            function (event) {
+            try {
 
-                event.preventDefault();
+                // ==========================================
+                // STEP 1 - SAVE CUSTOMER
+                // ==========================================
 
-
-                const name =
-                    document.getElementById(
-                        "customerName"
-                    ).value.trim();
-
-
-                const customerType =
-                    document.getElementById(
-                        "customerType"
-                    ).value;
+                const customerResult =
+                    await saveCustomerToDatabase(
+                        name
+                    );
 
 
-                const rating =
-                    document.getElementById(
-                        "rating"
-                    ).value;
+                /*
+                 * The customer API created earlier
+                 * returns the new customer ID.
+                 */
+
+                const customerId =
+                    customerResult.customer_id;
 
 
-                const area =
-                    document.getElementById(
-                        "feedbackArea"
-                    ).value;
+                if (!customerId) {
 
-
-                const comments =
-                    document.getElementById(
-                        "comments"
-                    ).value.trim();
-
-
-                if (
-                    !name ||
-                    !customerType ||
-                    !rating ||
-                    !area ||
-                    !comments
-                ) {
-
-                    feedbackMessage.textContent =
-                        "Please complete all feedback fields.";
-
-                    feedbackMessage.className =
-                        "feedback-message error";
-
-                    return;
+                    throw new Error(
+                        "Customer ID was not returned."
+                    );
 
                 }
 
+
+                // ==========================================
+                // STEP 2 - SAVE FEEDBACK
+                // ==========================================
+
+                await saveFeedbackToDatabase(
+                    customerId,
+                    rating,
+                    area,
+                    comments
+                );
+
+
+                // ==========================================
+                // LOCAL DISPLAY RECORD
+                // ==========================================
 
                 const feedback = {
 
                     name: name,
 
-                    customerType: customerType,
+                    customerType:
+                        customerType,
 
-                    rating: Number(rating),
+                    rating:
+                        Number(rating),
 
                     area: area,
 
-                    comments: comments,
+                    comments:
+                        comments,
 
                     date:
                         new Date().toLocaleString()
@@ -929,35 +1164,92 @@
                 );
 
 
+                /*
+                 * localStorage is used only for
+                 * displaying the feedback records
+                 * on this page.
+                 *
+                 * The actual permanent database
+                 * record is already saved in SQLite.
+                 */
+
                 localStorage.setItem(
                     "tqmFeedback",
-                    JSON.stringify(feedbackList)
+                    JSON.stringify(
+                        feedbackList
+                    )
                 );
 
 
+                // ==========================================
+                // SUCCESS MESSAGE
+                // ==========================================
+
                 feedbackMessage.textContent =
-                    "Thank you! Your feedback has been recorded.";
+                    "Thank you! Your feedback has been saved to the database.";
 
                 feedbackMessage.className =
                     "feedback-message success";
 
 
+                // ==========================================
+                // RESET FORM
+                // ==========================================
+
                 feedbackForm.reset();
 
+
+                // ==========================================
+                // UPDATE DISPLAY
+                // ==========================================
 
                 updateSummary();
 
                 displayFeedback();
 
+
             }
-        );
+
+            catch (error) {
+
+                console.error(
+                    "Feedback database error:",
+                    error
+                );
 
 
-        updateSummary();
+                feedbackMessage.textContent =
+                    "Feedback could not be saved. Please make sure the Flask server is running.";
 
-        displayFeedback();
+                feedbackMessage.className =
+                    "feedback-message error";
 
-    </script>
+            }
+
+
+            // ==========================================
+            // ENABLE SUBMIT BUTTON
+            // ==========================================
+
+            submitButton.disabled =
+                false;
+
+            submitButton.textContent =
+                "Submit Feedback";
+
+        }
+    );
+
+
+    // ==========================================
+    // INITIAL DISPLAY
+    // ==========================================
+
+    updateSummary();
+
+    displayFeedback();
+
+</script>
 
 </body>
 

@@ -28,7 +28,6 @@
 
         </div>
 
-
         <!-- MAIN NAVIGATION -->
 
         <nav class="navigation" aria-label="Main navigation">
@@ -57,7 +56,7 @@
                 Requirements
             </a>
 
-            <a href="quality-mapping.html">
+            <a href="quality_mapping.html">
                 Quality Mapping
             </a>
 
@@ -70,9 +69,11 @@
     </header>
 
 
-    <!-- INTRODUCTION -->
+    <!-- MAIN CONTENT -->
 
     <main class="container">
+
+        <!-- INTRODUCTION -->
 
         <section class="intro">
 
@@ -92,7 +93,6 @@
         <!-- CUSTOMER TYPES -->
 
         <section class="customer-grid">
-
 
             <!-- RESTAURANT CUSTOMER -->
 
@@ -267,6 +267,141 @@
         </section>
 
 
+        <!-- CUSTOMER RECORDS -->
+
+        <section class="customer-records-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Customer Records
+                </h2>
+
+                <p>
+                    Customer information is stored securely in the
+                    restaurant database through the Flask backend.
+                </p>
+
+            </div>
+
+
+            <!-- ADD CUSTOMER FORM -->
+
+            <div class="customer-form-card">
+
+                <h3>
+                    Add New Customer
+                </h3>
+
+                <form id="customerForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="customerName">
+                                Customer Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                name="name"
+                                placeholder="Enter customer name"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="customerPhone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="customerPhone"
+                                name="phone"
+                                placeholder="Enter phone number">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="customerEmail">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="customerEmail"
+                                name="email"
+                                placeholder="Enter email address">
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="save-customer-button">
+
+                        Add Customer
+
+                    </button>
+
+                </form>
+
+
+                <p
+                    id="customerMessage"
+                    class="customer-message"
+                    role="status">
+                </p>
+
+            </div>
+
+
+            <!-- CUSTOMER LIST -->
+
+            <div class="customer-list-card">
+
+                <div class="customer-list-header">
+
+                    <h3>
+                        Saved Customers
+                    </h3>
+
+                    <button
+                        type="button"
+                        id="refreshCustomers"
+                        class="refresh-button">
+
+                        Refresh
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="customerList"
+                    class="customer-list">
+
+                    <p class="loading-message">
+                        Loading customers...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- TQM RELATIONSHIP -->
 
         <section class="relationship-section">
@@ -325,7 +460,7 @@
                     Customer Requirements
                 </a>
 
-                <a href="quality-mapping.html">
+                <a href="quality_mapping.html">
                     Quality Mapping
                 </a>
 
@@ -353,6 +488,276 @@
         </p>
 
     </footer>
+
+
+    <!-- CUSTOMER DATABASE JAVASCRIPT -->
+
+    <script>
+
+        const customerForm =
+            document.getElementById("customerForm");
+
+        const customerList =
+            document.getElementById("customerList");
+
+        const customerMessage =
+            document.getElementById("customerMessage");
+
+        const refreshCustomers =
+            document.getElementById("refreshCustomers");
+
+
+        // ---------------------------------------
+        // LOAD CUSTOMERS
+        // ---------------------------------------
+
+        async function loadCustomers() {
+
+            customerList.innerHTML =
+                '<p class="loading-message">Loading customers...</p>';
+
+            try {
+
+                const response =
+                    await fetch("/api/customers");
+
+                if (!response.ok) {
+                    throw new Error("Unable to load customers.");
+                }
+
+                const customers =
+                    await response.json();
+
+
+                if (customers.length === 0) {
+
+                    customerList.innerHTML = `
+                        <p class="empty-message">
+                            No customers have been added yet.
+                        </p>
+                    `;
+
+                    return;
+                }
+
+
+                customerList.innerHTML = "";
+
+
+                customers.forEach(customer => {
+
+                    const customerCard =
+                        document.createElement("div");
+
+                    customerCard.className =
+                        "saved-customer";
+
+
+                    customerCard.innerHTML = `
+
+                        <div class="saved-customer-info">
+
+                            <h4>
+                                ${escapeHtml(customer.name)}
+                            </h4>
+
+                            <p>
+                                <strong>ID:</strong>
+                                ${customer.id}
+                            </p>
+
+                            <p>
+                                <strong>Phone:</strong>
+                                ${escapeHtml(customer.phone || "Not provided")}
+                            </p>
+
+                            <p>
+                                <strong>Email:</strong>
+                                ${escapeHtml(customer.email || "Not provided")}
+                            </p>
+
+                            <small>
+                                Added:
+                                ${escapeHtml(customer.created_at)}
+                            </small>
+
+                        </div>
+
+                    `;
+
+
+                    customerList.appendChild(customerCard);
+
+                });
+
+            } catch (error) {
+
+                customerList.innerHTML = `
+                    <p class="error-message">
+                        Failed to load customers.
+                    </p>
+                `;
+
+                console.error(error);
+            }
+        }
+
+
+        // ---------------------------------------
+        // ADD CUSTOMER
+        // ---------------------------------------
+
+        customerForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "customerName"
+                    ).value.trim();
+
+
+                const phone =
+                    document.getElementById(
+                        "customerPhone"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "customerEmail"
+                    ).value.trim();
+
+
+                if (!name) {
+
+                    showMessage(
+                        "Customer name is required.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/customers",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+                                    name: name,
+                                    phone: phone,
+                                    email: email
+                                })
+                            }
+                        );
+
+
+                    const result =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            result.error ||
+                            "Failed to save customer."
+                        );
+
+                    }
+
+
+                    showMessage(
+                        "Customer added successfully.",
+                        "success"
+                    );
+
+
+                    customerForm.reset();
+
+
+                    await loadCustomers();
+
+
+                } catch (error) {
+
+                    showMessage(
+                        error.message,
+                        "error"
+                    );
+
+                    console.error(error);
+
+                }
+
+            }
+        );
+
+
+        // ---------------------------------------
+        // REFRESH BUTTON
+        // ---------------------------------------
+
+        refreshCustomers.addEventListener(
+            "click",
+            loadCustomers
+        );
+
+
+        // ---------------------------------------
+        // MESSAGE
+        // ---------------------------------------
+
+        function showMessage(
+            message,
+            type
+        ) {
+
+            customerMessage.textContent =
+                message;
+
+            customerMessage.className =
+                "customer-message " + type;
+
+        }
+
+
+        // ---------------------------------------
+        // BASIC HTML ESCAPING
+        // ---------------------------------------
+
+        function escapeHtml(value) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent =
+                value;
+
+            return div.innerHTML;
+
+        }
+
+
+        // ---------------------------------------
+        // INITIAL LOAD
+        // ---------------------------------------
+
+        loadCustomers();
+
+    </script>
 
 </body>
 

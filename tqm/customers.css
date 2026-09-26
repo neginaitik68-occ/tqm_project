@@ -737,6 +737,328 @@ body {
 }
 
 /* ==========================================
+   CUSTOMER DATABASE RECORDS
+   FLASK + SQLITE
+   ========================================== */
+
+.customer-records-section {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.customer-form-card {
+
+    background: #f8fafc;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.customer-form-card h3 {
+
+    margin-bottom: 20px;
+
+    font-size: 21px;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.form-group label {
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+
+}
+
+
+.form-group input {
+
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    background: white;
+
+}
+
+
+.form-group input:focus {
+
+    outline: 2px solid #374151;
+
+    outline-offset: 1px;
+
+}
+
+
+.save-customer-button {
+
+    margin-top: 20px;
+
+    padding: 12px 22px;
+
+    background: #1f2937;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.save-customer-button:hover {
+
+    background: #374151;
+
+}
+
+
+.customer-message {
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+}
+
+
+.customer-message.success {
+
+    color: #166534;
+
+}
+
+
+.customer-message.error {
+
+    color: #b91c1c;
+
+}
+
+
+.customer-list-card {
+
+    background: #f8fafc;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+}
+
+
+.customer-list-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.customer-list-header h3 {
+
+    font-size: 21px;
+
+}
+
+
+.refresh-button {
+
+    padding: 9px 16px;
+
+    background: #374151;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.refresh-button:hover {
+
+    background: #4b5563;
+
+}
+
+
+.customer-list {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+
+.saved-customer {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 9px;
+
+    border-left: 4px solid #374151;
+
+}
+
+
+.saved-customer-info h4 {
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.saved-customer-info p {
+
+    margin: 4px 0;
+
+    color: #555;
+
+}
+
+
+.saved-customer-info small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    color: #777;
+
+}
+
+
+.loading-message,
+.empty-message {
+
+    text-align: center;
+
+    color: #666;
+
+    padding: 20px;
+
+}
+
+
+.error-message {
+
+    text-align: center;
+
+    color: #b91c1c;
+
+    padding: 20px;
+
+}
+
+
+/* ==========================================
+   CUSTOMER DATABASE RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 850px) {
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .customer-records-section {
+
+        padding: 22px;
+
+    }
+
+
+    .customer-list-header {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .refresh-button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ==========================================
    CUSTOMER MODULE LINKS
    DAY 20
    ========================================== */
