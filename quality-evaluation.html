@@ -105,11 +105,13 @@
                     <h3>Customer Satisfaction</h3>
 
                     <p>
-                        Customer feedback can be used to identify
-                        requirements and areas for improvement.
+                        Customer feedback is measured to identify
+                        satisfaction levels and areas for improvement.
                     </p>
 
-                    <strong>Feedback Based</strong>
+                    <strong id="customerSatisfactionStatus">
+                        Loading...
+                    </strong>
 
                 </div>
 
@@ -165,6 +167,120 @@
         </section>
 
 
+        <!-- Real Feedback Measurement -->
+
+        <section>
+
+            <h2>Customer Feedback Measurement</h2>
+
+            <p>
+                These measurements are calculated from feedback stored in
+                the SQLite database through the Flask backend.
+            </p>
+
+            <div class="measurement">
+
+                <div>
+                    <span>Total Feedback</span>
+                    <strong id="totalFeedback">Loading...</strong>
+                </div>
+
+                <div>
+                    <span>Average Rating</span>
+                    <strong id="averageRating">Loading...</strong>
+                </div>
+
+                <div>
+                    <span>Positive Feedback</span>
+                    <strong id="positiveFeedback">Loading...</strong>
+                </div>
+
+                <div>
+                    <span>Improvement Feedback</span>
+                    <strong id="improvementFeedback">Loading...</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Feedback Quality Details -->
+
+        <section>
+
+            <h2>Feedback-Based Quality Analysis</h2>
+
+            <div class="quality-grid">
+
+                <div class="quality-card">
+
+                    <h3>Customer Satisfaction</h3>
+
+                    <p>
+                        Average rating provided by users through the
+                        feedback system.
+                    </p>
+
+                    <strong id="feedbackRating">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="quality-card">
+
+                    <h3>Positive Feedback</h3>
+
+                    <p>
+                        Feedback with a rating of 4 or 5 is counted
+                        as positive feedback.
+                    </p>
+
+                    <strong id="positiveFeedbackPercentage">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="quality-card">
+
+                    <h3>Improvement Areas</h3>
+
+                    <p>
+                        Feedback with a rating of 3 or below is monitored
+                        to identify possible improvement requirements.
+                    </p>
+
+                    <strong id="improvementPercentage">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="quality-card">
+
+                    <h3>Accessibility Feedback</h3>
+
+                    <p>
+                        Feedback related to accessibility is identified
+                        from the customer feedback records.
+                    </p>
+
+                    <strong id="accessibilityFeedback">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- TQM Cycle -->
 
         <section>
@@ -208,6 +324,66 @@
         </section>
 
 
+        <!-- Quality Improvement Process -->
+
+        <section>
+
+            <h2>Feedback → Measurement → Improvement</h2>
+
+            <div class="quality-grid">
+
+                <div class="quality-card">
+
+                    <h3>1. Collect Feedback</h3>
+
+                    <p>
+                        Customers and system stakeholders provide ratings,
+                        comments and suggestions through the feedback module.
+                    </p>
+
+                </div>
+
+
+                <div class="quality-card">
+
+                    <h3>2. Measure Quality</h3>
+
+                    <p>
+                        Feedback records are stored in SQLite and converted
+                        into measurable quality indicators.
+                    </p>
+
+                </div>
+
+
+                <div class="quality-card">
+
+                    <h3>3. Identify Improvement</h3>
+
+                    <p>
+                        Lower ratings and improvement-related feedback can
+                        be reviewed to identify quality requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="quality-card">
+
+                    <h3>4. Improve System</h3>
+
+                    <p>
+                        Identified requirements can be used for future
+                        improvements to the Restaurant Billing System.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- Evaluation Summary -->
 
         <section>
@@ -219,6 +395,11 @@
                 accessibility and functional quality tests. All seven
                 accessibility and quality tests performed during Day 28
                 were successfully passed.
+            </p>
+
+            <p id="dynamicSummary">
+                Customer feedback measurements are being loaded from
+                the database.
             </p>
 
             <p>
@@ -241,6 +422,261 @@
         </p>
 
     </footer>
+
+
+    <!-- Database Feedback Measurement -->
+
+    <script>
+
+        async function loadQualityFeedback() {
+
+            try {
+
+                const response = await fetch("/api/feedback");
+
+                if (!response.ok) {
+                    throw new Error("Unable to retrieve feedback data.");
+                }
+
+                const feedback = await response.json();
+
+                if (!Array.isArray(feedback)) {
+                    throw new Error("Invalid feedback data received.");
+                }
+
+
+                // Total feedback
+
+                const total = feedback.length;
+
+
+                // Ratings
+
+                const ratings = feedback
+                    .map(item => Number(item.rating))
+                    .filter(rating => rating >= 1 && rating <= 5);
+
+
+                // Average rating
+
+                let average = 0;
+
+                if (ratings.length > 0) {
+
+                    average =
+                        ratings.reduce(
+                            (sum, rating) => sum + rating,
+                            0
+                        ) / ratings.length;
+
+                }
+
+
+                // Positive feedback = rating 4 or 5
+
+                const positive = ratings.filter(
+                    rating => rating >= 4
+                ).length;
+
+
+                // Improvement feedback = rating 3 or below
+
+                const improvement = ratings.filter(
+                    rating => rating <= 3
+                ).length;
+
+
+                // Percentages
+
+                const positivePercentage =
+                    ratings.length > 0
+                        ? ((positive / ratings.length) * 100).toFixed(1)
+                        : "0.0";
+
+
+                const improvementPercentage =
+                    ratings.length > 0
+                        ? ((improvement / ratings.length) * 100).toFixed(1)
+                        : "0.0";
+
+
+                // Accessibility feedback
+
+                const accessibilityFeedback =
+                    feedback.filter(item => {
+
+                        const comments =
+                            String(item.comments || "").toLowerCase();
+
+                        return comments.includes("accessibility");
+
+                    }).length;
+
+
+                // Update main measurements
+
+                document.getElementById("totalFeedback").textContent =
+                    total;
+
+
+                document.getElementById("averageRating").textContent =
+                    ratings.length > 0
+                        ? average.toFixed(2) + " / 5"
+                        : "No ratings";
+
+
+                document.getElementById("positiveFeedback").textContent =
+                    positive;
+
+
+                document.getElementById("improvementFeedback").textContent =
+                    improvement;
+
+
+                // Update quality analysis
+
+                document.getElementById("feedbackRating").textContent =
+                    ratings.length > 0
+                        ? average.toFixed(2) + " / 5"
+                        : "No ratings";
+
+
+                document.getElementById(
+                    "positiveFeedbackPercentage"
+                ).textContent =
+                    positivePercentage + "%";
+
+
+                document.getElementById(
+                    "improvementPercentage"
+                ).textContent =
+                    improvementPercentage + "%";
+
+
+                document.getElementById(
+                    "accessibilityFeedback"
+                ).textContent =
+                    accessibilityFeedback;
+
+
+                // Customer satisfaction status
+
+                let satisfactionStatus;
+
+                if (ratings.length === 0) {
+
+                    satisfactionStatus = "Awaiting Feedback";
+
+                } else if (average >= 4) {
+
+                    satisfactionStatus = "Positive";
+
+                } else if (average >= 3) {
+
+                    satisfactionStatus = "Needs Monitoring";
+
+                } else {
+
+                    satisfactionStatus = "Improvement Required";
+
+                }
+
+
+                document.getElementById(
+                    "customerSatisfactionStatus"
+                ).textContent =
+                    satisfactionStatus;
+
+
+                // Dynamic summary
+
+                const summary =
+                    document.getElementById("dynamicSummary");
+
+
+                if (total === 0) {
+
+                    summary.textContent =
+                        "No customer feedback has been recorded yet. " +
+                        "Future quality evaluation will use feedback " +
+                        "stored through the customer feedback system.";
+
+                } else {
+
+                    summary.textContent =
+                        "The system currently contains " +
+                        total +
+                        " feedback record(s), with an average customer " +
+                        "rating of " +
+                        average.toFixed(2) +
+                        " out of 5. " +
+                        positive +
+                        " positive feedback record(s) and " +
+                        improvement +
+                        " improvement-related record(s) are being " +
+                        "considered as part of the continuous improvement process.";
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Quality evaluation error:",
+                    error
+                );
+
+
+                document.getElementById("totalFeedback").textContent =
+                    "Unavailable";
+
+                document.getElementById("averageRating").textContent =
+                    "Unavailable";
+
+                document.getElementById("positiveFeedback").textContent =
+                    "Unavailable";
+
+                document.getElementById("improvementFeedback").textContent =
+                    "Unavailable";
+
+                document.getElementById("feedbackRating").textContent =
+                    "Unavailable";
+
+                document.getElementById(
+                    "positiveFeedbackPercentage"
+                ).textContent =
+                    "Unavailable";
+
+                document.getElementById(
+                    "improvementPercentage"
+                ).textContent =
+                    "Unavailable";
+
+                document.getElementById(
+                    "accessibilityFeedback"
+                ).textContent =
+                    "Unavailable";
+
+                document.getElementById(
+                    "customerSatisfactionStatus"
+                ).textContent =
+                    "Database Error";
+
+                document.getElementById(
+                    "dynamicSummary"
+                ).textContent =
+                    "The feedback measurement could not be loaded. " +
+                    "Please make sure the Flask server is running.";
+
+            }
+
+        }
+
+
+        // Load feedback measurements when page opens
+
+        loadQualityFeedback();
+
+    </script>
 
 </body>
 
