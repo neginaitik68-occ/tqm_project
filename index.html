@@ -1,558 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>Restaurant Billing System</title>
-
-    <link
-        rel="stylesheet"
-        href="style.css">
-
+    <title>Restaurant Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
-
 
 <body>
 
-    <!-- ==========================================
-         DAY 26 - SKIP LINK
-    =========================================== -->
+<div class="dashboard">
 
-    <a
-        href="#main-content"
-        class="skip-link">
-        Skip to main content
-    </a>
+    <aside class="sidebar">
 
+        <h2>🍽 Restaurant</h2>
 
-    <!-- ==========================================
-         HEADER
-    =========================================== -->
+        <ul class="sidebar-menu">
 
-    <header class="header">
+    <li>
+        <a href="index.html">
+            📊 Dashboard
+        </a>
+    </li>
 
-        <div class="brand">
+    <li>
+        <a href="orders.html">
+            🛒 Orders
+        </a>
+    </li>
 
-            <span
-                class="brand-icon"
-                aria-hidden="true">
-                🍽️
-            </span>
+    <li>
+        <a href="billing.html">
+            💳 Billing
+        </a>
+    </li>
 
-            <div>
+    <li>
+        <a href="tqm/customers.html">
+            👥 Customers
+        </a>
+    </li>
 
-                <h1>
-                    Restaurant Billing System
-                </h1>
+    <li>
+        <a href="tqm/feedback.html">
+            ⭐ Feedback
+        </a>
+    </li>
 
-                <p>
-                    Fast • Simple • Accessible
-                </p>
+    <li>
+        <a href="reports.html">
+            📈 Reports
+        </a>
+    </li>
 
+    <li>
+        <a href="tqm/accessibility_testing.html">
+            ♿ Accessibility
+        </a>
+    </li>
+
+    <li>
+        <a href="tqm/quality_mapping.html">
+            📋 TQM
+        </a>
+    </li>
+
+</ul>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Dashboard</h1>
+
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>Sales Today</h3>
+                <p>₹15,200</p>
+            </div>
+
+            <div class="card">
+                <h3>Customers</h3>
+                <p>120</p>
+            </div>
+
+            <div class="card">
+                <h3>Bills</h3>
+                <p>42</p>
+            </div>
+
+            <div class="card">
+                <h3>Average Rating</h3>
+                <p>4.8⭐</p>
             </div>
 
         </div>
 
+        <div class="section">
 
-        <nav
-    class="navigation"
-    aria-label="Main navigation">
+            <h2>Quick Actions</h2>
 
-    <a href="#menu">
-        Home
-    </a>
+            <button>Create Order</button>
+            <button>New Customer</button>
+            <button>Generate Bill</button>
 
-    <a href="#billing">
-        Billing
-    </a>
+        </div>
 
-    <a href="#accessibility">
-        Accessibility
-    </a>
+        <div class="section">
 
-    <a href="quality-evaluation.html">
-        Quality Evaluation
-    </a>
+            <h2>Recent Activity</h2>
 
-</nav>
-    </header>
+            <table>
 
+                <tr>
+                    <th>Bill</th>
+                    <th>Customer</th>
+                    <th>Total</th>
+                </tr>
 
-    <!-- ==========================================
-         MAIN CONTENT
-    =========================================== -->
+                <tr>
+                    <td>#1001</td>
+                    <td>John</td>
+                    <td>₹800</td>
+                </tr>
 
-    <main
-        class="container"
-        id="main-content"
-        tabindex="-1">
+                <tr>
+                    <td>#1002</td>
+                    <td>Sarah</td>
+                    <td>₹450</td>
+                </tr>
 
+            </table>
 
-        <!-- ==========================================
-             MENU SECTION
-        =========================================== -->
-
-        <section
-            class="menu-section"
-            id="menu"
-            aria-labelledby="menu-heading">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <h2 id="menu-heading">
-                        Our Menu
-                    </h2>
-
-                    <p>
-                        Select an item to add it to your bill.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- Main Course -->
-
-            <div class="menu-category">
-
-                <h3 class="category-title">
-                    🍽️ Main Course
-                </h3>
-
-
-                <div
-                    class="menu-grid"
-                    id="main-course-menu"
-                    aria-label="Main course menu">
-
-                    <!-- JavaScript generates menu items -->
-
-                </div>
-
-            </div>
-
-
-            <!-- Snacks and Drinks -->
-
-            <div class="menu-category">
-
-                <h3 class="category-title">
-                    🍟 Snacks & Drinks
-                </h3>
-
-
-                <div
-                    class="menu-grid"
-                    id="snacks-drinks-menu"
-                    aria-label="Snacks and drinks menu">
-
-                    <!-- JavaScript generates menu items -->
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             BILLING SECTION
-        =========================================== -->
-
-        <section
-            class="billing-section"
-            id="billing"
-            aria-labelledby="billing-heading">
-
-
-            <!-- Billing Header -->
-
-            <div class="billing-header">
-
-                <div>
-
-                    <h2 id="billing-heading">
-                        Your Bill
-                    </h2>
-
-                    <p class="billing-subtitle">
-                        Review your selected items
-                    </p>
-
-                </div>
-
-
-                <span
-                    class="bill-count"
-                    aria-label="Number of items in bill"
-                    aria-live="polite">
-
-                    0 Items
-
-                </span>
-
-            </div>
-
-
-
-            <!-- Bill Items -->
-
-            <div
-                class="bill-items"
-                aria-live="polite"
-                aria-label="Current bill items">
-
-                <div class="empty-bill">
-
-                    <span
-                        class="empty-icon"
-                        aria-hidden="true">
-                        🧾
-                    </span>
-
-
-                    <h3>
-                        No items added
-                    </h3>
-
-
-                    <p>
-                        Select an item from the menu
-                        to add it to your bill.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ==========================================
-                 BILL SUMMARY
-            =========================================== -->
-
-            <div
-                class="bill-summary"
-                aria-label="Bill summary">
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <span id="subtotal">
-                        ₹0
-                    </span>
-
-                </div>
-
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Tax (5%)
-                    </span>
-
-                    <span id="tax">
-                        ₹0.00
-                    </span>
-
-                </div>
-
-
-
-                <hr>
-
-
-
-                <div class="summary-row total">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <span id="total">
-                        ₹0.00
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ==========================================
-                 BILLING ACTIONS
-            =========================================== -->
-
-            <div class="billing-actions">
-
-                <button
-                    type="button"
-                    class="clear-button"
-                    disabled
-                    aria-label="Clear the current bill">
-
-                    Clear Bill
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="checkout-button"
-                    disabled
-                    aria-label="Checkout the current bill">
-
-                    Checkout
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             ACCESSIBILITY SECTION
-        =========================================== -->
-
-        <section
-            class="accessibility-section"
-            id="accessibility"
-            aria-labelledby="accessibility-heading">
-
-            <h2 id="accessibility-heading">
-                Accessibility
-            </h2>
-
-
-            <p>
-                Use the controls below to improve visibility,
-                readability and keyboard accessibility.
-            </p>
-
-
-
-            <!-- ==========================================
-                 HIGH CONTRAST
-            =========================================== -->
-
-            <div class="accessibility-controls">
-
-                <h3>
-                    High Contrast
-                </h3>
-
-                <button
-                    type="button"
-                    id="high-contrast-toggle"
-                    class="accessibility-button"
-                    aria-pressed="false"
-                    aria-describedby="contrast-status">
-
-                    High Contrast: OFF
-
-                </button>
-
-
-                <p
-                    id="contrast-status"
-                    class="accessibility-status"
-                    aria-live="polite">
-
-                    High contrast mode is currently off.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- ==========================================
-                 FONT SIZE
-            =========================================== -->
-
-            <div class="font-size-controls">
-
-                <h3>
-                    Font Size
-                </h3>
-
-                <p>
-                    Choose a text size that is comfortable to read.
-                </p>
-
-
-                <div
-                    class="font-size-buttons"
-                    role="group"
-                    aria-label="Font size controls">
-
-                    <button
-                        type="button"
-                        id="font-normal"
-                        class="font-size-button"
-                        aria-pressed="false">
-
-                        Normal
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        id="font-large"
-                        class="font-size-button"
-                        aria-pressed="false">
-
-                        Large
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        id="font-extra-large"
-                        class="font-size-button"
-                        aria-pressed="false">
-
-                        Extra Large
-
-                    </button>
-
-                </div>
-
-
-                <p
-                    id="font-size-status"
-                    class="font-size-status"
-                    aria-live="polite">
-
-                    Normal font size is currently selected.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- ==========================================
-                 DAY 27 - DARK MODE
-            =========================================== -->
-
-            <div class="dark-mode-controls">
-
-                <h3>
-                    Dark Mode
-                </h3>
-
-                <p>
-                    Use dark mode for a more comfortable viewing experience
-                    in low-light environments.
-                </p>
-
-                <button
-                    type="button"
-                    id="dark-mode-toggle"
-                    class="accessibility-button"
-                    aria-pressed="false"
-                    aria-describedby="dark-mode-status">
-
-                    Dark Mode: OFF
-
-                </button>
-
-                <p
-                    id="dark-mode-status"
-                    class="accessibility-status"
-                    aria-live="polite">
-
-                    Dark mode is currently off.
-
-                </p>
-
-            </div>
-
-            <!-- ==========================================
-                 DAY 26 - KEYBOARD NAVIGATION
-            =========================================== -->
-
-            <div class="keyboard-navigation-controls">
-
-                <h3>
-                    Keyboard Navigation
-                </h3>
-
-
-                <p>
-                    You can use the keyboard to navigate
-                    and operate the billing system.
-                </p>
-
-
-                <ul class="keyboard-help-list">
-
-                    <li>
-                        <strong>Tab:</strong>
-                        Move to the next interactive element.
-                    </li>
-
-                    <li>
-                        <strong>Shift + Tab:</strong>
-                        Move to the previous interactive element.
-                    </li>
-
-                    <li>
-                        <strong>Enter:</strong>
-                        Activate the focused link or button.
-                    </li>
-
-                    <li>
-                        <strong>Space:</strong>
-                        Activate a focused button.
-                    </li>
-
-                    <li>
-                        <strong>Escape:</strong>
-                        Return focus to the main content.
-                    </li>
-
-                </ul>
-
-
-                <p
-                    id="keyboard-status"
-                    class="keyboard-status"
-                    aria-live="polite">
-
-                    Keyboard navigation is available.
-
-                </p>
-
-            </div>
-
-        </section>
+        </div>
 
     </main>
 
-
-    <script src="script.js"></script>
+</div>
 
 </body>
-
 </html>
