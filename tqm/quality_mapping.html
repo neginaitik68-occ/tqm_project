@@ -1,459 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
     <title>Quality Mapping</title>
-
-    <link
-        rel="stylesheet"
-        href="quality-mapping.css">
-
+    <link rel="stylesheet" href="quality-evaluation.css">
 </head>
-
 <body>
 
+<h1>TQM Quality Mapping</h1>
 
-    <!-- HEADER -->
+<div class="metric-card">
 
-    <header class="header">
+<table style="width:100%;border-collapse:collapse;">
 
-        <div class="brand">
+<tr>
+<th>TQM Principle</th>
+<th>Project Implementation</th>
+</tr>
 
-            <h1>
-                Restaurant Billing System
-            </h1>
+<tr>
+<td>Customer Focus</td>
+<td>Minimalist Layout</td>
+</tr>
 
-            <p>
-                Total Quality Management
-            </p>
+<tr>
+<td>Continuous Improvement</td>
+<td>Feedback Module</td>
+</tr>
 
-        </div>
+<tr>
+<td>Process Approach</td>
+<td>Orders → Billing → Reports</td>
+</tr>
 
+<tr>
+<td>Evidence-Based Decision Making</td>
+<td>Quality Dashboard Metrics</td>
+</tr>
 
-        <!-- NAVIGATION -->
+<tr>
+<td>Accessibility</td>
+<td>Dark Mode, High Contrast, Font Resize</td>
+</tr>
 
-        <nav
-            class="navigation"
-            aria-label="Main navigation">
+<tr>
+<td>User Satisfaction</td>
+<td>Improved Navigation and Interface</td>
+</tr>
 
-            <a href="../index.html">
-                Billing System
-            </a>
+</table>
 
-            <a href="customers.html">
-                Customers
-            </a>
-
-            <a href="customer.html">
-                Customer Module
-            </a>
-
-            <a href="cashier.html">
-                Cashier Module
-            </a>
-
-            <a href="owner.html">
-                Owner Module
-            </a>
-
-            <a href="requirements.html">
-                Requirements
-            </a>
-
-            <a
-                href="quality-mapping.html"
-                class="active">
-
-                Quality Mapping
-
-            </a>
-
-            <a href="feedback.html">
-                Feedback
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- MAIN -->
-
-    <main class="container">
-
-
-        <!-- INTRO -->
-
-        <section class="intro">
-
-            <h2>
-                Customer Requirement → Quality Mapping
-            </h2>
-
-            <p>
-                Quality mapping connects customer requirements
-                with quality objectives and actual system
-                features.
-            </p>
-
-        </section>
-
-
-        <!-- MAPPING TABLE -->
-
-        <section class="mapping-section">
-
-            <h2>
-                TQM Quality Mapping
-            </h2>
-
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Customer
-                        </th>
-
-                        <th>
-                            Requirement
-                        </th>
-
-                        <th>
-                            Quality Objective
-                        </th>
-
-                        <th>
-                            System Feature
-                        </th>
-
-                        <th>
-                            Expected Quality Result
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-
-                    <tr>
-
-                        <td>
-                            Restaurant Customer
-                        </td>
-
-                        <td>
-                            Accurate Bill
-                        </td>
-
-                        <td>
-                            Minimize calculation errors
-                        </td>
-
-                        <td>
-                            Automatic subtotal, tax and total
-                        </td>
-
-                        <td>
-                            Correct final bill
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Restaurant Customer
-                        </td>
-
-                        <td>
-                            Simple Billing
-                        </td>
-
-                        <td>
-                            Improve usability
-                        </td>
-
-                        <td>
-                            Dynamic menu
-                        </td>
-
-                        <td>
-                            Easy item selection
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Restaurant Customer
-                        </td>
-
-                        <td>
-                            Easy Checkout
-                        </td>
-
-                        <td>
-                            Simplify transaction completion
-                        </td>
-
-                        <td>
-                            Checkout function
-                        </td>
-
-                        <td>
-                            Easy transaction completion
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Cashier / Staff
-                        </td>
-
-                        <td>
-                            Quantity Handling
-                        </td>
-
-                        <td>
-                            Improve order management
-                        </td>
-
-                        <td>
-                            Quantity controls
-                        </td>
-
-                        <td>
-                            Easy order modification
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Cashier / Staff
-                        </td>
-
-                        <td>
-                            Bill Management
-                        </td>
-
-                        <td>
-                            Improve billing efficiency
-                        </td>
-
-                        <td>
-                            Remove and clear functions
-                        </td>
-
-                        <td>
-                            Better bill control
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Owner / Manager
-                        </td>
-
-                        <td>
-                            Reliability
-                        </td>
-
-                        <td>
-                            Reduce billing failures
-                        </td>
-
-                        <td>
-                            Bill validation
-                        </td>
-
-                        <td>
-                            More reliable transactions
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            All Customers
-                        </td>
-
-                        <td>
-                            Accessibility
-                        </td>
-
-                        <td>
-                            Improve accessibility
-                        </td>
-
-                        <td>
-                            Accessibility features
-                        </td>
-
-                        <td>
-                            Better usability for different users
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </section>
-
-
-        <!-- QUALITY CHAIN -->
-
-        <section class="flow-section">
-
-            <h2>
-                TQM Quality Chain
-            </h2>
-
-
-            <div class="flow-container">
-
-                <div class="flow-box">
-                    Customer
-                </div>
-
-                <span>
-                    →
-                </span>
-
-                <div class="flow-box">
-                    Requirement
-                </div>
-
-                <span>
-                    →
-                </span>
-
-                <div class="flow-box">
-                    Quality Objective
-                </div>
-
-                <span>
-                    →
-                </span>
-
-                <div class="flow-box">
-                    System Feature
-                </div>
-
-                <span>
-                    →
-                </span>
-
-                <div class="flow-box">
-                    Quality Result
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FEEDBACK -->
-
-        <section class="feedback-link-section">
-
-            <h2>
-                Measure Customer Satisfaction
-            </h2>
-
-            <p>
-                After connecting customer requirements to system
-                features, TQM uses feedback to measure quality and
-                identify opportunities for continuous improvement.
-            </p>
-
-            <a
-                href="feedback.html"
-                class="primary-button">
-
-                Open Customer Feedback →
-
-            </a>
-
-        </section>
-
-
-        <!-- NAVIGATION -->
-
-        <section class="navigation-buttons">
-
-            <a href="customers.html">
-                ← Customers
-            </a>
-
-            <a href="customer.html">
-                Customer Module
-            </a>
-
-            <a href="cashier.html">
-                Cashier Module
-            </a>
-
-            <a href="owner.html">
-                Owner Module
-            </a>
-
-            <a href="requirements.html">
-                Requirements
-            </a>
-
-            <a href="feedback.html">
-                Feedback →
-            </a>
-
-            <a href="../index.html">
-                Billing System
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <p>
-            Restaurant Billing System | Total Quality Management Project
-        </p>
-
-    </footer>
-
+</div>
 
 </body>
-
 </html>

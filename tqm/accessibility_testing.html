@@ -3,238 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Accessibility Testing - TQM</title>
-
+    <title>Accessibility Testing</title>
     <link rel="stylesheet" href="accessibility_testing.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Accessibility & Quality Testing</h1>
-        <p>Restaurant Billing System - TQM Evaluation</p>
-    </header>
+<div class="accessibility-panel">
 
-    <main>
+    <h1>Accessibility Testing Center</h1>
+    <p>Testing the 5 Core Accessibility Features</p>
 
-        <section class="testing-intro">
-            <h2>Accessibility Testing</h2>
+    <button onclick="toggleContrast()">
+        High Contrast
+    </button>
 
-            <p>
-                This module evaluates the accessibility and usability
-                of the Restaurant Billing System according to customer
-                requirements and Total Quality Management principles.
-            </p>
-        </section>
+    <button onclick="toggleDarkMode()">
+        Dark Mode
+    </button>
 
+    <button onclick="increaseFont()">
+        A+
+    </button>
 
-        <section class="test-section">
+    <button onclick="decreaseFont()">
+        A-
+    </button>
 
-            <h2>Accessibility Test Cases</h2>
+    <button onclick="toggleMinimalist()">
+        Minimalist Layout
+    </button>
 
-            <table>
+</div>
 
-                <thead>
-                    <tr>
-                        <th>Test ID</th>
-                        <th>Feature</th>
-                        <th>Test Description</th>
-                        <th>Expected Result</th>
-                        <th>Actual Result</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+<div class="demo-content">
 
-                <tbody>
+    <h2>TQM Accessibility Demonstration</h2>
 
-                    <tr>
-                        <td>AT-01</td>
-                        <td>High Contrast</td>
-                        <td>
-                            Enable High Contrast mode and inspect
-                            text, buttons and interface elements.
-                        </td>
-                        <td>
-                            Content should become easier to distinguish.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+    <p>
+        This page demonstrates accessibility features implemented
+        according to Total Quality Management principles.
+    </p>
 
+    <div class="feature-grid">
 
-                    <tr>
-                        <td>AT-02</td>
-                        <td>Font Resizing</td>
-                        <td>
-                            Increase and decrease the font size.
-                        </td>
-                        <td>
-                            Text should resize without breaking the layout.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+        <div class="feature-card">
+            <h3>High Contrast</h3>
+            <p>Improves readability for visually impaired users.</p>
+        </div>
 
+        <div class="feature-card">
+            <h3>Font Resizing</h3>
+            <p>Allows users to adjust text size.</p>
+        </div>
 
-                    <tr>
-                        <td>AT-03</td>
-                        <td>Keyboard Navigation</td>
-                        <td>
-                            Navigate through controls using Tab,
-                            Shift + Tab and Enter.
-                        </td>
-                        <td>
-                            Important controls should be accessible
-                            without using a mouse.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+        <div class="feature-card">
+            <h3>Keyboard Navigation</h3>
+            <p>Enables navigation through keyboard shortcuts.</p>
+        </div>
 
+        <div class="feature-card">
+            <h3>Dark Mode</h3>
+            <p>Reduces eye strain in low light environments.</p>
+        </div>
 
-                    <tr>
-                        <td>AT-04</td>
-                        <td>Dark Mode</td>
-                        <td>
-                            Enable and disable Dark Mode.
-                        </td>
-                        <td>
-                            Interface should switch themes correctly.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+        <div class="feature-card">
+            <h3>Minimalist Layout</h3>
+            <p>Removes unnecessary clutter and improves focus.</p>
+        </div>
 
+    </div>
 
-                    <tr>
-                        <td>AT-05</td>
-                        <td>Minimalist Layout</td>
-                        <td>
-                            Check whether important functions are
-                            easy to locate.
-                        </td>
-                        <td>
-                            Users should be able to understand
-                            and navigate the interface easily.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+    <br>
 
+    <h2>Sample Form</h2>
 
-                    <tr>
-                        <td>AT-06</td>
-                        <td>Billing Functionality</td>
-                        <td>
-                            Add, remove and modify food items.
-                        </td>
-                        <td>
-                            Bill should update correctly.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+    <input type="text" placeholder="Enter customer name">
 
+    <br><br>
 
-                    <tr>
-                        <td>AT-07</td>
-                        <td>Total Calculation</td>
-                        <td>
-                            Change item quantities and check the total.
-                        </td>
-                        <td>
-                            Total should recalculate correctly.
-                        </td>
-                        <td>To be tested</td>
-                        <td>Pending</td>
-                    </tr>
+    <button>Submit</button>
 
-                </tbody>
+</div>
 
-            </table>
+<script>
 
-        </section>
+let fontSize = 16;
 
+function increaseFont() {
+    fontSize += 2;
+    document.body.style.fontSize = fontSize + "px";
+}
 
-        <section class="tqm-section">
+function decreaseFont() {
+    fontSize -= 2;
+    document.body.style.fontSize = fontSize + "px";
+}
 
-            <h2>Connection with TQM</h2>
+function toggleContrast() {
+    document.body.classList.toggle("high-contrast");
+}
 
-            <p>
-                Accessibility testing supports Total Quality Management
-                by continuously evaluating whether the system satisfies
-                customer requirements.
-            </p>
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
 
-            <div class="tqm-cycle">
+function toggleMinimalist() {
+    document.body.classList.toggle("minimalist");
+}
 
-                <div>
-                    <strong>1</strong>
-                    <span>Customer Requirement</span>
-                </div>
+document.addEventListener("keydown", function(e){
 
-                <div>
-                    <strong>2</strong>
-                    <span>Design</span>
-                </div>
+    if(e.key === "d"){
+        toggleDarkMode();
+    }
 
-                <div>
-                    <strong>3</strong>
-                    <span>Implementation</span>
-                </div>
+    if(e.key === "h"){
+        toggleContrast();
+    }
 
-                <div>
-                    <strong>4</strong>
-                    <span>Testing</span>
-                </div>
+    if(e.key === "+"){
+        increaseFont();
+    }
 
-                <div>
-                    <strong>5</strong>
-                    <span>Improvement</span>
-                </div>
+});
 
-                <div>
-                    <strong>6</strong>
-                    <span>Retesting</span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="quality-section">
-
-            <h2>Quality Evaluation</h2>
-
-            <p>
-                The results of accessibility testing will be used
-                to identify quality problems and determine areas
-                for continuous improvement.
-            </p>
-
-            <ul>
-                <li>Customer satisfaction</li>
-                <li>Accessibility</li>
-                <li>Usability</li>
-                <li>Reliability</li>
-                <li>Continuous improvement</li>
-            </ul>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-
-        <p>
-            TQM Restaurant Billing System |
-            Accessibility & Quality Testing
-        </p>
-
-    </footer>
+</script>
 
 </body>
 </html>

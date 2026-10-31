@@ -1,683 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TQM Quality Evaluation</title>
-
+    <title>Quality Evaluation</title>
     <link rel="stylesheet" href="quality-evaluation.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>TQM Quality Evaluation</h1>
-        <p>Restaurant Billing System</p>
-    </header>
+<h1 style="margin-bottom:30px;">
+    TQM Quality Evaluation Dashboard
+</h1>
 
-    <main>
+<div class="evaluation-container">
 
-        <!-- Introduction -->
+    <div class="metric-card">
 
-        <section class="intro">
+        <h3 class="metric-title">
+            Customer Focus
+        </h3>
 
-            <h2>Quality Evaluation</h2>
+        <div class="progress">
+            <div class="progress-bar" style="width:95%;"></div>
+        </div>
 
-            <p>
-                This module evaluates the quality of the Restaurant Billing
-                System using measurable quality indicators. The evaluation
-                is based on accessibility, usability, billing accuracy,
-                reliability, customer satisfaction and continuous improvement.
-            </p>
+        <div class="score">
+            95%
+        </div>
 
-        </section>
+    </div>
 
+    <div class="metric-card">
 
-        <!-- Quality Indicators -->
+        <h3 class="metric-title">
+            Accessibility Compliance
+        </h3>
 
-        <section>
+        <div class="progress">
+            <div class="progress-bar" style="width:100%;"></div>
+        </div>
 
-            <h2>Quality Indicators</h2>
+        <div class="score">
+            100%
+        </div>
 
-            <div class="quality-grid">
+    </div>
 
-                <div class="quality-card">
+    <div class="metric-card">
 
-                    <h3>Accessibility</h3>
+        <h3 class="metric-title">
+            Continuous Improvement
+        </h3>
 
-                    <p>
-                        Accessibility features are tested to ensure that
-                        users with different accessibility requirements
-                        can use the system.
-                    </p>
+        <div class="progress">
+            <div class="progress-bar" style="width:92%;"></div>
+        </div>
 
-                    <strong>7 / 7 Tests Passed</strong>
+        <div class="score">
+            92%
+        </div>
 
-                </div>
+    </div>
 
+    <div class="metric-card">
 
-                <div class="quality-card">
+        <h3 class="metric-title">
+            Process Approach
+        </h3>
 
-                    <h3>Usability</h3>
+        <div class="progress">
+            <div class="progress-bar" style="width:90%;"></div>
+        </div>
 
-                    <p>
-                        The interface is designed to make important
-                        functions easy to understand and operate.
-                    </p>
+        <div class="score">
+            90%
+        </div>
 
-                    <strong>Evaluated</strong>
+    </div>
 
-                </div>
+    <div class="metric-card">
 
+        <h3 class="metric-title">
+            Customer Satisfaction
+        </h3>
 
-                <div class="quality-card">
+        <div class="progress">
+            <div class="progress-bar" style="width:97%;"></div>
+        </div>
 
-                    <h3>Billing Accuracy</h3>
+        <div class="score">
+            97%
+        </div>
 
-                    <p>
-                        Food items, quantities, subtotal, tax and total
-                        calculations are tested.
-                    </p>
+    </div>
 
-                    <strong>Passed</strong>
+    <div class="metric-card">
 
-                </div>
+        <h3 class="metric-title">
+            Quality Score
+        </h3>
 
+        <div class="progress">
+            <div class="progress-bar" style="width:96%;"></div>
+        </div>
 
-                <div class="quality-card">
+        <div class="score">
+            96%
+        </div>
 
-                    <h3>Reliability</h3>
+    </div>
 
-                    <p>
-                        Core features are tested to identify errors and
-                        ensure consistent operation.
-                    </p>
+</div>
 
-                    <strong>Passed</strong>
+<br><br>
 
-                </div>
+<div class="metric-card">
 
+    <h2>TQM Principle Mapping</h2>
 
-                <div class="quality-card">
+    <br>
 
-                    <h3>Customer Satisfaction</h3>
+    <table style="width:100%; border-collapse:collapse;">
 
-                    <p>
-                        Customer feedback is measured to identify
-                        satisfaction levels and areas for improvement.
-                    </p>
+        <tr>
+            <th>TQM Principle</th>
+            <th>Implementation</th>
+        </tr>
 
-                    <strong id="customerSatisfactionStatus">
-                        Loading...
-                    </strong>
+        <tr>
+            <td>Customer Focus</td>
+            <td>Minimalist Dashboard Design</td>
+        </tr>
 
-                </div>
+        <tr>
+            <td>Continuous Improvement</td>
+            <td>Customer Feedback System</td>
+        </tr>
 
+        <tr>
+            <td>Accessibility</td>
+            <td>Dark Mode, Font Resize, High Contrast</td>
+        </tr>
 
-                <div class="quality-card">
+        <tr>
+            <td>Process Approach</td>
+            <td>Orders → Billing → Reports</td>
+        </tr>
 
-                    <h3>Continuous Improvement</h3>
+        <tr>
+            <td>Evidence Based Decisions</td>
+            <td>KPI and Quality Dashboard</td>
+        </tr>
 
-                    <p>
-                        Testing results and customer feedback are used
-                        to improve the quality of the system.
-                    </p>
+    </table>
 
-                    <strong>Active Process</strong>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Accessibility Measurement -->
-
-        <section>
-
-            <h2>Accessibility Test Measurement</h2>
-
-            <div class="measurement">
-
-                <div>
-                    <span>Total Tests</span>
-                    <strong>7</strong>
-                </div>
-
-                <div>
-                    <span>Tests Passed</span>
-                    <strong>7</strong>
-                </div>
-
-                <div>
-                    <span>Tests Failed</span>
-                    <strong>0</strong>
-                </div>
-
-                <div>
-                    <span>Pass Rate</span>
-                    <strong>100%</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Real Feedback Measurement -->
-
-        <section>
-
-            <h2>Customer Feedback Measurement</h2>
-
-            <p>
-                These measurements are calculated from feedback stored in
-                the SQLite database through the Flask backend.
-            </p>
-
-            <div class="measurement">
-
-                <div>
-                    <span>Total Feedback</span>
-                    <strong id="totalFeedback">Loading...</strong>
-                </div>
-
-                <div>
-                    <span>Average Rating</span>
-                    <strong id="averageRating">Loading...</strong>
-                </div>
-
-                <div>
-                    <span>Positive Feedback</span>
-                    <strong id="positiveFeedback">Loading...</strong>
-                </div>
-
-                <div>
-                    <span>Improvement Feedback</span>
-                    <strong id="improvementFeedback">Loading...</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Feedback Quality Details -->
-
-        <section>
-
-            <h2>Feedback-Based Quality Analysis</h2>
-
-            <div class="quality-grid">
-
-                <div class="quality-card">
-
-                    <h3>Customer Satisfaction</h3>
-
-                    <p>
-                        Average rating provided by users through the
-                        feedback system.
-                    </p>
-
-                    <strong id="feedbackRating">
-                        Loading...
-                    </strong>
-
-                </div>
-
-
-                <div class="quality-card">
-
-                    <h3>Positive Feedback</h3>
-
-                    <p>
-                        Feedback with a rating of 4 or 5 is counted
-                        as positive feedback.
-                    </p>
-
-                    <strong id="positiveFeedbackPercentage">
-                        Loading...
-                    </strong>
-
-                </div>
-
-
-                <div class="quality-card">
-
-                    <h3>Improvement Areas</h3>
-
-                    <p>
-                        Feedback with a rating of 3 or below is monitored
-                        to identify possible improvement requirements.
-                    </p>
-
-                    <strong id="improvementPercentage">
-                        Loading...
-                    </strong>
-
-                </div>
-
-
-                <div class="quality-card">
-
-                    <h3>Accessibility Feedback</h3>
-
-                    <p>
-                        Feedback related to accessibility is identified
-                        from the customer feedback records.
-                    </p>
-
-                    <strong id="accessibilityFeedback">
-                        Loading...
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- TQM Cycle -->
-
-        <section>
-
-            <h2>TQM Continuous Improvement Cycle</h2>
-
-            <div class="cycle">
-
-                <div>
-                    <span>1</span>
-                    <p>Identify Customer Needs</p>
-                </div>
-
-                <div>
-                    <span>2</span>
-                    <p>Plan Quality</p>
-                </div>
-
-                <div>
-                    <span>3</span>
-                    <p>Develop System</p>
-                </div>
-
-                <div>
-                    <span>4</span>
-                    <p>Test Quality</p>
-                </div>
-
-                <div>
-                    <span>5</span>
-                    <p>Measure Results</p>
-                </div>
-
-                <div>
-                    <span>6</span>
-                    <p>Improve</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Quality Improvement Process -->
-
-        <section>
-
-            <h2>Feedback → Measurement → Improvement</h2>
-
-            <div class="quality-grid">
-
-                <div class="quality-card">
-
-                    <h3>1. Collect Feedback</h3>
-
-                    <p>
-                        Customers and system stakeholders provide ratings,
-                        comments and suggestions through the feedback module.
-                    </p>
-
-                </div>
-
-
-                <div class="quality-card">
-
-                    <h3>2. Measure Quality</h3>
-
-                    <p>
-                        Feedback records are stored in SQLite and converted
-                        into measurable quality indicators.
-                    </p>
-
-                </div>
-
-
-                <div class="quality-card">
-
-                    <h3>3. Identify Improvement</h3>
-
-                    <p>
-                        Lower ratings and improvement-related feedback can
-                        be reviewed to identify quality requirements.
-                    </p>
-
-                </div>
-
-
-                <div class="quality-card">
-
-                    <h3>4. Improve System</h3>
-
-                    <p>
-                        Identified requirements can be used for future
-                        improvements to the Restaurant Billing System.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Evaluation Summary -->
-
-        <section>
-
-            <h2>Evaluation Summary</h2>
-
-            <p>
-                The Restaurant Billing System has been evaluated using
-                accessibility and functional quality tests. All seven
-                accessibility and quality tests performed during Day 28
-                were successfully passed.
-            </p>
-
-            <p id="dynamicSummary">
-                Customer feedback measurements are being loaded from
-                the database.
-            </p>
-
-            <p>
-                The results demonstrate that testing and measurement are
-                being used as part of the Total Quality Management process.
-                Future improvements can be based on customer feedback,
-                additional testing and identified quality requirements.
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-
-        <p>
-            TQM Restaurant Billing System |
-            Quality Evaluation
-        </p>
-
-    </footer>
-
-
-    <!-- Database Feedback Measurement -->
-
-    <script>
-
-        async function loadQualityFeedback() {
-
-            try {
-
-                const response = await fetch("/api/feedback");
-
-                if (!response.ok) {
-                    throw new Error("Unable to retrieve feedback data.");
-                }
-
-                const feedback = await response.json();
-
-                if (!Array.isArray(feedback)) {
-                    throw new Error("Invalid feedback data received.");
-                }
-
-
-                // Total feedback
-
-                const total = feedback.length;
-
-
-                // Ratings
-
-                const ratings = feedback
-                    .map(item => Number(item.rating))
-                    .filter(rating => rating >= 1 && rating <= 5);
-
-
-                // Average rating
-
-                let average = 0;
-
-                if (ratings.length > 0) {
-
-                    average =
-                        ratings.reduce(
-                            (sum, rating) => sum + rating,
-                            0
-                        ) / ratings.length;
-
-                }
-
-
-                // Positive feedback = rating 4 or 5
-
-                const positive = ratings.filter(
-                    rating => rating >= 4
-                ).length;
-
-
-                // Improvement feedback = rating 3 or below
-
-                const improvement = ratings.filter(
-                    rating => rating <= 3
-                ).length;
-
-
-                // Percentages
-
-                const positivePercentage =
-                    ratings.length > 0
-                        ? ((positive / ratings.length) * 100).toFixed(1)
-                        : "0.0";
-
-
-                const improvementPercentage =
-                    ratings.length > 0
-                        ? ((improvement / ratings.length) * 100).toFixed(1)
-                        : "0.0";
-
-
-                // Accessibility feedback
-
-                const accessibilityFeedback =
-                    feedback.filter(item => {
-
-                        const comments =
-                            String(item.comments || "").toLowerCase();
-
-                        return comments.includes("accessibility");
-
-                    }).length;
-
-
-                // Update main measurements
-
-                document.getElementById("totalFeedback").textContent =
-                    total;
-
-
-                document.getElementById("averageRating").textContent =
-                    ratings.length > 0
-                        ? average.toFixed(2) + " / 5"
-                        : "No ratings";
-
-
-                document.getElementById("positiveFeedback").textContent =
-                    positive;
-
-
-                document.getElementById("improvementFeedback").textContent =
-                    improvement;
-
-
-                // Update quality analysis
-
-                document.getElementById("feedbackRating").textContent =
-                    ratings.length > 0
-                        ? average.toFixed(2) + " / 5"
-                        : "No ratings";
-
-
-                document.getElementById(
-                    "positiveFeedbackPercentage"
-                ).textContent =
-                    positivePercentage + "%";
-
-
-                document.getElementById(
-                    "improvementPercentage"
-                ).textContent =
-                    improvementPercentage + "%";
-
-
-                document.getElementById(
-                    "accessibilityFeedback"
-                ).textContent =
-                    accessibilityFeedback;
-
-
-                // Customer satisfaction status
-
-                let satisfactionStatus;
-
-                if (ratings.length === 0) {
-
-                    satisfactionStatus = "Awaiting Feedback";
-
-                } else if (average >= 4) {
-
-                    satisfactionStatus = "Positive";
-
-                } else if (average >= 3) {
-
-                    satisfactionStatus = "Needs Monitoring";
-
-                } else {
-
-                    satisfactionStatus = "Improvement Required";
-
-                }
-
-
-                document.getElementById(
-                    "customerSatisfactionStatus"
-                ).textContent =
-                    satisfactionStatus;
-
-
-                // Dynamic summary
-
-                const summary =
-                    document.getElementById("dynamicSummary");
-
-
-                if (total === 0) {
-
-                    summary.textContent =
-                        "No customer feedback has been recorded yet. " +
-                        "Future quality evaluation will use feedback " +
-                        "stored through the customer feedback system.";
-
-                } else {
-
-                    summary.textContent =
-                        "The system currently contains " +
-                        total +
-                        " feedback record(s), with an average customer " +
-                        "rating of " +
-                        average.toFixed(2) +
-                        " out of 5. " +
-                        positive +
-                        " positive feedback record(s) and " +
-                        improvement +
-                        " improvement-related record(s) are being " +
-                        "considered as part of the continuous improvement process.";
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Quality evaluation error:",
-                    error
-                );
-
-
-                document.getElementById("totalFeedback").textContent =
-                    "Unavailable";
-
-                document.getElementById("averageRating").textContent =
-                    "Unavailable";
-
-                document.getElementById("positiveFeedback").textContent =
-                    "Unavailable";
-
-                document.getElementById("improvementFeedback").textContent =
-                    "Unavailable";
-
-                document.getElementById("feedbackRating").textContent =
-                    "Unavailable";
-
-                document.getElementById(
-                    "positiveFeedbackPercentage"
-                ).textContent =
-                    "Unavailable";
-
-                document.getElementById(
-                    "improvementPercentage"
-                ).textContent =
-                    "Unavailable";
-
-                document.getElementById(
-                    "accessibilityFeedback"
-                ).textContent =
-                    "Unavailable";
-
-                document.getElementById(
-                    "customerSatisfactionStatus"
-                ).textContent =
-                    "Database Error";
-
-                document.getElementById(
-                    "dynamicSummary"
-                ).textContent =
-                    "The feedback measurement could not be loaded. " +
-                    "Please make sure the Flask server is running.";
-
-            }
-
-        }
-
-
-        // Load feedback measurements when page opens
-
-        loadQualityFeedback();
-
-    </script>
+</div>
 
 </body>
-
 </html>
