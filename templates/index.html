@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='dashboard.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>🍽️ TQM RMS</h2>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-list"></i>
+                Orders
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-file-invoice-dollar"></i>
+                Billing
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-user-tie"></i>
+                Waiter
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-chart-pie"></i>
+                Analytics
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-comments"></i>
+                Feedback
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-universal-access"></i>
+                Accessibility
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+
+
+<div class="main-content">
+
+    <div class="header">
+
+        <h1>Restaurant Management Dashboard</h1>
+
+        <button id="darkBtn">
+            🌙 Dark Mode
+        </button>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <h2>154</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <h2>₹25,400</h2>
+        </div>
+
+        <div class="card">
+            <h3>Bills Generated</h3>
+            <h2>89</h2>
+        </div>
+
+        <div class="card">
+            <h3>Customer Rating</h3>
+            <h2>4.8 ★</h2>
+        </div>
+
+    </div>
+
+
+
+    <div class="cards lower">
+
+        <div class="card">
+
+            <h3>Today's Performance</h3>
+
+            <p>Orders Completed: 120</p>
+            <p>Pending Orders: 34</p>
+            <p>Waiters Active: 6</p>
+            <p>Tables Occupied: 18</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>TQM Accessibility Goals</h3>
+
+            <ul>
+                <li>✅ High Contrast</li>
+                <li>✅ Font Resizing</li>
+                <li>✅ Keyboard Navigation</li>
+                <li>✅ Dark Mode</li>
+                <li>✅ Minimalist Layout</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="recent-orders">
+
+        <h2>Recent Orders</h2>
+
+        <table>
+
+            <tr>
+                <th>Order</th>
+                <th>Customer</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>#101</td>
+                <td>Ali</td>
+                <td>Completed</td>
+            </tr>
+
+            <tr>
+                <td>#102</td>
+                <td>Sara</td>
+                <td>Preparing</td>
+            </tr>
+
+            <tr>
+                <td>#103</td>
+                <td>Ahmed</td>
+                <td>Pending</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

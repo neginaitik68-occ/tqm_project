@@ -1,0 +1,127 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f4f7fb;
+}
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:#111827;
+    position:fixed;
+    padding:20px;
+}
+
+.logo{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin-bottom:15px;
+}
+
+.sidebar ul li a{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:12px;
+    border-radius:10px;
+}
+
+.sidebar ul li a:hover{
+    background:#2563eb;
+}
+
+.main-content{
+    margin-left:260px;
+    width:100%;
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.header button{
+    padding:12px 18px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.card h3{
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.card h2{
+    color:#2563eb;
+}
+
+.lower{
+    margin-top:25px;
+    grid-template-columns:1fr 1fr;
+}
+
+.recent-orders{
+    margin-top:25px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+}
+
+table{
+    width:100%;
+    margin-top:15px;
+    border-collapse:collapse;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+}
+
+th,td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+}
+
+.dark-mode{
+    background:#111827;
+    color:white;
+}
+
+.dark-mode .card,
+.dark-mode .recent-orders{
+    background:#1f2937;
+    color:white;
+}

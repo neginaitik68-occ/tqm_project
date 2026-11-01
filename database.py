@@ -1,38 +1,51 @@
 import sqlite3
 
-connection = sqlite3.connect("restaurant.db")
+conn = sqlite3.connect("restaurant.db")
 
-cursor = connection.cursor()
+cursor = conn.cursor()
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE IF NOT EXISTS orders(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     customer_name TEXT,
+    table_no INTEGER,
     food_item TEXT,
     quantity INTEGER,
-    status TEXT
+    status TEXT,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS feedback (
+CREATE TABLE IF NOT EXISTS bills(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     customer_name TEXT,
+    amount REAL,
+    bill_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+""")
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS feedback(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_name TEXT,
+    rating INTEGER,
     comments TEXT,
-    rating INTEGER
+    feedback_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS bills (
+CREATE TABLE IF NOT EXISTS waiters(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    customer_name TEXT,
-    amount REAL
+    waiter_name TEXT,
+    shift TEXT,
+    tables_served INTEGER DEFAULT 0
 )
 """)
 
-connection.commit()
+conn.commit()
 
-print("Database Created Successfully")
+print("Database created successfully")
 
-connection.close()
+conn.close()
