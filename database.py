@@ -5,14 +5,13 @@ conn = sqlite3.connect("restaurant.db")
 cursor = conn.cursor()
 
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS orders(
+CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    customer_name TEXT,
-    table_no INTEGER,
-    food_item TEXT,
-    quantity INTEGER,
-    status TEXT,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    customer_name TEXT NOT NULL,
+    table_no INTEGER NOT NULL,
+    food_item TEXT NOT NULL,
+    quantity INTEGER NOT NULL,
+    status TEXT DEFAULT 'Pending'
 )
 """)
 

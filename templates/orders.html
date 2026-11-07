@@ -1,36 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Orders</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <title>Orders Management</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='orders.css') }}">
 </head>
+
 <body>
 
-<div class="main-content">
+<div class="container">
 
     <h1>Orders Management</h1>
 
-    <div class="cards">
+    <div class="order-form">
 
-        <div class="card">
-            <h3>Total Orders</h3>
-            <h2>154</h2>
-        </div>
+        <h2>Add New Order</h2>
 
-        <div class="card">
-            <h3>Pending</h3>
-            <h2>12</h2>
-        </div>
+        <form action="/add_order" method="POST">
 
-        <div class="card">
-            <h3>Preparing</h3>
-            <h2>18</h2>
-        </div>
+            <input
+                type="text"
+                name="customer_name"
+                placeholder="Customer Name"
+                required>
 
-        <div class="card">
-            <h3>Completed</h3>
-            <h2>124</h2>
-        </div>
+            <input
+                type="number"
+                name="table_no"
+                placeholder="Table Number"
+                required>
+
+            <select name="food_item">
+
+                <option>Burger</option>
+                <option>Pizza</option>
+                <option>Pasta</option>
+                <option>Fries</option>
+
+            </select>
+
+            <input
+                type="number"
+                name="quantity"
+                placeholder="Quantity"
+                required>
+
+            <button type="submit">
+                Add Order
+            </button>
+
+        </form>
+
+    </div>
+
+
+
+    <div class="orders-table">
+
+        <h2>Current Orders</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Table</th>
+                <th>Food</th>
+                <th>Qty</th>
+                <th>Status</th>
+            </tr>
+
+            {% for order in orders %}
+
+            <tr>
+
+                <td>{{ order[0] }}</td>
+                <td>{{ order[1] }}</td>
+                <td>{{ order[2] }}</td>
+                <td>{{ order[3] }}</td>
+                <td>{{ order[4] }}</td>
+                <td>{{ order[5] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
 
     </div>
 
