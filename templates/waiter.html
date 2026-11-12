@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Waiter Module</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='waiter.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Waiter Management</h1>
+
+    <div class="form-card">
+
+        <h2>Assign Table</h2>
+
+        <form action="/add_waiter_order" method="POST">
+
+            <input
+                type="text"
+                name="waiter_name"
+                placeholder="Waiter Name"
+                required>
+
+            <input
+                type="number"
+                name="table_no"
+                placeholder="Table Number"
+                required>
+
+            <input
+                type="text"
+                name="customer_name"
+                placeholder="Customer Name"
+                required>
+
+            <button type="submit">
+                Assign Table
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="table-card">
+
+        <h2>Assigned Tables</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Waiter</th>
+                <th>Table</th>
+                <th>Customer</th>
+                <th>Status</th>
+            </tr>
+
+            {% for waiter in waiters %}
+
+            <tr>
+
+                <td>{{ waiter[0] }}</td>
+                <td>{{ waiter[1] }}</td>
+                <td>{{ waiter[2] }}</td>
+                <td>{{ waiter[3] }}</td>
+                <td>{{ waiter[4] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

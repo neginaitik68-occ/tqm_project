@@ -147,7 +147,45 @@ def analytics():
 
 @app.route("/waiter")
 def waiter():
-    return render_template("waiter.html")
+
+    conn = sqlite3.connect("restaurant.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM waiters")
+    waiters = cursor.fetchall()
+
+    conn.close()
+
+    return render_template(
+        "waiter.html",
+        waiters=waiters
+    )
+
+
+@app.route("/add_waiter_order", methods=["POST"])
+def add_waiter_order():
+
+    waiter_name = request.form["waiter_name"]
+    table_no = request.form["table_no"]
+    customer_name = request.form["customer_name"]
+
+    conn = sqlite3.connect("restaurant.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    INSERT INTO waiters
+    (waiter_name, table_no, customer_name)
+    VALUES (?, ?, ?)
+    """, (
+        waiter_name,
+        table_no,
+        customer_name
+    ))
+
+    conn.commit()
+    conn.close()
+
+    return redirect("/waiter")
 
 
 # -----------------------
