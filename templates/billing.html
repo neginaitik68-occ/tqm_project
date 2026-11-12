@@ -1,41 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Billing</title>
-    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='billing.css') }}">
+
 </head>
+
 <body>
 
-<div class="main-content">
+<div class="container">
 
-<h1>Generate Bill</h1>
+    <h1>Restaurant Billing</h1>
 
-<div class="table-card">
+    <div class="billing-card">
 
-<form>
+        <form action="/generate_bill" method="POST">
 
-<label>Customer Name</label>
-<input type="text">
+            <input
+                type="text"
+                name="customer_name"
+                placeholder="Customer Name"
+                required>
 
-<br><br>
+            <h3>Menu</h3>
 
-<label>Food Item</label>
-<input type="text">
+            <div class="menu-item">
 
-<br><br>
+                <label>Burger (₹200)</label>
 
-<label>Quantity</label>
-<input type="number">
+                <input
+                type="number"
+                name="burger"
+                value="0"
+                min="0">
 
-<br><br>
+            </div>
 
-<button type="submit">
-Generate Bill
-</button>
+            <div class="menu-item">
 
-</form>
+                <label>Pizza (₹350)</label>
 
-</div>
+                <input
+                type="number"
+                name="pizza"
+                value="0"
+                min="0">
+
+            </div>
+
+            <div class="menu-item">
+
+                <label>Pasta (₹250)</label>
+
+                <input
+                type="number"
+                name="pasta"
+                value="0"
+                min="0">
+
+            </div>
+
+            <div class="menu-item">
+
+                <label>Fries (₹150)</label>
+
+                <input
+                type="number"
+                name="fries"
+                value="0"
+                min="0">
+
+            </div>
+
+            <button type="submit">
+                Generate Bill
+            </button>
+
+        </form>
+
+    </div>
+
+    {% if total %}
+
+    <div class="result">
+
+        <h2>Bill Generated</h2>
+
+        <p><strong>Customer:</strong> {{ customer }}</p>
+
+        <p><strong>Total Amount:</strong> ₹{{ total }}</p>
+
+    </div>
+
+    {% endif %}
 
 </div>
 

@@ -1,9 +1,9 @@
 import sqlite3
 
 conn = sqlite3.connect("restaurant.db")
-
 cursor = conn.cursor()
 
+# Orders Table
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,27 +15,29 @@ CREATE TABLE IF NOT EXISTS orders (
 )
 """)
 
+# Bills Table
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS bills(
+CREATE TABLE IF NOT EXISTS bills (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    customer_name TEXT,
-    amount REAL,
+    customer_name TEXT NOT NULL,
+    total_amount REAL NOT NULL,
     bill_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
 
+# Feedback Table
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS feedback(
+CREATE TABLE IF NOT EXISTS feedback (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     customer_name TEXT,
     rating INTEGER,
-    comments TEXT,
-    feedback_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    comments TEXT
 )
 """)
 
+# Waiters Table
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS waiters(
+CREATE TABLE IF NOT EXISTS waiters (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     waiter_name TEXT,
     shift TEXT,
@@ -44,7 +46,6 @@ CREATE TABLE IF NOT EXISTS waiters(
 """)
 
 conn.commit()
-
-print("Database created successfully")
-
 conn.close()
+
+print("Database Created Successfully")
