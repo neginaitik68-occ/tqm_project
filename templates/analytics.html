@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TQM RMS - Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='analytics.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>🍽️ TQM RMS</h2>
+    <a href="/">Dashboard</a>
+    <a href="/orders">Orders</a>
+    <a href="/billing">Billing</a>
+    <a href="/waiter">Waiter</a>
+    <a href="/analytics" class="active">Analytics</a>
+    <a href="/feedback">Feedback</a>
+    <a href="/accessibility">Accessibility</a>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <h1>Analytics</h1>
+      <button class="btn" type="button" onclick="toggleDark()">🌙 Dark Mode</button>
+    </div>
+    <div class="cards">
+      <div class="card"><small>Avg Order Value</small><b>₹412</b></div>
+      <div class="card"><small>Peak Hour</small><b>7-9 PM</b></div>
+      <div class="card"><small>Total Tables</small><b>20</b></div>
+      <div class="card"><small>Top Item</small><b>Veg Biryani</b></div>
+    </div>
+    <div class="card">
+      <h3>Revenue by Day</h3>
+      <div id="chart">
+        {% for v in analytics.by_day %}
+        <div class="chart-row">
+          <span class="day-label">{{ analytics.days[loop.index0] }}</span>
+          <div class="bar"><i class="bar-fill" data-width="{{ (v / 7800 * 100) | int }}"></i></div>
+          <b>₹{{ v }}</b>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Revenue by Category</h3>
+        {% for c, p in analytics.categories %}
+        <p>{{ c }} {{ p }}%</p>
+        <div class="bar"><i class="bar-fill" data-width="{{ p }}"></i></div>
+        {% endfor %}
+      </div>
+      <div class="card">
+        <h3>Top Selling Items</h3>
+        <table>
+          <thead><tr><th>Item</th><th>Sold</th><th>Revenue</th></tr></thead>
+          <tbody>
+            {% for n, s, r in analytics.top %}
+            <tr><td>{{ n }}</td><td>{{ s }}</td><td>₹{{ r }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='analytics.js') }}"></script>
+  <script>
+    document.querySelectorAll('.bar-fill').forEach(function(el){
+      el.style.width = el.getAttribute('data-width') + '%';
+    });
+  </script>
+</body>
+</html>

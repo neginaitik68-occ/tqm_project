@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Feedback</title>
-<link rel="stylesheet" href="dashboard.css">
-</head>
-
-<body>
-
-<div class="main-content">
-
-<h1>Customer Feedback</h1>
-
-<div class="table-card">
-
-<textarea
-rows="6"
-style="width:100%;"
-placeholder="Enter your feedback">
-</textarea>
-
-<br><br>
-
-<button>
-Submit Feedback
-</button>
-
-</div>
-
-</div>
-
-</body>
-</html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TQM RMS - Feedback</title><link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}"></head>
+<body><aside class="sidebar"><h2>🍽️ TQM RMS</h2>
+<a href="/" class="">Dashboard</a><a href="/orders" class="">Orders</a><a href="/billing" class="">Billing</a><a href="/waiter" class="">Waiter</a><a href="/analytics" class="">Analytics</a><a href="/feedback" class="active">Feedback</a><a href="/accessibility" class="">Accessibility</a></aside>
+<main class="main"><div class="top"><h1>Feedback</h1><button class="btn" onclick="toggleDark()">🌙 Dark Mode</button></div>
+<div class="grid2"><div class="card"><h3>Give Feedback</h3><input id="fname" placeholder="Customer Name"><input id="forder" placeholder="Order No"><div id="stars"></div><textarea id="fcomment" placeholder="Your comment"></textarea><button class="btn" onclick="submitFeedback()">Submit</button><p id="msg"></p></div>
+<div class="card"><h3>Average Rating: {{ avg }} ★</h3><p>5★ 68%</p><div class="bar"><i style="width:68%"></i></div><p>4★ 22%</p><div class="bar"><i style="width:22%"></i></div></div></div><br>
+<div class="card"><h3>All Feedbacks</h3>{% for f in feedbacks %}<p><b>{{ f.name }}</b> {{ '★'*f.rating }} - {{ f.comment }}</p>{% endfor %}</div></main><script src="{{ url_for('static', filename='script.js') }}"></script><script src="{{ url_for('static', filename='script.js') }}"></script></body></html>

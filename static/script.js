@@ -1,7 +1,17 @@
-document
-.getElementById("darkBtn")
-.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark-mode");
-
-});
+// script.js - Shared: Dark Mode, Font, Contrast, Keyboard, Orders, Billing, Feedback
+let cart=[];
+function toggleDark(){ document.body.classList.toggle('dark'); localStorage.setItem('tqm_dark', document.body.classList.contains('dark')); }
+function toggleContrast(){ document.body.classList.toggle('high-contrast'); }
+function setFont(s){ document.body.classList.remove('small','large'); if(s!=='normal') document.body.classList.add(s); }
+function readAloud(){ speechSynthesis.speak(new SpeechSynthesisUtterance("TQM Restaurant Management Dashboard. Total Orders 154, Revenue 25400 rupees, Bills 89, Rating 4.8 stars.")); }
+if(localStorage.getItem('tqm_dark')==='true') document.addEventListener('DOMContentLoaded',()=>document.body.classList.add('dark'));
+document.addEventListener('keydown',e=>{ if(e.altKey){ const p=['/','/orders','/billing','/waiter','/analytics','/feedback','/accessibility']; if(e.key>='1'&&e.key<='7') location.href=p[Number(e.key)-1]; }});
+function addItem(id,name,price){ let f=cart.find(x=>x.id===id); if(f) f.qty++; else cart.push({id,name,price,qty:1}); renderCart(); }
+function renderCart(){ let tot=cart.reduce((s,x)=>s+x.price*x.qty,0); document.getElementById('cart').innerHTML=cart.length?cart.map(c=>`${c.name} x ${c.qty} = ₹${c.price*c.qty}<br>`).join('')+`<b>Total ₹${tot}</b>`:'Cart is empty'; window._tot=tot; }
+async function placeOrder(){ if(!cart.length) return alert('Add items first'); let r=await fetch('/api/place_order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({customer:document.getElementById('cust').value||'Guest',items:cart.map(c=>c.name+' x'+c.qty).join(', '),amount:window._tot,table:document.getElementById('table').value||1})}); let j=await r.json(); document.getElementById('msg').innerText='Order #'+j.order.id+' placed!'; cart=[]; renderCart(); }
+async function changeStatus(id,status){ await fetch('/api/update_status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,status})}); }
+function calcBill(){ let sel=document.getElementById('orderSel'); let o=sel.options[sel.selectedIndex]; let amt=+o.dataset.amt; let disc=+document.getElementById('disc').value||0; let gst=Math.round(amt*0.05); let total=amt+gst-disc; document.getElementById('calc').innerHTML=`Subtotal ₹${amt}<br>GST 5% ₹${gst}<br>Discount -₹${disc}<br><b>Total ₹${total}</b>`; document.getElementById('preview').innerHTML=`<div><h2>TQM Restaurant</h2><p>Customer: ${o.dataset.cust}<br>Items: ${o.dataset.items}</p><hr><b>Total ₹${total}</b><p>Thank you!</p></div>`; window._bill={order_id:+o.value,customer:o.dataset.cust,total}; }
+async function genBill(){ if(!window._bill) calcBill(); let r=await fetch('/api/generate_bill',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(window._bill)}); let j=await r.json(); document.getElementById('msg').innerText='Bill #'+j.bill.id+' Generated!'; }
+let rating=5; function drawStars(){ let el=document.getElementById('stars'); if(!el) return; el.innerHTML=[1,2,3,4,5].map(i=>`<span class="star ${i<=rating?'on':''}" onclick="rating=${i};drawStars()">★</span>`).join(''); } drawStars();
+async function submitFeedback(){ let r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('fname').value||'Guest',order_id:document.getElementById('forder').value||0,rating,comment:document.getElementById('fcomment').value})}); let j=await r.json(); document.getElementById('msg').innerText='Thank you! New Average: '+j.avg+' ★'; }
+if(document.getElementById('orderSel')) calcBill();

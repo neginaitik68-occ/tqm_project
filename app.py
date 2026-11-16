@@ -1,196 +1,63 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3
+# TQM RMS - Restaurant Billing System | Flask App
+# Run: python app.py  -> open http://127.0.0.1:5000
+from flask import Flask, render_template, request, jsonify
+import database as db
 
 app = Flask(__name__)
 
-# -----------------------
-# Dashboard
-# -----------------------
-
 @app.route("/")
 def dashboard():
-    return render_template("index.html")
-
-
-# -----------------------
-# Orders Module
-# -----------------------
+    return render_template("index.html", stats=db.get_stats(), orders=db.get_orders(limit=5))
 
 @app.route("/orders")
 def orders():
-
-    conn = sqlite3.connect("restaurant.db")
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM orders")
-    all_orders = cursor.fetchall()
-
-    conn.close()
-
-    return render_template(
-        "orders.html",
-        orders=all_orders
-    )
-
-
-@app.route("/add_order", methods=["POST"])
-def add_order():
-
-    customer_name = request.form["customer_name"]
-    table_no = request.form["table_no"]
-    food_item = request.form["food_item"]
-    quantity = request.form["quantity"]
-
-    conn = sqlite3.connect("restaurant.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO orders
-        (customer_name, table_no, food_item, quantity)
-        VALUES (?, ?, ?, ?)
-    """, (
-        customer_name,
-        table_no,
-        food_item,
-        quantity
-    ))
-
-    conn.commit()
-    conn.close()
-
-    return redirect("/orders")
-
-
-# -----------------------
-# Billing Module
-# -----------------------
+    return render_template("orders.html", menu=db.get_menu(), orders=db.get_orders())
 
 @app.route("/billing")
 def billing():
+    return render_template("billing.html", orders=db.get_orders(), bills=db.get_bills())
 
-    return render_template(
-        "billing.html",
-        total=None,
-        customer=None
-    )
+@app.route("/waiter")
+def waiter():
+    return render_template("waiter.html", waiters=db.get_waiters())
 
-
-@app.route("/generate_bill", methods=["POST"])
-def generate_bill():
-
-    customer_name = request.form["customer_name"]
-
-    burger_qty = int(request.form["burger"])
-    pizza_qty = int(request.form["pizza"])
-    pasta_qty = int(request.form["pasta"])
-    fries_qty = int(request.form["fries"])
-
-    total = (
-        burger_qty * 200 +
-        pizza_qty * 350 +
-        pasta_qty * 250 +
-        fries_qty * 150
-    )
-
-    conn = sqlite3.connect("restaurant.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO bills
-        (customer_name, total_amount)
-        VALUES (?, ?)
-    """, (
-        customer_name,
-        total
-    ))
-
-    conn.commit()
-    conn.close()
-
-    return render_template(
-        "billing.html",
-        total=total,
-        customer=customer_name
-    )
-
-
-# -----------------------
-# Feedback Module
-# -----------------------
+@app.route("/analytics")
+def analytics():
+    return render_template("analytics.html", analytics=db.get_analytics())
 
 @app.route("/feedback")
 def feedback():
-    return render_template("feedback.html")
-
-
-# -----------------------
-# Accessibility Module
-# -----------------------
+    return render_template("feedback.html", feedbacks=db.get_feedbacks(), avg=db.get_avg_rating())
 
 @app.route("/accessibility")
 def accessibility():
     return render_template("accessibility.html")
 
+# --- API used by JS ---
+@app.route("/api/place_order", methods=["POST"])
+def place_order():
+    d = request.json
+    order = db.add_order(d.get("customer","Guest"), d.get("items",""), d.get("amount",0), d.get("table",1))
+    return jsonify({"ok": True, "order": order})
 
-# -----------------------
-# Analytics Module
-# -----------------------
+@app.route("/api/generate_bill", methods=["POST"])
+def generate_bill():
+    d = request.json
+    bill = db.add_bill(d.get("order_id"), d.get("customer","Guest"), d.get("total",0))
+    return jsonify({"ok": True, "bill": bill})
 
-@app.route("/analytics")
-def analytics():
-    return render_template("analytics.html")
+@app.route("/api/feedback", methods=["POST"])
+def add_feedback():
+    d = request.json
+    f = db.add_feedback(d.get("name","Guest"), d.get("order_id",0), d.get("rating",5), d.get("comment",""))
+    return jsonify({"ok": True, "feedback": f, "avg": db.get_avg_rating()})
 
-
-# -----------------------
-# Waiter Module
-# -----------------------
-
-@app.route("/waiter")
-def waiter():
-
-    conn = sqlite3.connect("restaurant.db")
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM waiters")
-    waiters = cursor.fetchall()
-
-    conn.close()
-
-    return render_template(
-        "waiter.html",
-        waiters=waiters
-    )
-
-
-@app.route("/add_waiter_order", methods=["POST"])
-def add_waiter_order():
-
-    waiter_name = request.form["waiter_name"]
-    table_no = request.form["table_no"]
-    customer_name = request.form["customer_name"]
-
-    conn = sqlite3.connect("restaurant.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-    INSERT INTO waiters
-    (waiter_name, table_no, customer_name)
-    VALUES (?, ?, ?)
-    """, (
-        waiter_name,
-        table_no,
-        customer_name
-    ))
-
-    conn.commit()
-    conn.close()
-
-    return redirect("/waiter")
-
-
-# -----------------------
-# Run Application
-# -----------------------
+@app.route("/api/update_status", methods=["POST"])
+def update_status():
+    d = request.json
+    db.update_order_status(d.get("id"), d.get("status"))
+    return jsonify({"ok": True})
 
 if __name__ == "__main__":
+    db.init_db()
     app.run(debug=True)
